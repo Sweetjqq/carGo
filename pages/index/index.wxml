@@ -32,7 +32,7 @@
 		</view>
 	</view>
 	<view class="list_content">
-		<view class="list flex-alignJustify" data-type="{{item.type}}" data-customername="{{item.customerName}}" data-customerpoolid="{{item.customerPoolId}}" bindtap="customer" wx:for="{{listData}}" wx:key="index">
+		<view class="list flex-alignJustify" data-item="{{item}}" bindtap="customer" wx:for="{{listData}}" wx:key="index">
 			<view class="compony over-ellipsis-2">
 				<text class="name">{{item.customerName}}</text>
 				<view class="money_number over-ellipsis-2">
