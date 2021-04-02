@@ -1,0 +1,12 @@
+<my-navigation-bar titleText='短信验证' />
+<view class="tip">我们已将验证码发送至<text>{{showPhone}}</text>的手机上</view>
+<view class="code-wrap flex-center">
+	<input class="code-input" placeholder-class='code-input' placeholder='请输入验证码' type="number" bindinput = 'getInputValue'></input>
+	<view class="tip-wrap">
+		<view class="code-active" wx:if="{{seconds==0}}" bindtap="getSmsCode">重新获取</view>
+		<view class="code-txt" wx:else>
+		重新获取({{seconds}}s)
+		</view>
+	</view>
+</view>
+<view class="btn" bindtap="verifySmsCode">确认</view>

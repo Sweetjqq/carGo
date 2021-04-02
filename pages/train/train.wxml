@@ -1,0 +1,24 @@
+<view class='container'>
+	<my-navigation-bar titleText='培训' />
+	<view class="tabBar">
+		<view class=" {{index===currentTab?'tab_item_active tab_item':'tab_item' }}" wx:for="{{tabBarData}}" wx:key="index" data-index="{{index}}" bindtap="setCurrentTab">{{item}}</view>
+	</view>
+	<view class="list">
+		<view class="list_item">
+			<view class="content">
+				<view class="componey_name">航运人工作中最重要的到底是什么？</view>
+				<view class="msg">在“一赢二平七亏”的股市中，通过让专在“一赢二平七亏”的股市中，通过让专</view>
+				<view class="time">2021-03-03 16:00</view>
+			</view>
+			<image src="../../assets/images/upload.png"> </image>
+		</view>
+		<view class="list_item">
+			<view class="content">
+				<view class="componey_name">#交易两点钟#人生第一只股票基金买什么？</view>
+				<view class="msg">在“一赢二平七亏”的股市中，通过让专在“一赢二平七亏”的股市中，通过让专</view>
+				<view class="time">2021-03-03 16:00</view>
+			</view>
+			<image src="../../assets/images/upload.png"> </image>
+		</view>
+	</view>
+</view>

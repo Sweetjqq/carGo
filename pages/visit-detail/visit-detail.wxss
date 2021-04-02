@@ -1,0 +1,30 @@
+/* pages/visit-detail/visit-detail.wxss */
+page {
+  background-color: #F6F6F6;
+}
+
+.tabBar {
+  width: 750rpx;
+  height: 112rpx;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.tab_item {
+  text-align: center;
+  line-height: 112rpx;
+  width: 50%;
+  border-bottom: 4rpx solid #fff;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC,sans-serif;
+  font-weight: 400;
+  color: #333333;
+}
+
+.tab_item_active {
+  border-color: #3E95FD;
+  color: #3E95FD;
+}

@@ -1,19 +1,53 @@
 // app.js
+require('./utils/index');
+import {
+  login
+} from 'api/login.js'
 App({
   onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
+  },
+  globalData: {
+    userInfo: null
+  },
+  getUser(cb) {
     // 登录
     wx.login({
       success: res => {
+        login(res.code).then(data => {
+          console.log(data, '登录')
+          wx.myOpenId = data.openid;
+          if(data.phone){
+            wx.myPhone = data.phone;
+            cb();
+          }else{
+            wx.reLaunch({
+              url: '/pages/login/login',
+            })
+          }
+        }).catch(()=>{
+          this.showTip('获取用户信息失败是否重新获取？',()=>{
+            this.getUser(cb)
+          })
+        });
+        
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
   },
-  globalData: {
-    userInfo: null
-  }
+  /**
+   * 消息提示
+   */
+  showTip(content, event, title, btnTxt) {
+    wx.showModal({
+      title: title ? title : '消息提示',
+      content: content ? content : '系统繁忙请稍后再试',
+      showCancel: false,
+      confirmText: btnTxt ? btnTxt : '确定',
+      success: function (res) {
+        if (typeof (event) == 'function') {
+          event();
+        }
+      }
+    })
+  },
 })

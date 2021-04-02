@@ -1,0 +1,12 @@
+<!--pages/login/login.wxml-->
+<image src="" class="bg"></image>
+<view class="cont flex-column-alignCenter">
+  <image src="../../assets/images/logo.png" class="logo"></image>
+  <view class="input-wrap flex-center">
+    <image src="../../assets/images/login-person.png"></image>
+    <input maxlength="11" placeholder-class='input-class' type="number" class="input-class" auto-focus placeholder="请输入您的手机号" value="{{phone}}" bindinput = 'getInputValue'/>
+  </view>
+	
+  <view class="btn" bindtap="phoneBind">手机号绑定</view>
+  <modal options="{{options}}" bindmyevent="modalClick"/>
+</view>

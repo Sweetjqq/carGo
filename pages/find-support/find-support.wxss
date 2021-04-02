@@ -1,0 +1,76 @@
+/* pages/visit-customer/visit-customer.wxss */
+.visit-customer-content {
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.search {
+  width: 686rpx;
+  height: 64rpx;
+  background: #F5F5F5;
+  border-radius: 32rpx;
+  margin: 0 auto 42rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.placeholder {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #999999;
+  line-height: 24rpx
+}
+
+.search .icon {
+  width: 32rpx;
+}
+
+.weui-input {
+  flex: 1;
+  margin-left: 24rpx;
+}
+
+.list_item {
+  width: 686rpx;
+  height: 152rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 16rpx 0px rgba(86, 86, 86, 0.12);
+  border-radius: 8rpx;
+  margin: 0 auto 32rpx;
+  padding-left: 32rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.compony_name {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC, sans-serif;
+  font-weight: 500;
+  color: #333333;
+  line-height: 40rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #999999;
+  line-height: 24rpx;
+  margin-top: 16rpx;
+}
+
+.tips {
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  background: #FF674B;
+  border-radius: 50%;
+  right: 12rpx;
+  top: 12rpx;
+}

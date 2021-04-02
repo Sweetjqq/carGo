@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-navigation-bar": "../../components/my-navigation-bar/my-navigation-bar",
+    "new-visit": "./conponents/new-visit/new-visit",
+    "visit-records": "./conponents/visit-records/visit-records"
+  }
+}

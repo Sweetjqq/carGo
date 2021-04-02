@@ -1,23 +1,47 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+	<my-navigation-bar />
+	<view class="header">
+		<view class="content">
+			<text class="name">早上好！</text>
+			<view class="input_box">
+				<icon class="icon" color="#fff" type="search" size="28rpx"></icon>
+				<input class="weui-input" placeholder-class='placeholder' placeholder="请输入搜索内容" />
+			</view>
+		</view>
+
+	</view>
+	<view class="my_swiper">
+		<swiper bindchange="getCurrent" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" circular="{{circular}}">
+			<block wx:for="{{background}}" wx:key="index">
+				<swiper-item>
+					<image src="{{item.path}}"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="indicatorDots">
+			<block wx:for="{{background}}" wx:key="*this">
+				<view class="{{index===current?'dot_item dot_item_active':'dot_item'}}"></view>
+			</block>
+		</view>
+	</view>
+	<view class="list_tap">
+		<view wx:for="{{tabContent}}" wx:key="index" class="{{index===activeTab?'tap_item tap_item_active':'tap_item'}}" data-index="{{index}}" bindtap="setActiveTab">
+			<text>{{item}}</text>
+			<text class="{{index===activeTab?'active':'active hide_active'}}"></text>
+		</view>
+	</view>
+	<view class="list_content">
+		<view class="list flex-alignJustify" data-type="{{item.type}}" data-customername="{{item.customerName}}" data-customerpoolid="{{item.customerPoolId}}" bindtap="customer" wx:for="{{listData}}" wx:key="index">
+			<view class="compony over-ellipsis-2">
+				<text class="name">{{item.customerName}}</text>
+				<view class="money_number over-ellipsis-2">
+				  {{item.remark?item.remark:'暂无描述'}}
+					<!-- <text class="money">{{item.money}}</text>
+					<text class="number">{{item.number}}</text> -->
+				</view>
+			</view>
+			<view class="btn" style="background:{{buttonType[item.status].bgColor}}">{{item.statusName}}</view>
+		</view>
+	</view>
 </view>

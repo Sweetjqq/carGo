@@ -1,0 +1,19 @@
+<view class="modal_box" catchtouchmove='true' wx:if="{{options.show}}">
+	<view class="modal_content">
+		<view class="head">
+			<image src="{{options.icon==='success'?'../../assets/images/success.png':'../../assets/images/fail.png'}}" />
+			<text>{{options.title}}</text>
+		</view>
+		<view class="content">
+			<block wx:if="{{options.mdMessage.length==3}}">
+				{{options.mdMessage[0]}}
+				<text class='blue'>{{options.mdMessage[1]}}</text>
+				{{options.mdMessage[2]}}
+			</block>
+			<block wx:else>
+			  <text wx:for="{{options.mdMessage}}" wx:key='index'>{{item}}</text>
+			</block>
+		</view>
+		<view class="btn" bindtap="onTap">确定</view>
+	</view>
+</view>

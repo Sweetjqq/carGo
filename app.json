@@ -1,14 +1,60 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/login/login",
+    "pages/smsCode/smsCode",
+    "pages/customer/customer",
+    "pages/visit-customer/visit-customer",
+    "pages/visit-detail/visit-detail",
+    "pages/find-support/find-support",
+    "pages/support-consulting/support-consulting",
+    "pages/train/train",
+    "pages/train-detail/train-detail",
+    "pages/mine/mine"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3E95FD",
+    "navigationBarTitleText": "货客包",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#3E95FD",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./assets/images/index_default.png",
+        "selectedIconPath": "./assets/images/index_active.png"
+      },
+      {
+        "pagePath": "pages/visit-customer/visit-customer",
+        "text": "访客户",
+        "iconPath": "./assets/images/visitor_default.png",
+        "selectedIconPath": "./assets/images/visitor_active.png"
+      },
+      {
+        "pagePath": "pages/find-support/find-support",
+        "text": "找支持",
+        "iconPath": "./assets/images/support_default.png",
+        "selectedIconPath": "./assets/images/support_active.png"
+      },
+      {
+        "pagePath": "pages/train/train",
+        "text": "培训",
+        "iconPath": "./assets/images/train_default.png",
+        "selectedIconPath": "./assets/images/train_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "./assets/images/mine_default.png",
+        "selectedIconPath": "./assets/images/mine_active.png"
+      }
+    ]
+  }
 }

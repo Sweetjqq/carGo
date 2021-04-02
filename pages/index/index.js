@@ -1,48 +1,113 @@
-// index.js
-// 获取应用实例
+import {
+  getPoolCustomerList,
+  getBanners
+} from '../../api/index'
 const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    background: [],
+    autoplay: true,
+    interval: 2000,
+    duration: 500,
+    circular: true,
+    current: 0,
+    tabContent: ['全国机会', '身边机会'],
+    activeTab: 0,
+    buttonType: {
+      '01': {
+        text: '抢',
+        bgColor: '#3E95FD'
+      },
+      '02': {
+        text: '改',
+        bgColor: '#FD9A3E'
+      },
+       '03': {
+        text: '名花有主',
+        bgColor: '#80CA5B'
+      }
+      //01 抢 02 改 03 名花有主
+    },
+    listData: []
   },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad() {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
+
+  onLoad() {},
+  onShow() {
+    if (wx.myOpenId && wx.myPhone) {
+      this.onshowInit();
+    } else {
+      app.getUser(() => {
+        this.onshowInit();
+      });
     }
   },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
+  onshowInit() {
+    this.getList();
+    this.getBanner();
+  },
+  getBanner() {
+    getBanners({
+      "phone": wx.myPhone,
+      "wechatId": wx.myOpenId
+    }).then(data => {
+      this.setData({
+        background:data
+      })
+    });
+  },
+  getCurrent(event) {
+    const {
+      current
+    } = event.detail;
+    this.setData({
+      current
     })
   },
-  getUserInfo(e) {
-    // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    console.log(e)
+  setActiveTab(event) {
+    const {
+      index
+    } = event.currentTarget.dataset;
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      activeTab: index
+    }, () => {
+      this.getList();
+    })
+  },
+  /**
+   * 获取机会客户列表
+   * @param {*} event 
+   * queryType  01:首页全国机会, 02:首页身边机会
+   */
+  getList() {
+    const {
+      activeTab
+    } = this.data;
+    const data = getPoolCustomerList({
+      customerName: '',
+      phone: wx.myPhone,
+      queryType: activeTab == 1 ? "02" : "01",
+      wechatId: wx.myOpenId,
+      pageNum: 1,
+      pageSize: 2
+    }).then(data=>{
+      this.setData({
+        listData:data
+      })
+    })
+    console.log(data);
+  },
+  customer(event) {
+    console.log(event);
+    const item=event.currentTarget.dataset.item;
+    app.globalData.customer = {
+      type:item.status,
+      customerName:item.customerName,
+      customerPoolId:item.customerPoolId,
+      customerApplyId:item.customerApplyId
+    }
+    wx.navigateTo({
+      url: `/pages/customer/customer`,
     })
   }
 })

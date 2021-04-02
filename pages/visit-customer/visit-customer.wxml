@@ -1,0 +1,39 @@
+<!--pages/visit-customer/visit-customer.wxml-->
+<view class="container">
+	<my-navigation-bar titleText='访客户' />
+	<view class="visit-customer-content">
+		<view class="search">
+			<icon class="icon" color="#999" type="search" size="32rpx"></icon>
+			<input class="weui-input" placeholder-class='placeholder' placeholder="请输入搜索内容" />
+		</view>
+		<view class="my_customer">
+			<view class="customer_number">
+				我的客户(<text>10</text>)
+			</view>
+			<view class="add_customer">
+				<image src="../../assets/images/add.png"></image>
+				<text>新增</text>
+			</view>
+		</view>
+		<view class="list">
+			<view class="list_item">
+				<view class="compony_name">上海升笙国际物流有限公司</view>
+				<view class="time">
+					最后操作时间：2021-03-02
+				</view>
+			</view>
+			<view class="list_item">
+				<view class="compony_name">上海升笙国际物流有限公司</view>
+				<view class="time">
+					最后操作时间：2021-03-02
+				</view>
+			</view>
+			<view class="list_item">
+				<view class="compony_name">上海升笙国际物流有限公司</view>
+				<view class="time">
+					最后操作时间：2021-03-02
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,19 +1,162 @@
-/**index.wxss**/
-.userinfo {
+.header {
+  height: 268rpx;
+  background-color: #47B4FB;
+}
+
+.content {
+  height: 70rpx;
+  padding: 8rpx 32rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.name {
+  flex: 1;
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.input_box {
+  width: 400rpx;
+  height: 52rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 26rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+}
+
+.icon {
+  margin-right: 24rpx;
+}
+
+.weui-input {
+  width: 278rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #B5D9FF;
+}
+
+.placeholder {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #B5D9FF;
+}
+
+.my_swiper {
+  width: 686rpx;
+  height: 240rpx;
+  background: #FAD58B;
+  box-shadow: 0px 6rpx 0px 0px rgba(15, 59, 126, 0.06);
+  border-radius: 16rpx;
+  margin: -180rpx auto 0;
+  position: relative;
+}
+
+.indicatorDots {
+  position: absolute;
+  bottom: 12rpx;
+  right: 24rpx;
+  display: flex;
+}
+
+.dot_item {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background-color: #96CBFE;
+  margin-left: 16rpx;
+}
+
+.dot_item_active {
+  background-color: #fff;
+}
+
+.list_tap {
+  height: 152rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tap_item {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #666666;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #aaa;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.tap_item_active {
+  color: #3E95FD;
 }
 
-.usermotto {
-  margin-top: 200px;
+.active {
+  width: 44rpx;
+  height: 4rpx;
+  background: #3E95FD;
+  margin-top: 12rpx;
+}
+
+.hide_active {
+  background: #fff
+}
+
+.list {
+  width: 686rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 16rpx 0px rgba(86, 86, 86, 0.12);
+  border-radius: 8rpx;
+  margin: 0 auto 32rpx;
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.list .compony {
+  flex: 1;
+}
+
+.money_number {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #666666;
+  margin-top: 12rpx;
+}
+
+.money_number .money::after {
+  content: '|';
+  margin: 0 20rpx;
+}
+
+.list .compony .name {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC, sans-serif;
+  font-weight: 500;
+  color: #333333;
+  line-height: 40rpx;
+}
+
+.btn {
+  flex-shrink: 0;
+  width: 144rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  text-align: center;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC, sans-serif;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-left: 30rpx;
 }

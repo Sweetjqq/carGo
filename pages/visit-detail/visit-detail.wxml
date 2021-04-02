@@ -1,0 +1,12 @@
+<view class="container">
+	<my-navigation-bar titleText='拜访详情' showIcon="{{true}}" />
+	<view class="tabBar">
+		<view class=" {{index===currentTab?'tab_item_active tab_item':'tab_item' }}" wx:for="{{tabBarData}}" wx:key="index" data-index="{{index}}" bindtap="setCurrentTab">{{item}}</view>
+	</view>
+	<block wx:if='{{currentTab===0}}'>
+		<new-visit />
+	</block>
+	<block wx:else>
+		<visit-records />
+	</block>
+</view>

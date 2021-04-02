@@ -1,0 +1,164 @@
+<view class='records_box'>
+	<!-- 公司详情 -->
+	<view class="operation">
+		<text class="detail">公司详情</text>
+		<view class="go_edit">
+			<image src='../../../../assets/images/go_edit.png'></image>
+			<text>前往修改</text>
+		</view>
+	</view>
+	<view class="basic_info">
+		<view class="box">
+			<view class="title">基本信息</view>
+			<view class="info_item">
+				<text class="name">客户姓名</text>
+				<text class="value">广州前程国际货运代理有限公司</text>
+			</view>
+			<view class="info_item">
+				<text class="name">行业</text>
+				<text class="value">物流运输</text>
+			</view>
+			<view class="info_item">
+				<text class="name">营业额(万元)</text>
+				<text class="value">1000.00</text>
+			</view>
+			<view class="info_item">
+				<text class="name">人数</text>
+				<text class="value">100</text>
+			</view>
+		</view>
+		<view class="box">
+			<view class="title">目前保险状况</view>
+			<view class="info_item">
+				<text class="name">保险公司</text>
+				<text class="value">中国平安</text>
+			</view>
+			<view class="info_item">
+				<text class="name">年保费(万元)</text>
+				<text class="value">100.00</text>
+			</view>
+			<view class="info_item">
+				<text class="name">到期日</text>
+				<text class="value">2024-03-01</text>
+			</view>
+			<view class="info_item">
+				<text class="name">往年赔付率</text>
+				<text class="value">10%</text>
+			</view>
+			<view class="info_item_style">
+				<text class="name">往年赔付详情</text>
+				<text class="value">请输入往年赔付详情，请输入往年赔付详情请，输入往年赔付详情，输入往年赔付详情</text>
+			</view>
+		</view>
+		<view class="box">
+			<view class="title">其它信息</view>
+			<view class="info_item">
+				<text class="name">关系人职务</text>
+				<text class="value">副总经理</text>
+			</view>
+			<view class="info_item">
+				<text class="name">关系人姓名</text>
+				<text class="value">XXX</text>
+			</view>
+			<view class="info_item">
+				<text class="name">险种机会</text>
+				<text class="value">货主责任险</text>
+			</view>
+		</view>
+	</view>
+	<!-- 拜访记录 -->
+	<view class="operation">
+		<text class="detail">拜访记录：2020-12-03</text>
+		<view class="go_edit">
+			<image src='../../../../assets/images/go_edit.png'></image>
+			<text>前往修改</text>
+		</view>
+	</view>
+	<view class="basic_info">
+		<view class="box">
+			<view class="info_item">
+				<text class="name">客户姓名</text>
+				<text class="value">广州前程国际货运代理有限公司</text>
+			</view>
+			<view class="info_item">
+				<text class="name">拜访方式</text>
+				<text class="value">上门</text>
+			</view>
+			<view class="info_item">
+				<text class="name">拜访时间</text>
+				<text class="value">2020-09-20</text>
+			</view>
+			<view class="info_item">
+				<text class="name">被拜访人职务</text>
+				<text class="value">副总经理</text>
+			</view>
+			<view class="info_item">
+				<text class="name">被拜访人姓名</text>
+				<text class="value">刘总</text>
+			</view>
+		</view>
+		<view class="box">
+			<view class="title">目前保险状况</view>
+			<view class="info_item">
+				<text class="name">保险公司</text>
+				<text class="value">中国平安</text>
+			</view>
+			<view class="info_item">
+				<text class="name">年保费(万元)</text>
+				<text class="value">100.00</text>
+			</view>
+			<view class="info_item">
+				<text class="name">到期日</text>
+				<text class="value">2024-03-01</text>
+			</view>
+			<view class="info_item">
+				<text class="name">往年赔付率</text>
+				<text class="value">10%</text>
+			</view>
+			<view class="info_item_style">
+				<text class="name">往年赔付详情</text>
+				<text class="value">请输入往年赔付详情，请输入往年赔付详情请，输入往年赔付详情，输入往年赔付详情</text>
+			</view>
+		</view>
+		<view class="box">
+			<view class="title">其它信息</view>
+			<view class="info_item">
+				<text class="name">关系人职务</text>
+				<text class="value">副总经理</text>
+			</view>
+			<view class="info_item">
+				<text class="name">关系人姓名</text>
+				<text class="value">XXX</text>
+			</view>
+			<view class="info_item">
+				<text class="name">险种机会</text>
+				<text class="value">货主责任险</text>
+			</view>
+			<view class="info_item_style">
+				<text class="name">拜访内容</text>
+				<text class="value">请输入往年赔付详情，请输入往年赔付详情请，输入往年赔付详情，输入往年赔付详情</text>
+			</view>
+			<view class="info_item">
+				<text class="name">需要支持</text>
+				<text class="value">需要支持111</text>
+			</view>
+			<view class="info_item">
+				<text class="name">上传材料</text>
+			</view>
+			<view class="img_list">
+				<view class="image_box">
+					<image src="../../../../assets/images/go_edit.png"></image>
+				</view>
+				<view class="image_box">
+					<image src="../../../../assets/images/go_edit.png"></image>
+				</view>
+				<view class="image_box">
+					<image src="../../../../assets/images/go_edit.png"></image>
+				</view>
+				<view class="image_box">
+					<image src="../../../../assets/images/go_edit.png"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

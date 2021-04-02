@@ -1,0 +1,120 @@
+/* pages/mine/mine.wxss */
+page {
+  background: #F6F6F6;
+}
+
+.head {
+  width: 686rpx;
+  height: 166rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 16rpx 0px rgba(86, 86, 86, 0.12);
+  border-radius: 8rpx;
+  position: absolute;
+  top: 206rpx;
+  left: 32rpx;
+  z-index: 101;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.msg_box {
+  position: absolute;
+  top: 390rpx;
+  left: 32rpx;
+  z-index: 101;
+}
+
+.head .head-portrait {
+  width: 116rpx;
+  height: 116rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.head .my_msg {
+  flex: 1;
+}
+
+.nick_name {
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 40rpx;
+  margin-bottom: 28rpx;
+}
+
+.data_integrity {
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  line-height: 24rpx;
+}
+
+.head .icon {
+  width: 26rpx;
+  height: 32rpx;
+}
+
+.modular {
+  width: 686rpx;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+  margin: 0 auto 22rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-bottom: 2rpx solid #E6E6E6;
+  padding-left: 32rpx;
+  box-sizing: border-box;
+}
+
+.main_msg {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.number {
+  padding: 36rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #E6E6E6;
+}
+
+.number_item {
+  width: 50%;
+  height: 102rpx;
+}
+
+.number_item text {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+
+.number_item .numbers {
+  font-size: 40rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  margin-top: 14rpx;
+}
+
+.number_item:last-child {
+  padding-left: 32rpx;
+  box-sizing: border-box;
+  border-left: 2rpx solid #E6E6E6;
+}

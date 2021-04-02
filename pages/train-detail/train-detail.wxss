@@ -1,0 +1,46 @@
+/* pages/train-detail/train-detail.wxss */
+page {
+  background: #F6F6F6;
+}
+
+.video {
+  width: 750rpx;
+  height: 391rpx;
+}
+
+.video_msg {
+  padding: 42rpx 38rpx 28rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.video_msg .title {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 50rpx;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.video_msg .time {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 34rpx;
+
+}
+
+.content_mag {
+  padding: 32rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: 42rpx;
+}

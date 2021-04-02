@@ -1,0 +1,44 @@
+/* components/my-navigation-bar/my-navigation-bar.wxss */
+.navigation_bar {
+  width: 750rpx;
+  height: 180rpx;
+  background: linear-gradient(132deg, #47B4FB 0%, #46B3FA 13%, #1957B2 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.content {
+  height: 92rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.icon_box{
+  margin-bottom: 14rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 44px;
+}
+
+.icon {
+  position: absolute;
+  left: 32rpx;
+}
+
+.left {
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(225deg);
+}

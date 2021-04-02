@@ -1,0 +1,24 @@
+/* components/navigation-bar/navigation-bar.wxss */
+/* components/my-navigation-bar/my-navigation-bar.wxss */
+.navigation_bar {
+  width: 750rpx;
+  height: 320rpx;
+  background: linear-gradient(132deg, #47B4FB 0%, #46B3FA 13%, #1957B2 100%);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border-bottom-left-radius: 40rpx;
+  border-bottom-right-radius:40rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 44px;
+  margin-top: 108rpx;
+}

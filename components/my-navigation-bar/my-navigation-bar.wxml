@@ -1,0 +1,10 @@
+<!--components/my-navigation-bar/my-navigation-bar.wxml-->
+<view class="navigation_bar">
+	<view class="content">
+		<view class="icon_box" wx:if='{{showIcon}}'>
+			<view class="left icon" bindtap="goBack"></view>
+			<!-- <icon class="icon" color="#fff" type="search" size="30"></icon> -->
+		</view>
+		<text class="title">{{titleText}}</text>
+	</view>
+</view>

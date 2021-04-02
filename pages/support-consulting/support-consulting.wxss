@@ -1,0 +1,117 @@
+/* pages/support-consulting/support-consulting.wxss */
+page {
+  background: #F6F6F6;
+}
+
+.question {
+  width: 750rpx;
+  height: 76rpx;
+  padding-left: 32rpx;
+  box-sizing: border-box;
+  background: #fff;
+  line-height: 76rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+}
+
+.question_box {
+  background: #F6F6F6;
+  padding: 24rpx 32rpx 48rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.font_number {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgb(15, 5, 5);
+  line-height: 24rpx;
+  position: absolute;
+  bottom: 24rpx;
+  right: 32rpx;
+}
+
+.value {
+  width: 686rpx;
+  margin: 0 auto;
+  min-height: 326rpx;
+}
+
+.btn_box {
+  height: 208rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  width: 686rpx;
+  height: 80rpx;
+  background: #3E95FD;
+  box-shadow: 0px 2rpx 8rpx 0px rgba(23, 95, 155, 0.1);
+  border-radius: 45rpx;
+  border: 2rpx solid #3E95FD;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.list {
+  margin-top: 20rpx;
+  background: #fff;
+}
+
+.list_item {
+  width: 686rpx;
+  padding: 48rpx 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #E6E6E6;
+}
+
+.list_item:last-child {
+  border-bottom: none;
+}
+
+.compony_time {
+  margin-bottom: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.compony_time .name {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compony_time .time {
+  width: 212rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  margin-left: 60rpx;
+}
+
+.text {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  line-height: 36rpx;
+}

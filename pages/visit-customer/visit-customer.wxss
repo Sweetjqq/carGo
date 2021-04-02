@@ -1,0 +1,106 @@
+/* pages/visit-customer/visit-customer.wxss */
+.visit-customer-content {
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.search {
+  width: 686rpx;
+  height: 64rpx;
+  background: #F5F5F5;
+  border-radius: 32rpx;
+  margin: 0 auto 42rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.placeholder {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #999999;
+  line-height: 24rpx
+}
+
+.search .icon {
+  width: 32rpx;
+}
+
+.weui-input {
+  flex: 1;
+  margin-left: 24rpx;
+}
+
+.my_customer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 38rpx;
+  flex-wrap: nowrap;
+}
+
+.my_customer .customer_number {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC, sans-serif;
+  font-weight: 500;
+  color: #333333;
+  line-height: 32rpx;
+}
+
+.my_customer .customer_number text {
+  color: #3E95FD;
+}
+
+.add_customer {
+  width: 112rpx;
+  height: 48rpx;
+  background: #3E95FD;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 48rpx;
+}
+
+.add_customer image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+}
+
+.list_item {
+  width: 686rpx;
+  height: 152rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 16rpx 0px rgba(86, 86, 86, 0.12);
+  border-radius: 8rpx;
+  margin: 0 auto 32rpx;
+  padding-left: 32rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.compony_name {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC, sans-serif;
+  font-weight: 500;
+  color: #333333;
+  line-height: 40rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #999999;
+  line-height: 24rpx;
+  margin-top: 16rpx;
+}

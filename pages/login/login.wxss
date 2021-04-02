@@ -1,0 +1,60 @@
+/* pages/login/login.wxss */
+.bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  background-color: royalblue;
+}
+
+.cont {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo {
+  margin-top: 360rpx;
+  margin-bottom: 180rpx;
+  width: 312rpx;
+  height: 100rpx;
+}
+
+.input-wrap {
+  width: 684rpx;
+  height: 88rpx;
+  box-shadow: 0px 2px 8px 0px rgba(23, 95, 155, 0.1);
+  border-bottom: 2px solid #3E95FD;
+}
+
+.input-wrap image {
+  flex-shrink: 0;
+  margin: 0 32rpx 0 24rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.input-wrap .input-class {
+  flex: 1;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #B5D9FF;
+}
+
+.btn {
+  margin-top: 168rpx;
+  width: 480rpx;
+  height: 80rpx;
+  background: #3E95FD;
+  box-shadow: 0px 2px 8px 0px rgba(23, 95, 155, 0.1);
+  border-radius: 48rpx;
+  border: 2rpx solid #3E95FD;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFEFE;
+  line-height: 80rpx;
+  text-align: center;
+}
