@@ -41,6 +41,30 @@ export const saveCustomerPool = (data) => {
 
 /**
  * 
+ * 修改已申请的客户信息（改客户池）
+ */
+export const updateCustomerPool = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method:'post',
+    data,
+    url: `interface/customer/updateCustomerPool`,
+  })
+}
+
+/**
+ * 获取之前抢到的客户详情
+ */
+export const getApplyCustomer = (customerApplyId) => {
+  return httpServer({
+    host: 'baseHost',
+    isFail:true,
+    url: `interface/customer/getCustomerPool/${customerApplyId}`,
+  })
+}
+
+/**
+ * 
  * 修改我的客户信息
  */
 export const updateCustomer = (data) => {
@@ -52,15 +76,48 @@ export const updateCustomer = (data) => {
   })
 }
 
+
+
+
+
+
+// 培训视频详情star
+
 /**
- * 
- * 修改已申请的客户信息
+ * 培训视频列表
+ * @param {*} data 
  */
-export const updateCustomerPool = (data) => {
+export const getTrainList = (data) => {
   return httpServer({
     host: 'baseHost',
     method:'post',
     data,
-    url: `interface/customer/updateCustomerPool`,
+    url: `interface/custrain/getTrainList`,
   })
 }
+/**
+ * 返回培训视频进度
+ * @param {*} data 
+ */
+export const updateDuration = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method:'post',
+    data,
+    url: `interface/custrain/updateDuration`,
+  })
+}
+/**
+ * 培训视频详情
+ * @param {*} data 
+ */
+export const getTrainById = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method:'post',
+    data,
+    url: `interface/custrain/getTrainById`,
+  })
+}
+
+// 培训视频详情 end
