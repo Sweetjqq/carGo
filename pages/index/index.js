@@ -47,8 +47,15 @@ Page({
     }
   },
   onshowInit() {
-    this.getList();
-    this.getBanner();
+    this.setData({
+      pageNum: 1,
+      inputValue: '',
+      listData: []
+    }, () => {
+      this.getBanner();
+      this.getList();
+    })
+
   },
   getBanner() {
     getBanners({
@@ -74,9 +81,9 @@ Page({
     } = event.currentTarget.dataset;
     this.setData({
       activeTab: index,
-      pageNum:1,
-      listData:[],
-      inputValue:''
+      pageNum: 1,
+      listData: [],
+      inputValue: ''
     }, () => {
       this.getList();
     })
@@ -108,8 +115,8 @@ Page({
     })
   },
   customer(event) {
-    console.log(event);
     const item = event.currentTarget.dataset.item;
+    if (item.status === '03') return;
     app.globalData.customer = {
       type: item.status,
       customerName: item.customerName,
@@ -125,10 +132,10 @@ Page({
       value
     } = event.detail;
     this.setData({
-      inputValue:value,
-      pageNum:1,
-      listData:[]
-    },function(){
+      inputValue: value,
+      pageNum: 1,
+      listData: []
+    }, function () {
       this.getList();
     })
   },

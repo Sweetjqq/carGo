@@ -1,9 +1,10 @@
 // pages/customer/customer.js
-let app =getApp();
+let app = getApp();
 import {
   saveCustomerPool,
   updateCustomerPool,
-  getApplyCustomer
+  getApplyCustomer,
+  getDictData
 } from '../../api/index'
 
 Page({
@@ -15,35 +16,51 @@ Page({
     customer: {
       customerName: '',
       industry: '',
-      money: "",
-      people_number: '',
-      insurance_company: '',
+      turnover: "",
+      peopleNumber: '',
+      inscompanyname: '',
       annualPremium: '', //年保费
-      due_date: "",
-      previous: "",
-      payment_detail: '',
-      related_party: '',
-      related_name: '',
-      insurance_opportunities: ''
+      dueDate: "",
+      lossRatio: "",
+      lossDetail: '',
+      contactsPost: '',
+      contactsName: '',
+      insuranceChance: '',
     },
-    peopleArray: [10, 20, 30, 40, 50],
-    industryArray: ['阿里', '腾讯', '唯品会', '涂虎'],
-    insuranceArray: ['太平洋', '中国平安'],
-    showModal: false
+    peopleArray: [],
+    industryArray: [],
+    insuranceArray: [],
+    showModal: false,
+    titleText: '',
+    dictType: [{
+      dataType: 'insuranceArray',
+      params: 'sys_risk_type'
+    }, {
+      dataType: 'peopleArray',
+      params: 'sys_peoples_type'
+    }, {
+      dataType: 'industryArray',
+      params: 'sys_industry_type'
+    }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    let customer = app.globalData.customer;
+    this.getDictData();
+    let globalCustomer = app.globalData.customer;
+    const {
+      customer
+    } = this.data;
     this.setData({
-      customer,
-    },()=>{
-      app.globalData.customer=null
+      customer: Object.assign(customer, globalCustomer),
+      titleText: customer.type === '02' ? '修改客户' : '抢客户',
+      btnText: customer.type === '02' ? '提交修改' : '客户归我'
+    }, () => {
+      app.globalData.customer = null
     })
-    if(customer.type=='02'){
+    if (customer.type == '02') {
       this.getCustomerInfo();
     }
   },
@@ -62,6 +79,7 @@ Page({
 
   },
   bindPickerChange(event) {
+    console.log(event)
     const {
       value
     } = event.detail;
@@ -76,16 +94,16 @@ Page({
     } = event.currentTarget.dataset;
     switch (type) {
       case 'industry':
-        customer[type] = industryArray[value];
+        customer[type] = industryArray[value].dictLabel;
         break;
-      case "people_number":
-        customer[type] = peopleArray[value];
+      case "peopleNumber":
+        customer[type] = peopleArray[value].dictLabel;
         break;
-      case "due_date":
+      case "dueDate":
         customer[type] = value;
         break;
-      case "insurance_opportunities":
-        customer[type] = insuranceArray[value];
+      case "insuranceChance":
+        customer[type] = insuranceArray[value].dictLabel;
         break;
       default:
         break;
@@ -96,15 +114,31 @@ Page({
   },
   getInputValue(event) {
     const {
+      customer
+    } = this.data;
+    const {
+      type
+    } = event.currentTarget.dataset;
+    const {
       value
     } = event.detail;
-    console.log(value)
+    this.setData({
+      customer: {
+        ...customer,
+        [type]: value
+      }
+    })
+
   },
   getData() {
-    console.log("*****")
-    this.setData({
-      showModal: true
-    })
+    const {
+      customer
+    } = this.data;
+    if (customer.type === '01') {
+      this.grabCustomer();
+    } else if (customer.type === '02') {
+      this.upDataCustomer();
+    }
   },
   modalClick() {
     this.setData({
@@ -114,32 +148,46 @@ Page({
   },
   //抢Api
   grabCustomer() {
-    saveCustomerPool().then(data => {
+    const {
+      customer
+    } = this.data;
+    let newParams = {
+      ...customer,
+      phone: wx.myPhone,
+      wechatId: wx.myOpenId
+    }
+    saveCustomerPool(newParams).then(data => {
       console.log(data)
     }).catch(error => {
       console.log(error)
     })
   },
   //改API
-  upDataCustomer(){
-    updateCustomerPool().then(data=>{
+  upDataCustomer() {
+    const {
+      customer
+    } = this.data;
+    updateCustomerPool(customer).then(data => {
 
-    }).catch(err =>{
+    }).catch(err => {
       console.log(err)
     })
   },
   // 获取详情
-  getCustomerInfo(){
-    getApplyCustomer().then(data=>{
-
-    }).catch(err =>{
-      app.showTip(err.message,()=>{
+  getCustomerInfo() {
+    const {
+      customer
+    } = this.data;
+    getApplyCustomer(customer.customerApplyId).then(data => {
+      console.log(data, 'getApplyCustomer')
+    }).catch(err => {
+      app.showTip(err.message, () => {
         wx.navigateBack({})
       })
     })
 
   },
-  paramsHandle(){
+  paramsHandle() {
     let data = {
       "annualPremium": 0,
       "contactsName": "string",
@@ -161,5 +209,19 @@ Page({
       "wechatId": wx.myOpenId
     }
     return data;
+  },
+  // 获取字典字数
+  getDictData() {
+    const {
+      dictType
+    } = this.data;
+    dictType.forEach((value, index) => {
+      getDictData(value.params).then(data => {
+        let obj = {};
+        obj[value.dataType] = data;
+        this.setData(obj)
+        console.log(data, value.dataType, 'getApplyCustomer')
+      })
+    })
   }
 })

@@ -1,7 +1,7 @@
 <!--pages/customer/customer.wxml-->
 <view class="customer">
-	<my-navigation-bar showIcon="{{true}}" titleText="新增客户" />
-	<modal showModal="{{showModal}}" bindmyevent="modalClick"/>
+	<my-navigation-bar showIcon="{{true}}" titleText="{{titleText}}" />
+	<modal showModal="{{showModal}}" bindmyevent="modalClick" />
 	<view class='basic_info'>
 		<view class="title">基本信息</view>
 		<view class="info_content">
@@ -12,7 +12,7 @@
 
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>行业</view>
-				<picker data-type='industry' bindchange="bindPickerChange" range="{{industryArray}}">
+				<picker range-key='dictLabel' data-type='industry' bindchange="bindPickerChange" range="{{industryArray}}">
 					<view class='item_content flex-jend-acenter'>
 						<text class="picker_no" wx:if="{{customer.industry==''}}">请选择</text>
 						<text wx:else class="picker_value">{{customer.industry}}</text>
@@ -23,15 +23,15 @@
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>营业额(万元)</view>
 				<view class='item_content'>
-					<input placeholder-class='placeholder' class="input_value" bindinput="getInputValue" placeholder="请输入营业额" />
+					<input data-type="turnover" placeholder-class='placeholder' class="input_value" bindinput="getInputValue" placeholder="请输入营业额" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>人数</view>
-				<picker data-type='people_number' bindchange="bindPickerChange" range="{{peopleArray}}">
+				<picker range-key='dictLabel' data-type='peopleNumber' bindchange="bindPickerChange" range="{{peopleArray}}">
 					<view class='item_content flex-jend-acenter'>
-						<text class="picker_no" wx:if="{{customer.people_number==''}}">请选择</text>
-						<text wx:else class="picker_value">{{customer.people_number}}</text>
+						<text class="picker_no" wx:if="{{customer.peopleNumber==''}}">请选择</text>
+						<text wx:else class="picker_value">{{customer.peopleNumber}}</text>
 						<image src="../../assets/images/right_icon.png"> </image>
 					</view>
 				</picker>
@@ -44,21 +44,21 @@
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>保险公司</view>
 				<view class='item_content'>
-					<input placeholder-class='placeholder' class="input_value" placeholder="请输入保险公司" />
+					<input data-type="inscompanyname" placeholder-class='placeholder' class="input_value" placeholder="请输入保险公司" bindinput="getInputValue" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>年保费(万元)</view>
 				<view class='item_content'>
-					<input placeholder-class='placeholder' class="input_value" placeholder="请输入年保费" value="{{customer.annualPremium}}"/>
+					<input data-type="annualPremium" bindinput="getInputValue" placeholder-class='placeholder' class="input_value" placeholder="请输入年保费" value="{{customer.annualPremium}}" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>到期日</view>
-				<picker data-type='due_date' bindchange="bindPickerChange" mode='date'>
+				<picker data-type='dueDate' bindchange="bindPickerChange" mode='date'>
 					<view class='item_content flex-jend-acenter'>
-						<text class="picker_no" wx:if="{{customer.due_date==''}}">请选择</text>
-						<text wx:else class="picker_value">{{customer.due_date}}</text>
+						<text class="picker_no" wx:if="{{customer.dueDate==''}}">请选择</text>
+						<text wx:else class="picker_value">{{customer.dueDate}}</text>
 						<image src="../../assets/images/right_icon.png"> </image>
 					</view>
 				</picker>
@@ -66,12 +66,12 @@
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>往年赔付率</view>
 				<view class='item_content'>
-					<input placeholder-class='placeholder' class="input_value" placeholder="请输入往年赔付率" />
+					<input data-type="lossRatio" bindinput="getInputValue" placeholder-class='placeholder' class="input_value" placeholder="请输入往年赔付率" />
 				</view>
 			</view>
 			<view class="info_item_auto">
 				<view class='item_title '>往年赔付详情</view>
-				<textarea maxlength="-1" placeholder-class='placeholder' class="input_value my_textarea" placeholder="请输入往年赔付详情">
+				<textarea data-type="lossDetail" maxlength="-1" placeholder-class='placeholder' bindinput="getInputValue" class="input_value my_textarea" placeholder="请输入往年赔付详情">
         </textarea>
 			</view>
 		</view>
@@ -83,21 +83,21 @@
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>关系人职务</view>
 				<view class='item_content'>
-					<input placeholder-class='placeholder' class="input_value" placeholder="请输入关系人职务" />
+					<input bindinput="getInputValue" data-type="contactsPost" placeholder-class='placeholder' class="input_value" placeholder="请输入关系人职务" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>关系人姓名</view>
 				<view class='item_content'>
-					<input placeholder-class='placeholder' class="input_value" placeholder="请输入关系人姓名" />
+					<input bindinput="getInputValue" data-type="contactsName" placeholder-class='placeholder' class="input_value" placeholder="请输入关系人姓名" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>险种机会</view>
-				<picker data-type='insurance_opportunities' bindchange="bindPickerChange" range="{{insuranceArray}}">
+				<picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange" range="{{insuranceArray}}">
 					<view class='item_content flex-jend-acenter'>
-						<text class="picker_no" wx:if="{{customer.insurance_opportunities==''}}">请选择</text>
-						<text wx:else class="picker_value">{{customer.insurance_opportunities}}</text>
+						<text class="picker_no" wx:if="{{customer.insuranceChance==''}}">请选择</text>
+						<text wx:else class="picker_value">{{customer.insuranceChance}}</text>
 						<image src="../../assets/images/right_icon.png"> </image>
 					</view>
 				</picker>
@@ -105,6 +105,6 @@
 		</view>
 	</view>
 	<view class="btn">
-		<text class="btn_text" bindtap="getData">客户归我</text>
+		<text class="btn_text" bindtap="getData">{{btnText}}</text>
 	</view>
 </view>

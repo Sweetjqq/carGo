@@ -77,6 +77,18 @@ export const updateCustomer = (data) => {
   })
 }
 
+/**
+ * 获取字典
+ */
+export const getDictData = (dictType) => {
+  return httpServer({
+    host: 'baseHost',
+    isFail: true,
+    url: `interface/common/getDictData/${dictType}`,
+  })
+}
+
+
 
 
 
