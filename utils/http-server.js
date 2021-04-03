@@ -1,9 +1,7 @@
 import alert from './alert';
 import tip from './tip';
 import * as hosts from './env-config'
-
 const app = getApp();
-
 function httpServer(opt) {
   const DEFAULT_REQUEST_OPTIONS = {
     url: '',
