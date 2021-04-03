@@ -6,7 +6,7 @@
 			<text class="name">早上好！</text>
 			<view class="input_box">
 				<icon class="icon" color="#fff" type="search" size="28rpx"></icon>
-				<input class="weui-input" placeholder-class='placeholder' placeholder="请输入搜索内容" />
+				<input value="{{inputValue}}" class="weui-input" placeholder-class='placeholder' placeholder="请输入搜索内容" bindconfirm="searchList" />
 			</view>
 		</view>
 
@@ -31,17 +31,17 @@
 			<text class="{{index===activeTab?'active':'active hide_active'}}"></text>
 		</view>
 	</view>
-	<view class="list_content">
+	<scroll-view class="list_content" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
 		<view class="list flex-alignJustify" data-item="{{item}}" bindtap="customer" wx:for="{{listData}}" wx:key="index">
 			<view class="compony over-ellipsis-2">
 				<text class="name">{{item.customerName}}</text>
 				<view class="money_number over-ellipsis-2">
-				  {{item.remark?item.remark:'暂无描述'}}
+					{{item.remark?item.remark:'暂无描述'}}
 					<!-- <text class="money">{{item.money}}</text>
 					<text class="number">{{item.number}}</text> -->
 				</view>
 			</view>
 			<view class="btn" style="background:{{buttonType[item.status].bgColor}}">{{item.statusName}}</view>
 		</view>
-	</view>
+	</scroll-view>
 </view>

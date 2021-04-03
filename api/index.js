@@ -6,7 +6,7 @@ import httpServer from '../utils/http-server';
 export const getBanners = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
     url: `interface/common/getBanners`,
   })
@@ -20,8 +20,9 @@ export const getBanners = (data) => {
 export const getPoolCustomerList = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
+    isFail: true,
     url: `/interface/customer/getPoolCustomerList`,
   })
 }
@@ -33,7 +34,7 @@ export const getPoolCustomerList = (data) => {
 export const saveCustomerPool = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
     url: `interface/customer/saveCustomerPool`,
   })
@@ -46,7 +47,7 @@ export const saveCustomerPool = (data) => {
 export const updateCustomerPool = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
     url: `interface/customer/updateCustomerPool`,
   })
@@ -58,7 +59,7 @@ export const updateCustomerPool = (data) => {
 export const getApplyCustomer = (customerApplyId) => {
   return httpServer({
     host: 'baseHost',
-    isFail:true,
+    isFail: true,
     url: `interface/customer/getCustomerPool/${customerApplyId}`,
   })
 }
@@ -70,11 +71,23 @@ export const getApplyCustomer = (customerApplyId) => {
 export const updateCustomer = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
     url: `interface/customer/updateCustomer`,
   })
 }
+
+/**
+ * 获取字典
+ */
+export const getDictData = (dictType) => {
+  return httpServer({
+    host: 'baseHost',
+    isFail: true,
+    url: `interface/common/getDictData/${dictType}`,
+  })
+}
+
 
 
 
@@ -90,7 +103,7 @@ export const updateCustomer = (data) => {
 export const getTrainList = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
     url: `interface/custrain/getTrainList`,
   })
@@ -102,7 +115,7 @@ export const getTrainList = (data) => {
 export const updateDuration = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
     url: `interface/custrain/updateDuration`,
   })
@@ -114,7 +127,7 @@ export const updateDuration = (data) => {
 export const getTrainById = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
     url: `interface/custrain/getTrainById`,
   })

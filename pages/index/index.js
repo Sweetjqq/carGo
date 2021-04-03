@@ -23,13 +23,17 @@ Page({
         text: '改',
         bgColor: '#FD9A3E'
       },
-       '03': {
+      '03': {
         text: '名花有主',
         bgColor: '#80CA5B'
       }
       //01 抢 02 改 03 名花有主
     },
-    listData: []
+    listData: [],
+    inputValue: "",
+    pageSize: 5,
+    pageNum: 1,
+    pageTotal: 5
   },
 
   onLoad() {},
@@ -43,8 +47,15 @@ Page({
     }
   },
   onshowInit() {
-    this.getList();
-    this.getBanner();
+    this.setData({
+      pageNum: 1,
+      inputValue: '',
+      listData: []
+    }, () => {
+      this.getBanner();
+      this.getList();
+    })
+
   },
   getBanner() {
     getBanners({
@@ -52,7 +63,7 @@ Page({
       "wechatId": wx.myOpenId
     }).then(data => {
       this.setData({
-        background:data
+        background: data
       })
     });
   },
@@ -69,7 +80,10 @@ Page({
       index
     } = event.currentTarget.dataset;
     this.setData({
-      activeTab: index
+      activeTab: index,
+      pageNum: 1,
+      listData: [],
+      inputValue: ''
     }, () => {
       this.getList();
     })
@@ -81,33 +95,61 @@ Page({
    */
   getList() {
     const {
-      activeTab
+      activeTab,
+      pageNum,
+      pageSize,
+      listData,
+      inputValue
     } = this.data;
-    const data = getPoolCustomerList({
-      customerName: '',
+    getPoolCustomerList({
+      customerName: inputValue,
       phone: wx.myPhone,
       queryType: activeTab == 1 ? "02" : "01",
       wechatId: wx.myOpenId,
-      pageNum: 1,
-      pageSize: 2
-    }).then(data=>{
+      pageNum: pageNum,
+      pageSize: pageSize
+    }).then(data => {
       this.setData({
-        listData:data
+        listData: listData.concat(data)
       })
     })
-    console.log(data);
   },
   customer(event) {
-    console.log(event);
-    const item=event.currentTarget.dataset.item;
+    const item = event.currentTarget.dataset.item;
+    if (item.status === '03') return;
     app.globalData.customer = {
-      type:item.status,
-      customerName:item.customerName,
-      customerPoolId:item.customerPoolId,
-      customerApplyId:item.customerApplyId
+      type: item.status,
+      customerName: item.customerName,
+      customerPoolId: item.customerPoolId,
+      customerApplyId: item.customerApplyId
     }
     wx.navigateTo({
       url: `/pages/customer/customer`,
     })
-  }
+  },
+  searchList(event) {
+    const {
+      value
+    } = event.detail;
+    this.setData({
+      inputValue: value,
+      pageNum: 1,
+      listData: []
+    }, function () {
+      this.getList();
+    })
+  },
+  getNextPageData() {
+    const {
+      pageNum,
+      pageTotal
+    } = this.data;
+    if (pageNum < pageTotal) {
+      let newPageNum = pageNum + 1;
+      this.setData({
+        pageNum: newPageNum
+      })
+      this.getList();
+    }
+  },
 })
