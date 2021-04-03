@@ -1,6 +1,9 @@
 // pages/customer/customer.js
+let app =getApp();
 import {
   saveCustomerPool,
+  updateCustomerPool,
+  getApplyCustomer
 } from '../../api/index'
 
 Page({
@@ -34,11 +37,15 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    let customer = app.globalData.customer;
     this.setData({
-      customer:app.globalData.customer
+      customer,
     },()=>{
       app.globalData.customer=null
     })
+    if(customer.type=='02'){
+      this.getCustomerInfo();
+    }
   },
 
   /**
@@ -107,7 +114,33 @@ Page({
   },
   //抢Api
   grabCustomer() {
-    saveCustomerPool({
+    saveCustomerPool().then(data => {
+      console.log(data)
+    }).catch(error => {
+      console.log(error)
+    })
+  },
+  //改API
+  upDataCustomer(){
+    updateCustomerPool().then(data=>{
+
+    }).catch(err =>{
+      console.log(err)
+    })
+  },
+  // 获取详情
+  getCustomerInfo(){
+    getApplyCustomer().then(data=>{
+
+    }).catch(err =>{
+      app.showTip(err.message,()=>{
+        wx.navigateBack({})
+      })
+    })
+
+  },
+  paramsHandle(){
+    let data = {
       "annualPremium": 0,
       "contactsName": "string",
       "contactsPhone": "string",
@@ -123,23 +156,10 @@ Page({
       "lossDetail": "string",
       "lossRatio": "string",
       "peopleNumber": 0,
-      "phone": "string",
+      "phone": wx.myOpenId,
       "turnover": "string",
-      "wechatId": "string"
-    }).then(data => {
-      const {
-        result
-      } = data;
-      if (result !== null) {
-        console.log(result, "result&&&&&")
-      } else {
-
-      }
-    }).catch(error => {
-      console.log(error)
-    })
-  },
-  paramsHandle(){
-
+      "wechatId": wx.myOpenId
+    }
+    return data;
   }
 })

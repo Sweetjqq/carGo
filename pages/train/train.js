@@ -1,4 +1,8 @@
 // pages/train/train.js
+let app = getApp();
+import {
+  getTrainList
+} from '../../api/index'
 Page({
 
   /**
@@ -20,9 +24,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getTrainList();
   },
+  //获取列表
+  getTrainList() {
+    getTrainList({
+      "pageNum": 1,
+      "pageSize": 3,
+      "queryType": "01", //01已学,02未学
+      "wechatId": wx.myOpenId,
+      "phone": wx.myPhone
+    }).then((data) => {
 
+    })
+  },
+  goDetail(){
+  wx.navigateTo({
+    url: '/pages/train-detail/train-detail',
+  })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
