@@ -1,4 +1,7 @@
 // pages/visit-detail/conponents/new-visit/new-visit.js
+import {
+  addCusVisit
+} from '../../../../api/index'
 Component({
   options: {
     addGlobalClass: true
@@ -10,11 +13,13 @@ Component({
     customer: {
       type: Object,
       value: {
-        customer_name: '',
+        customerName: '',
         visit_method: '',
-        visit_time: '',
-        position: '',
-        visit_name: ''
+        visitDate: '',
+        visitPost: '',
+        visitName: '',
+        visitContent: '',
+        needSupport: ''
       }
     }
   },
@@ -45,7 +50,7 @@ Component({
         case 'visit_method':
           customer[type] = methodArray[value];
           break;
-        case "visit_time":
+        case "visitDate":
           customer[type] = value;
           break;
         default:
@@ -55,5 +60,45 @@ Component({
         customer
       })
     },
+    getInputValue(event) {
+      const {
+        customer
+      } = this.data;
+      const {
+        type
+      } = event.currentTarget.dataset;
+      const {
+        value
+      } = event.detail;
+      this.setData({
+        customer: {
+          ...customer,
+          [type]: value
+        }
+      })
+
+    },
+    addVisit(params) {
+      addCusVisit(params).then(data => {
+        wx.showToast({
+          title: '新增拜访记录成功',
+          icon: 'success',
+          duration: 1500
+        })
+        setTimeout(() => {
+          wx.navigateTo({
+            url: '/pages/visit-customer/visit-customer',
+          })
+        }, 1600)
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+    submit() {
+      const {
+        customer
+      } = this.data;
+      this.addVisit(customer);
+    }
   }
 })

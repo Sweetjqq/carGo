@@ -148,8 +148,9 @@ Page({
       let newPageNum = pageNum + 1;
       this.setData({
         pageNum: newPageNum
+      }, () => {
+        this.getList();
       })
-      this.getList();
     }
   },
 })
