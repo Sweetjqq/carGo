@@ -10,7 +10,8 @@
     "pages/support-consulting/support-consulting",
     "pages/train/train",
     "pages/train-detail/train-detail",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/mineDetail/mineDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

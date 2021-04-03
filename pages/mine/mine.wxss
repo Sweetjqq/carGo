@@ -66,6 +66,7 @@ page {
   background: #FFFFFF;
   border-radius: 8rpx;
   margin: 0 auto 22rpx;
+  padding-bottom: 26rpx;
 }
 
 .title {
@@ -73,11 +74,15 @@ page {
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #333333;
-  height: 96rpx;
-  line-height: 96rpx;
+  height: 92rpx;
+  line-height: 92rpx;
   border-bottom: 2rpx solid #E6E6E6;
   padding-left: 32rpx;
   box-sizing: border-box;
+}
+
+.no-borderB {
+  border-bottom: 0;
 }
 
 .main_msg {
@@ -113,8 +118,37 @@ page {
   margin-top: 14rpx;
 }
 
-.number_item:last-child {
+.last_number_item {
   padding-left: 32rpx;
   box-sizing: border-box;
   border-left: 2rpx solid #E6E6E6;
+}
+.one-serve{
+  width: 228rpx;
+}
+.one-serve image {
+  margin: 20rpx 0 32rpx;
+  width: 44rpx;
+}
+
+.one-serve text {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  line-height: 28rpx;
+}
+
+.out-login {
+  margin-bottom: 30rpx;
+  width: 686rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #FFFFFF;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  border-radius: 8rpx;
 }

@@ -1,15 +1,13 @@
 <view class='mine-container'>
 	<my-navigation-bar titleText='我的' />
-	<view class="head">
+	<view class="head" bindtap="goMyDetail">
 		<view class='head-portrait'>
 			<open-data type='userAvatarUrl'></open-data>
 		</view>
-		<!-- <image class="head-portrait" src='../../assets/images/head-portrait.png'> </image> -->
 		<view class="my_msg">
 			<view class='nick_name'>
 				<open-data type='userNickName'></open-data>
 			</view>
-			<!-- <view class="nick_name">飞飞</view> -->
 			<view class="data_integrity">资料完整度40%</view>
 		</view>
 		<image class="icon" src='../../assets/images/right_icon.png'> </image>
@@ -23,14 +21,86 @@
 						<text>保费数(万元)：</text>
 						<view class="numbers">30,000.00</view>
 					</view>
-					<view class="number_item">
+					<view class="number_item last_number_item">
 						<text>签单客户数：</text>
 						<view class="numbers">200</view>
 					</view>
 				</view>
 			</view>
-			<rank rankTitle='保费数排名：' allNum = '900' currNum = '30'></rank>
+			<rank rankTitle='保费数排名：' allNum='20' currNum='0' isLine='true'></rank>
+			<rank rankTitle='客户数排名：' allNum='30' currNum='10'></rank>
 		</view>
+		<view class="modular">
+			<view class="title">客户数排名</view>
+			<view class="main_msg">
+				<view class="number">
+					<view class="number_item">
+						<text>客户数：</text>
+						<view class="numbers">30,000.00</view>
+					</view>
+				</view>
+			</view>
+			<rank rankTitle='公司排名：' allNum='20' currNum='0' isLine='true'></rank>
+			<rank rankTitle='本机构排名：' allNum='30' currNum='10'></rank>
+		</view>
+		<view class="modular">
+			<view class="title">用心实干排名</view>
+			<view class="main_msg">
+				<view class="number">
+					<view class="number_item">
+						<text>访客数：</text>
+						<view class="numbers">30,000.00</view>
+					</view>
+				</view>
+			</view>
+			<rank rankTitle='公司排名：' allNum='20' currNum='0' isLine='true'></rank>
+			<rank rankTitle='本机构排名：' allNum='30' currNum='10'></rank>
+		</view>
+		<view class="modular">
+			<view class="title">参训排名</view>
+			<view class="main_msg">
+				<view class="number">
+					<view class="number_item">
+						<text>参训时长(分钟)：</text>
+						<view class="numbers">30,000.00</view>
+					</view>
+				</view>
+			</view>
+			<rank rankTitle='保费数排名：' allNum='20' currNum='0' isLine='true'></rank>
+			<rank rankTitle='客户数排名：' allNum='30' currNum='10'></rank>
+		</view>
+		<view class="modular">
+			<view class="title">参训排名</view>
+			<view class="main_msg">
+				<view class="number">
+					<view class="number_item">
+						<text>参训时长(分钟)：</text>
+						<view class="numbers">30,000.00</view>
+					</view>
+				</view>
+			</view>
+			<rank rankTitle='保费数排名：' allNum='20' currNum='0' isLine='true'></rank>
+			<rank rankTitle='客户数排名：' allNum='30' currNum='10'></rank>
+		</view>
+    <view class="modular">
+			<view class="title no-borderB">我的服务</view>
+      <view class="sever-wrap flex-center">
+			  <view class="one-serve flex-column-alignCenter">
+				<image mode="widthFix" src="../../assets/images/examine-icon.png"></image>
+				<text>我的审核</text>
+				</view>
+				 <view class="one-serve flex-column-alignCenter">
+				<image mode="widthFix" src="../../assets/images/visitor-icon.png"></image>
+				<text>我的访客记录</text>
+				</view>
+				 <view class="one-serve flex-column-alignCenter">
+				<image mode="widthFix" src="../../assets/images/train-icon.png"></image>
+				<text>我的培训</text>
+				</view>
+			</view>
+		</view>
+		<view class="out-login">退出登录</view>
 	</view>
+
 
 </view>

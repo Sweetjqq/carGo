@@ -1,12 +1,17 @@
 /* pages/mine/rank.wxss */
 .rank-all-wrap {
-  overflow: hidden;
+  padding-top: 32rpx;
   height: 202rpx;
+  width: 622rpx;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.have-borB {
+  border-bottom: 2rpx solid #E6E6E6;
 }
 
 .rank_name {
-  margin-left: 32rpx;
-  margin-top: 32rpx;
   font-size: 28rpx;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
@@ -20,6 +25,7 @@
   min-height: 30rpx;
   width: 622rpx;
   margin: 32rpx auto 0;
+  border: 1rpx solid #fff;
 }
 
 .num-wrap {

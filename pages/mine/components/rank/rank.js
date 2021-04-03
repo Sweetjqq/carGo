@@ -19,23 +19,33 @@ Component({
       type: Number,
       value: 0
     },
+    "isLine":{
+      type:Boolean,
+      value:false
+    }
   },
   ready(){
-    const {
-      allNum,
-      currNum
-    }=this.data;
-    console.log(this.data)
-   let percentage = (currNum/allNum)*622;
-   this.setData(
-    percentage
-   )
+    let query=wx.createSelectorQuery().in(this);
+    query.select('#num').boundingClientRect((rect)=> {
+      this.setData({
+        numWidth:rect.width*wx.pixelRatio
+      }) 
+    }).exec();
+  },
+  observers: {
+    'allNum, currNum': function(allNum, currNum) {
+      let percentage = (currNum/allNum)*622;
+      this.setData({
+        percentage
+      })
+    }
   },
   /**
    * 组件的初始数据
    */
   data: {
-    
+    percentage:0,
+    numWidth:10
   },
 
   /**

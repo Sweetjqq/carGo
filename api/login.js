@@ -44,3 +44,28 @@ export const login = (code) => {
     url: `interface/mobileUser/interface/login/${code}`,
   })
 } 
+
+/**
+ * 我的详细信息
+ */
+export const myData = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method:'post',
+    data,
+    url: `interface/saler/getSalerInfo`,
+  })
+} 
+
+
+/**
+ * 获取我的数据统计
+ */
+export const myDataInfo = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method:'post',
+    data,
+    url: `interface/saler/statistics`,
+  })
+} 

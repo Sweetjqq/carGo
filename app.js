@@ -5,9 +5,18 @@ import {
 } from 'api/login.js'
 App({
   onLaunch() {
+    this.getPixelRatio();
   },
   globalData: {
     userInfo: null
+  },
+  getPixelRatio() {
+    wx.pixelRatio=2;
+    wx.getSystemInfo({
+      success: function (res) {
+        wx.pixelRatio=res.pixelRatio;
+      }
+    })
   },
   getUser(cb) {
     // 登录
