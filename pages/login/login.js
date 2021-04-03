@@ -49,7 +49,6 @@ Page({
           url: `/pages/smsCode/smsCode?phone=${phone}`,
         })
       }).catch(err => {
-        err=''
         const {
           options
         } = this.data;
