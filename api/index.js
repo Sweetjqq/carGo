@@ -160,3 +160,16 @@ export const addCusVisit = (data) => {
     url: `/interface/cusvisit/addCusVisit`,
   })
 }
+
+/**
+ * 找支持客户列表
+ * @param {*} data 
+ */
+export const supportList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `/interface/cussupport/getCustomerList`,
+  })
+}
