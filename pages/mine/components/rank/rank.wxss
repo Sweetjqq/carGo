@@ -1,0 +1,80 @@
+/* pages/mine/rank.wxss */
+.rank-all-wrap {
+  overflow: hidden;
+  height: 202rpx;
+}
+
+.rank_name {
+  margin-left: 32rpx;
+  margin-top: 32rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #3E95FD;
+  line-height: 28rpx;
+}
+
+.rank-wrap {
+  position: relative;
+  margin-top: 32rpx;
+  min-height: 30rpx;
+  width: 622rpx;
+  margin: 32rpx auto 0;
+}
+
+.num-wrap {
+  position: absolute;
+  top: 0;
+  left: -30rpx;
+}
+
+.num-wrap .num {
+  border: 1rpx solid #FF0000;
+  background: #FF0000;
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 44rpx;
+  padding: 0 16rpx;
+  border-radius: 4px;
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 12rpx solid transparent;
+  border-right: 12rpx solid transparent;
+  border-top: 12rpx solid red;
+}
+
+.all-num {
+  position: absolute;
+  right: 0;
+  top: 26rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #CCCCCC;
+  line-height: 28rpx;
+}
+
+.bar {
+  position: absolute;
+  top: 62rpx;
+  left: 0;
+  width: 622rpx;
+  height: 22rpx;
+  background: linear-gradient(to right, #FE0000 0%, #FF8C58 53%, #FAE2A0 100%);
+  border-radius: 12rpx;
+}
+
+.circle {
+  position: absolute;
+  top: 60rpx;
+  left: 30rpx;
+  width: 16rpx;
+  height: 16rpx;
+  background: #FF0000;
+  box-shadow: 0px 0px 4rpx 0px rgba(0, 0, 0, 0.2);
+  border: 6rpx solid #FFFFFF;
+  border-radius: 50%;
+}

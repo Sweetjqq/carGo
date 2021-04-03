@@ -29,6 +29,7 @@
 					</view>
 				</view>
 			</view>
+			<rank rankTitle='保费数排名：' allNum = '900' currNum = '30'></rank>
 		</view>
 	</view>
 
