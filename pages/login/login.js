@@ -58,7 +58,7 @@ Page({
             show: true,
             icon: 'fail',
             title: '验证失败',
-            mdMessage:err.message&&[err.message]
+            mdMessage: err.message && [err.message]
           }
         })
       })
