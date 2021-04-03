@@ -134,10 +134,15 @@ Page({
     const {
       customer
     } = this.data;
+    let newParams = {
+      ...customer,
+      phone: wx.myPhone,
+      wechatId: wx.myOpenId
+    }
     if (customer.type === '01') {
-      this.grabCustomer();
+      this.grabCustomer(newParams);
     } else if (customer.type === '02') {
-      this.upDataCustomer();
+      this.upDataCustomer(newParams);
     }
   },
   modalClick() {
@@ -147,27 +152,16 @@ Page({
     console.log("modal点击了ok")
   },
   //抢Api
-  grabCustomer() {
-    const {
-      customer
-    } = this.data;
-    let newParams = {
-      ...customer,
-      phone: wx.myPhone,
-      wechatId: wx.myOpenId
-    }
-    saveCustomerPool(newParams).then(data => {
+  grabCustomer(params) {
+    saveCustomerPool(params).then(data => {
       console.log(data)
     }).catch(error => {
       console.log(error)
     })
   },
   //改API
-  upDataCustomer() {
-    const {
-      customer
-    } = this.data;
-    updateCustomerPool(customer).then(data => {
+  upDataCustomer(params) {
+    updateCustomerPool(params).then(data => {
 
     }).catch(err => {
       console.log(err)

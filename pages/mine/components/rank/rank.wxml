@@ -1,5 +1,6 @@
 <!--pages/mine/rank.wxml-->
 <view class="rank-all-wrap">
+  
   <view class="rank_name">{{rankTitle}}</view>
   <view class="rank-wrap">
     <view class="num-wrap flex-colum-center" style="left={{percentage}}rpx">
