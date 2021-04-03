@@ -3,7 +3,7 @@ import {
   getVerificationCode,
   verification
 } from '../../api/login'
-
+let app =getApp();
 
 Page({
 
@@ -22,7 +22,7 @@ Page({
     this.setData({
       showPhone: options.phone.substr(0, 3) + "****" + options.phone.substr(7)
     })
-    // this.getSmsCode();
+    this.getSmsCode();
   },
   // 获取输入的验证码
   getInputValue(e) {
@@ -31,18 +31,13 @@ Page({
     })
   },
   // 发送验证码
-  // async getSmsCode() {
   getSmsCode() {
-    try {
       const {
         mobile
       } = this.data;
-      const data = getVerificationCode(mobile)
-      // const getSmsCodeData = await wx.Api.getSmsCode({
-      //   phoneNum: this.trim(this.phone)
-      // })
-      this.initTime(60)
-    } catch (e) {}
+      getVerificationCode(mobile).then(data=>{
+        this.initTime(60)
+      })
   },
   // 校验验证码
   verifySmsCode(verifyCode) {
@@ -50,22 +45,16 @@ Page({
       smsCode,
       mobile
     } = this.data;
-    const data = verification({
+    verification({
       "phone": mobile,
       "verificationCode": smsCode,
       "wechatId": wx.myOpenId
+    }).then(data=>{
+      this.clearTimer();
+      wx.reLaunch({
+        url: '/"pages/index/index"',
+      })
     })
-    console.log(data);
-    // try {
-    //   const {
-    //     mobile
-    //   } = this.data;
-    //   const verifySmsCodeData = await wx.Api.verifySmsCode({
-    //     phoneNum: this.trim(mobile),
-    //     verifyCode: verifyCode
-    //   })
-    //   this.clearTimer()
-    // } catch (e) {}
   },
   initTime(time) {
     console.log(time);

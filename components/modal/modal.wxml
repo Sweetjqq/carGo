@@ -2,16 +2,17 @@
 	<view class="modal_content">
 		<view class="head">
 			<image src="{{options.icon==='success'?'../../assets/images/success.png':'../../assets/images/fail.png'}}" />
-			<text>{{options.title}}</text>
+			<text>{{options.title?options.title:'提交成功'}}</text>
 		</view>
 		<view class="content">
-			<block wx:if="{{options.mdMessage.length==3}}">
+			<block wx:if='{{!options.mdMessage||options.mdMessage.length==0}}'>系统繁忙请稍后再试</block>
+			<block wx:elif="{{options.mdMessage.length==3}}">
 				{{options.mdMessage[0]}}
 				<text class='blue'>{{options.mdMessage[1]}}</text>
 				{{options.mdMessage[2]}}
 			</block>
 			<block wx:else>
-			  <text wx:for="{{options.mdMessage}}" wx:key='index'>{{item}}</text>
+				<text wx:for="{{options.mdMessage}}" wx:key='index'>{{item}}</text>
 			</block>
 		</view>
 		<view class="btn" bindtap="onTap">确定</view>

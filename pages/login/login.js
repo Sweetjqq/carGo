@@ -49,7 +49,6 @@ Page({
           url: `/pages/smsCode/smsCode?phone=${phone}`,
         })
       }).catch(err => {
-        err=''
         const {
           options
         } = this.data;
@@ -59,7 +58,7 @@ Page({
             show: true,
             icon: 'fail',
             title: '验证失败',
-            mdMessage:err.message&&[err.message]
+            mdMessage: err.message && [err.message]
           }
         })
       })

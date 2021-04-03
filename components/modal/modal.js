@@ -7,14 +7,13 @@ Component({
     options: {
       type: Object,
       value: {
-        title:'提交成功',
-        show:false,
-        mdMessage:['系统繁忙请稍后再试'],
-        icon:'success'
+        title: '提交成功',
+        show: false,
+        mdMessage: ['系统繁忙请稍后再试'],
+        icon: 'success'
       }
     }
   },
-
   /**
    * 组件的初始数据
    */
