@@ -1,9 +1,6 @@
-// pages/customer/customer.js
 let app = getApp();
 import {
-  saveCustomerPool,
-  updateCustomerPool,
-  getApplyCustomer,
+  addCustomer,
   getDictData
 } from '../../api/index'
 
@@ -49,20 +46,6 @@ Page({
    */
   onLoad: function (options) {
     this.getDictData();
-    let globalCustomer = app.globalData.customer;
-    const {
-      customer
-    } = this.data;
-    this.setData({
-      customer: Object.assign(customer, globalCustomer),
-      titleText: customer.type === '02' ? '修改客户' : '抢客户',
-      btnText: customer.type === '02' ? '提交修改' : '客户归我'
-    }, () => {
-      app.globalData.customer = null
-    })
-    if (customer.type == '02') {
-      this.getCustomerInfo();
-    }
   },
 
   /**
@@ -130,7 +113,12 @@ Page({
     })
 
   },
-  getData() {
+  add(params) {
+    addCustomer(params).then(data => {
+      console.log(data, ' 新增客户')
+    })
+  },
+  addCustomer() {
     const {
       customer
     } = this.data;
@@ -139,70 +127,13 @@ Page({
       phone: wx.myPhone,
       wechatId: wx.myOpenId
     }
-    if (customer.type === '01') {
-      this.grabCustomer(newParams);
-    } else if (customer.type === '02') {
-      this.upDataCustomer(newParams);
-    }
+    this.add(newParams);
   },
   modalClick() {
     this.setData({
       showModal: false
     })
     console.log("modal点击了ok")
-  },
-  //抢Api
-  grabCustomer(params) {
-    saveCustomerPool(params).then(data => {
-      console.log(data)
-    }).catch(error => {
-      console.log(error)
-    })
-  },
-  //改API
-  upDataCustomer(params) {
-    updateCustomerPool(params).then(data => {
-
-    }).catch(err => {
-      console.log(err)
-    })
-  },
-  // 获取详情
-  getCustomerInfo() {
-    const {
-      customer
-    } = this.data;
-    getApplyCustomer(customer.customerApplyId).then(data => {
-      console.log(data, 'getApplyCustomer')
-    }).catch(err => {
-      app.showTip(err.message, () => {
-        wx.navigateBack({})
-      })
-    })
-
-  },
-  paramsHandle() {
-    let data = {
-      "annualPremium": 0,
-      "contactsName": "string",
-      "contactsPhone": "string",
-      "contactsPost": "string",
-      "customerApplyId": 0,
-      "customerName": "string",
-      "customerPoolId": 0,
-      "deptId": 0,
-      "dueDate": "string",
-      "industry": "string",
-      "inscompanyname": "string",
-      "insuranceChance": "string",
-      "lossDetail": "string",
-      "lossRatio": "string",
-      "peopleNumber": 0,
-      "phone": wx.myOpenId,
-      "turnover": "string",
-      "wechatId": wx.myOpenId
-    }
-    return data;
   },
   // 获取字典字数
   getDictData() {
@@ -214,7 +145,6 @@ Page({
         let obj = {};
         obj[value.dataType] = data;
         this.setData(obj)
-        console.log(data, value.dataType, 'getApplyCustomer')
       })
     })
   }

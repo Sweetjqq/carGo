@@ -4,36 +4,27 @@
 	<view class="visit-customer-content">
 		<view class="search">
 			<icon class="icon" color="#999" type="search" size="32rpx"></icon>
-			<input class="weui-input" placeholder-class='placeholder' placeholder="请输入搜索内容" />
+			<input class="weui-input" placeholder-class='placeholder' placeholder="请输入搜索内容" bindconfirm="searchList"
+				value="{{customerName}}" />
 		</view>
 		<view class="my_customer">
 			<view class="customer_number">
 				我的客户(<text>10</text>)
 			</view>
-			<view class="add_customer">
+			<view class="add_customer" bindtap="addCustomer">
 				<image src="../../assets/images/add.png"></image>
 				<text>新增</text>
 			</view>
 		</view>
-		<view class="list">
-			<view class="list_item">
-				<view class="compony_name">上海升笙国际物流有限公司</view>
-				<view class="time">
-					最后操作时间：2021-03-02
+		<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
+			<block wx:for="{{listData}}" wx:key="customerApplyId">
+				<view class="list_item" data-item="{{item}}" bindtap="customer">
+					<view class="compony_name">{{item.customerName}}</view>
+					<view class="time">
+						最后操作时间：2021-03-02
+					</view>
 				</view>
-			</view>
-			<view class="list_item">
-				<view class="compony_name">上海升笙国际物流有限公司</view>
-				<view class="time">
-					最后操作时间：2021-03-02
-				</view>
-			</view>
-			<view class="list_item">
-				<view class="compony_name">上海升笙国际物流有限公司</view>
-				<view class="time">
-					最后操作时间：2021-03-02
-				</view>
-			</view>
-		</view>
+			</block>
+		</scroll-view>
 	</view>
 </view>

@@ -1,65 +1,68 @@
- <view class='basic_info'>
- 	<view class="info_content">
- 		<view class="info_item flex-alignJustify">
- 			<view class='item_title'>客户姓名</view>
- 			<view class='item_content'>广州前程国际货运代理有限公司</view>
- 		</view>
+<view class='basic_info'>
+	<view class="info_content">
+		<view class="info_item flex-alignJustify">
+			<view class='item_title'>客户姓名</view>
+			<view class='item_content'>{{customer.customerName}}</view>
+		</view>
+		<view class="info_item flex-alignJustify">
+			<view class='item_title'>拜访方式</view>
+			<picker data-type='visit_method' bindchange="bindPickerChange" range="{{methodArray}}">
+				<view class='item_content flex-jend-acenter'>
+					<text class="picker_no" wx:if="{{customer.visit_method==''}}">请选择</text>
+					<text wx:else class="picker_value">{{customer.visit_method}}</text>
+					<image src="../../../../assets/images/right_icon.png"> </image>
+				</view>
+			</picker>
+		</view>
+		<view class="info_item flex-alignJustify">
+			<view class='item_title'>拜访时间</view>
+			<picker data-type='visitDate' bindchange="bindPickerChange" mode='date'>
+				<view class='item_content flex-jend-acenter'>
+					<text class="picker_no" wx:if="{{customer.visitDate==''}}">请选择</text>
+					<text wx:else class="picker_value">{{customer.visitDate}}</text>
+					<image src="../../../../assets/images/right_icon.png"> </image>
+				</view>
+			</picker>
+		</view>
+		<view class="info_item flex-alignJustify">
+			<view class='item_title'>被拜访人职务</view>
+			<view class='item_content'>
+				<input data-type="visitPost" placeholder-class='placeholder' class="input_value" bindinput="getInputValue"
+					placeholder="请输入被拜访人职务" />
+			</view>
+			<image class="edit" src="../../../../assets/images/edit.png"> </image>
+		</view>
+		<view class="info_item flex-alignJustify">
+			<view class='item_title'>被拜访人姓名</view>
+			<view class='item_content'>
+				<input data-type="visitName" placeholder-class='placeholder' class="input_value" bindinput="getInputValue"
+					placeholder="请输入被拜访人姓名" />
+			</view>
+			<image class="edit" src="../../../../assets/images/edit.png"> </image>
+		</view>
 
- 		<view class="info_item flex-alignJustify">
- 			<view class='item_title'>拜访方式</view>
- 			<picker data-type='visit_method' bindchange="bindPickerChange" range="{{methodArray}}">
- 				<view class='item_content flex-jend-acenter'>
- 					<text class="picker_no" wx:if="{{customer.visit_method==''}}">请选择</text>
- 					<text wx:else class="picker_value">{{customer.visit_method}}</text>
- 					<image src="../../../../assets/images/right_icon.png"> </image>
- 				</view>
- 			</picker>
- 		</view>
- 		<view class="info_item flex-alignJustify">
- 			<view class='item_title'>拜访时间</view>
- 			<picker data-type='visit_time' bindchange="bindPickerChange" mode='date'>
- 				<view class='item_content flex-jend-acenter'>
- 					<text class="picker_no" wx:if="{{customer.visit_time==''}}">请选择</text>
- 					<text wx:else class="picker_value">{{customer.visit_time}}</text>
- 					<image src="../../../../assets/images/right_icon.png"> </image>
- 				</view>
- 			</picker>
- 		</view>
- 		<view class="info_item flex-alignJustify">
- 			<view class='item_title'>被拜访人职务</view>
- 			<view class='item_content'>
- 				<input placeholder-class='placeholder' class="input_value" bindinput="getInputValue" placeholder="请输入被拜访人职务" />
- 			</view>
- 			<image class="edit" src="../../../../assets/images/edit.png"> </image>
- 		</view>
- 		<view class="info_item flex-alignJustify">
- 			<view class='item_title'>被拜访人姓名</view>
- 			<view class='item_content'>
- 				<input placeholder-class='placeholder' class="input_value" bindinput="getInputValue" placeholder="请输入被拜访人姓名" />
- 			</view>
- 			<image class="edit" src="../../../../assets/images/edit.png"> </image>
- 		</view>
+		<view class="info_item_style">
+			<view class='item_title'>拜访内容</view>
+			<textarea data-type="visitContent" maxlength="-1" auto-height placeholder-class='placeholder'
+				placeholder="请输入拜访内容" bindinput="getInputValue" class="my_text"></textarea>
+		</view>
+		<view class="info_item_style">
+			<view class='item_title'>需要支持</view>
+			<textarea data-type="needSupport" auto-height maxlength="-1" placeholder-class='placeholder' placeholder="请输入需要支持"
+				bindinput="getInputValue" class="my_text"></textarea>
+		</view>
+		<view class="upload">
+			<view class='item_title'>上传材料</view>
+			<view class="img_list">
+				<view class="img_only">
+					<image class="delete" src="../../../../assets/images/delete.png"></image>
+				</view>
+				<view class="img_only">
+					<image class="upload_img" src="../../../../assets/images/upload.png"></image>
+				</view>
+			</view>
+		</view>
 
- 		<view class="info_item_style">
- 			<view class='item_title'>拜访内容</view>
- 			<textarea maxlength="-1" auto-height placeholder-class='placeholder' placeholder="请输入拜访内容" class="my_text"></textarea>
- 		</view>
- 		<view class="info_item_style">
- 			<view class='item_title'>需要支持</view>
- 			<textarea auto-height maxlength="-1" placeholder-class='placeholder' placeholder="请输入需要支持" class="my_text"></textarea>
- 		</view>
- 		<view class="upload">
- 			<view class='item_title'>上传材料</view>
- 			<view class="img_list">
- 				<view class="img_only">
- 					<image class="delete" src="../../../../assets/images/delete.png"></image>
- 				</view>
- 				<view class="img_only">
- 					<image class="upload_img" src="../../../../assets/images/upload.png"></image>
- 				</view>
- 			</view>
- 		</view>
-
- 	</view>
- 	<view class="submit">提交</view>
- </view>
+	</view>
+	<view class="submit" bindtap="submit">提交</view>
+</view>

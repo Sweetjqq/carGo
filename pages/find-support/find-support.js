@@ -1,11 +1,17 @@
 // pages/find-support/find-support.js
+import {
+  supportList
+} from '../../api/index'
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    pageSize: 5,
+    pageNum: 1,
+    pageTotal: 5,
+    customerName: '',
+    listData: []
   },
 
   /**
@@ -14,53 +20,64 @@ Page({
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      pageNum: 1,
+      customerName: '',
+      listData: []
+    }, () => {
+      this.getList();
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  getList() {
+    const {
+      pageNum,
+      pageSize,
+      customerName,
+      listData
+    } = this.data;
+    const params = {
+      customerName,
+      pageNum,
+      pageSize,
+      phone: wx.myPhone,
+      wechatId: wx.myOpenId
+    }
+    supportList(params).then(data => {
+      this.setData({
+        listData: listData.concat(data)
+      })
+    }).catch(error => {
+      console.log(error)
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  getNextPageData() {
+    const {
+      pageNum,
+      pageTotal
+    } = this.data;
+    if (pageNum < pageTotal) {
+      let newPageNum = pageNum + 1;
+      this.setData({
+        pageNum: newPageNum
+      }, () => {
+        this.getList();
+      })
+    }
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  searchList(event) {
+    const {
+      value
+    } = event.detail;
+    this.setData({
+      customerName: value,
+      pageNum: 1,
+      listData: []
+    }, function () {
+      this.getList();
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

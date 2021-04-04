@@ -1,4 +1,9 @@
 /* pages/visit-customer/visit-customer.wxss */
+page {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .visit-customer-content {
   padding: 32rpx;
   box-sizing: border-box;
@@ -31,6 +36,10 @@
 .weui-input {
   flex: 1;
   margin-left: 24rpx;
+}
+
+.list {
+  height: calc(100vh - 324rpx);
 }
 
 .list_item {

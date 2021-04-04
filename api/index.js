@@ -88,14 +88,6 @@ export const getDictData = (dictType) => {
   })
 }
 
-
-
-
-
-
-
-// 培训视频详情star
-
 /**
  * 培训视频列表
  * @param {*} data 
@@ -132,5 +124,52 @@ export const getTrainById = (data) => {
     url: `interface/custrain/getTrainById`,
   })
 }
+/**
+ * 我的客户列表
+ * @param {*} data 
+ */
+export const getCustomerList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `/interface/customer/getCustomerList`,
+  })
+}
+/**
+ * 新增客户
+ * @param {*} data 
+ */
+export const addCustomer = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `/interface/customer/addCustomer`,
+  })
+}
+/**
+ * 新增拜访
+ * @param {*} data 
+ */
+export const addCusVisit = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `/interface/cusvisit/addCusVisit`,
+  })
+}
 
-// 培训视频详情 end
+/**
+ * 找支持客户列表
+ * @param {*} data 
+ */
+export const supportList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `/interface/cussupport/getCustomerList`,
+  })
+}

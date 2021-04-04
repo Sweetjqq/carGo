@@ -1,7 +1,9 @@
 /* pages/train/train.wxss */
 /* pages/visit-detail/visit-detail.wxss */
 page {
+  height: 100vh;
   background-color: #F6F6F6;
+  overflow: hidden;
 }
 
 .tabBar {
@@ -39,10 +41,16 @@ page {
   flex-wrap: nowrap;
   background: #fff;
 }
-.content{
+
+.content {
   width: 454rpx;
   margin-right: 30rpx;
 }
+
+.list {
+  height: calc(100vh - 300rpx);
+}
+
 .list_item image {
   width: 204rpx;
   height: 148rpx;
@@ -75,4 +83,15 @@ page {
   font-weight: 400;
   color: #999999;
   line-height: 34rpx;
+}
+
+.no_data {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
 }

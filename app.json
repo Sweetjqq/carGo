@@ -11,7 +11,8 @@
     "pages/train/train",
     "pages/train-detail/train-detail",
     "pages/mine/mine",
-    "pages/mineDetail/mineDetail"
+    "pages/mineDetail/mineDetail",
+    "pages/add-customer/add-customer"
   ],
   "window": {
     "backgroundTextStyle": "light",
