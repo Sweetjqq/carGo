@@ -50,14 +50,18 @@ Page({
       "phone": wx.myPhone
     }).then((data) => {
       this.setData({
-        pageTotal:data.pageTotal,
+        pageTotal: data.pageTotal,
         listData: listData.concat(data.rows)
       })
     })
   },
-  goDetail() {
+  goDetail(event) {
+    console.log(event)
+    const {
+      trainid
+    } = event.currentTarget.dataset;
     wx.navigateTo({
-      url: '/pages/train-detail/train-detail',
+      url: `/pages/train-detail/train-detail?trainid=${trainid}`,
     })
   },
 
