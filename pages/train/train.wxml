@@ -18,7 +18,10 @@
 			</block>
 		</block>
 		<block wx:else>
-			<view class="no_data">暂无数据</view>
+			<view class="no_data">
+				<image src="../../assets/images/no_data.png"> </image>
+				<view>暂无数据</view>
+			</view>
 		</block>
 	</scroll-view>
 </view>

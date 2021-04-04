@@ -115,7 +115,16 @@ Page({
   },
   add(params) {
     addCustomer(params).then(data => {
-      console.log(data, ' 新增客户')
+      wx.showToast({
+        title: '添加成功',
+        icon: 'success',
+        duration: 1500
+      })
+      setTimeout(() => {
+        wx.switchTab({
+          url: '/pages/visit-customer/visit-customer',
+        })
+      }, 1600)
     })
   },
   addCustomer() {

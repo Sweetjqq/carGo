@@ -51,6 +51,7 @@ Page({
   onLoad: function (options) {
     this.getDictData();
     let globalCustomer = app.globalData.customer;
+    console.log(globalCustomer,'globalCustomer')
     const {
       customer
     } = this.data;
@@ -195,7 +196,6 @@ Page({
           url: '/pages/index/index',
         })
       }, 1600)
-
     }).catch(err => {
       console.log(err)
     })

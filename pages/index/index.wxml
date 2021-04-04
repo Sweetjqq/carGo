@@ -6,13 +6,15 @@
 			<text class="name">早上好！</text>
 			<view class="input_box">
 				<icon class="icon" color="#fff" type="search" size="28rpx"></icon>
-				<input value="{{inputValue}}" class="weui-input" placeholder-class='placeholder' placeholder="请输入搜索内容" bindconfirm="searchList" />
+				<input value="{{inputValue}}" class="weui-input" placeholder-class='placeholder' placeholder="请输入搜索内容"
+					bindconfirm="searchList" />
 			</view>
 		</view>
 
 	</view>
 	<view class="my_swiper">
-		<swiper bindchange="getCurrent" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" circular="{{circular}}">
+		<swiper bindchange="getCurrent" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}"
+			circular="{{circular}}">
 			<block wx:for="{{background}}" wx:key="index">
 				<swiper-item>
 					<image src="{{item.path}}"></image>
@@ -26,22 +28,31 @@
 		</view>
 	</view>
 	<view class="list_tap">
-		<view wx:for="{{tabContent}}" wx:key="index" class="{{index===activeTab?'tap_item tap_item_active':'tap_item'}}" data-index="{{index}}" bindtap="setActiveTab">
+		<view wx:for="{{tabContent}}" wx:key="index" class="{{index===activeTab?'tap_item tap_item_active':'tap_item'}}"
+			data-index="{{index}}" bindtap="setActiveTab">
 			<text>{{item}}</text>
 			<text class="{{index===activeTab?'active':'active hide_active'}}"></text>
 		</view>
 	</view>
 	<scroll-view class="list_content" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
-		<view class="list flex-alignJustify" data-item="{{item}}" bindtap="customer" wx:for="{{listData}}" wx:key="index">
-			<view class="compony over-ellipsis-2">
-				<text class="name">{{item.customerName}}</text>
-				<view class="money_number over-ellipsis-2">
-					{{item.remark?item.remark:'暂无描述'}}
-					<!-- <text class="money">{{item.money}}</text>
+		<block wx:if="{{listData.length>0}}">
+			<view class="list flex-alignJustify" data-item="{{item}}" bindtap="customer" wx:for="{{listData}}" wx:key="index">
+				<view class="compony over-ellipsis-2">
+					<text class="name">{{item.customerName}}</text>
+					<view class="money_number over-ellipsis-2">
+						{{item.remark?item.remark:'暂无描述'}}
+						<!-- <text class="money">{{item.money}}</text>
 					<text class="number">{{item.number}}</text> -->
+					</view>
 				</view>
+				<view class="btn" style="background:{{buttonType[item.status].bgColor}}">{{item.statusName}}</view>
 			</view>
-			<view class="btn" style="background:{{buttonType[item.status].bgColor}}">{{item.statusName}}</view>
-		</view>
+		</block>
+		<block wx:else>
+			<view class="no_data">
+				<image src="../../assets/images/no_data.png"> </image>
+				<view>暂无数据</view>
+			</view>
+		</block>
 	</scroll-view>
 </view>

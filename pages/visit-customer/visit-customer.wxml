@@ -17,14 +17,20 @@
 			</view>
 		</view>
 		<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
-			<block wx:for="{{listData}}" wx:key="customerApplyId">
-				<view class="list_item" data-item="{{item}}" bindtap="customer">
+			<block wx:if="{{listData.length>0}}">
+				<view wx:for="{{listData}}" wx:key="customerApplyId" class="list_item" data-item="{{item}}" bindtap="customer">
 					<view class="compony_name">{{item.customerName}}</view>
 					<view class="time">
 						<block wx:if="{{item.updateTime}}">
 							最后操作时间：{{item.updateTime}}
 						</block>
 					</view>
+				</view>
+			</block>
+			<block wx:else>
+				<view class="no_data">
+					<image src="../../assets/images/no_data.png"> </image>
+					<view>暂无数据</view>
 				</view>
 			</block>
 		</scroll-view>

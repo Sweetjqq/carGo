@@ -1,6 +1,6 @@
 // pages/visit-customer/visit-customer.js
 import {
-  getCustomerList
+  getVisitCustomerList
 } from '../../api/index';
 const app = getApp();
 Page({
@@ -48,7 +48,7 @@ Page({
       phone: wx.myPhone,
       wechatId: wx.myOpenId
     }
-    getCustomerList(params).then(data => {
+    getVisitCustomerList(params).then(data => {
       this.setData({
         dataTotal:data.dataTotal,
         pageTotal:data.pageTotal,
