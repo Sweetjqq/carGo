@@ -90,7 +90,7 @@ page {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 34rpx;
+  font-size: 30rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #999999;

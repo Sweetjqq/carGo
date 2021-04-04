@@ -48,7 +48,8 @@ Page({
     }
     supportList(params).then(data => {
       this.setData({
-        listData: listData.concat(data)
+        pageTotal:data.pageTotal,
+        listData: listData.concat(data.rows)
       })
     }).catch(error => {
       console.log(error)

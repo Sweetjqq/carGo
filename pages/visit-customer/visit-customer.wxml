@@ -21,7 +21,9 @@
 				<view class="list_item" data-item="{{item}}" bindtap="customer">
 					<view class="compony_name">{{item.customerName}}</view>
 					<view class="time">
-						最后操作时间：2021-03-02
+						<block wx:if="{{item.updateTime}}">
+							最后操作时间：{{item.updateTime}}
+						</block>
 					</view>
 				</view>
 			</block>

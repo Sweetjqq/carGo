@@ -11,7 +11,7 @@
 					<view class="content">
 						<view class="componey_name">航运人工作中最重要的到底是什么？</view>
 						<view class="msg">在“一赢二平七亏”的股市中，通过让专在“一赢二平七亏”的股市中，通过让专</view>
-						<view class="time">2021-03-03 16:00</view>
+						<view class="time" wx:if="{{item.updateTime}}">{{item.updateTime}}</view>
 					</view>
 					<image src="../../assets/images/upload.png"> </image>
 				</view>

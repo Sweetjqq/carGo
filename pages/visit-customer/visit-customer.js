@@ -11,7 +11,7 @@ Page({
   data: {
     pageSize: 5,
     pageNum: 1,
-    pageTotal: 5,
+    pageTotal: 0,
     customerName: '',
     listData: []
   },
@@ -50,7 +50,8 @@ Page({
     }
     getCustomerList(params).then(data => {
       this.setData({
-        listData: listData.concat(data)
+        pageTotal:data.pageTotal,
+        listData: listData.concat(data.rows)
       })
     }).catch(error => {
       console.log(error)
