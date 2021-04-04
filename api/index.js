@@ -23,7 +23,7 @@ export const getPoolCustomerList = (data) => {
     method: 'post',
     data,
     isFail: true,
-    url: `/interface/customer/getPoolCustomerList`,
+    url: `interface/customer/getPoolCustomerList`,
   })
 }
 
@@ -133,7 +133,7 @@ export const getCustomerList = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    url: `/interface/customer/getCustomerList`,
+    url: `interface/customer/getCustomerList`,
   })
 }
 /**
@@ -145,7 +145,7 @@ export const addCustomer = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    url: `/interface/customer/addCustomer`,
+    url: `interface/customer/addCustomer`,
   })
 }
 /**
@@ -157,7 +157,7 @@ export const addCusVisit = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    url: `/interface/cusvisit/addCusVisit`,
+    url: `interface/cusvisit/addCusVisit`,
   })
 }
 
@@ -170,7 +170,7 @@ export const supportList = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    url: `/interface/cussupport/getCustomerList`,
+    url: `interface/cussupport/getCustomerList`,
   })
 }
 
@@ -183,7 +183,7 @@ export const getVisitCustomerList = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    url: `/interface/cusvisit/getCusVisitList`,
+    url: `interface/cusvisit/getCustomerList`,
   })
 }
 /**
@@ -195,6 +195,19 @@ export const getCusVisitList = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    url: `/interface/cussupport/getCusVisitList`,
+    url: `interface/cussupport/getCusVisitList`,
+  })
+}
+
+/**
+ * 支新增支持内容
+ * @param {*} data 
+ */
+export const addCusSupprot = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `interface/cussupport/addCusSupprot`,
   })
 }

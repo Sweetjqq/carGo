@@ -1,6 +1,7 @@
 // pages/support-consulting/support-consulting.js
 import {
-  getCusVisitList
+  getCusVisitList,
+  addCusSupprot
 } from '../../api/index'
 Page({
   /**
@@ -14,12 +15,11 @@ Page({
     listData: []
   },
   getValue(event) {
-    console.log(event)
     const {
       value
     } = event.detail;
     this.setData({
-      value
+      content: value.replace(/(^\s*)|(\s*$)/g, "")
     })
   },
 
@@ -66,4 +66,56 @@ Page({
       console.log(error)
     })
   },
+  getNextPageData() {
+    const {
+      pageNum,
+      pageTotal
+    } = this.data;
+    if (pageNum < pageTotal) {
+      let newPageNum = pageNum + 1;
+      this.setData({
+        pageNum: newPageNum
+      }, () => {
+        this.getList();
+      })
+    }
+  },
+  addCusSupprot() {
+    const {
+      customerid,
+      content
+    } = this.data;
+    const params = {
+      customerId: customerid,
+      phone: wx.myPhone,
+      wechatId: wx.myOpenId,
+      content
+    }
+    addCusSupprot(params).then(data => {
+      this.setData({
+        pageNum: 1,
+        pageTotal: 0,
+        listData: [],
+        content:''
+      }, () => {
+        this.getList()
+      })
+    }).catch(error => {
+      console.log(error)
+    })
+  },
+  submit() {
+    const {
+      content
+    } = this.data;
+    if (content === "") {
+      wx.showToast({
+        title: '内容不能为空',
+        icon: 'none',
+        duration: 1500
+      })
+    } else {
+      this.addCusSupprot();
+    }
+  }
 })

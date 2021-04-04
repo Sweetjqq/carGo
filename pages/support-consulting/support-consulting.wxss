@@ -1,6 +1,8 @@
 /* pages/support-consulting/support-consulting.wxss */
 page {
   background: #F6F6F6;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .question {
@@ -64,6 +66,7 @@ page {
 }
 
 .list {
+  height: calc(100vh - 890rpx);
   margin-top: 20rpx;
   background: #fff;
 }
@@ -100,7 +103,7 @@ page {
 }
 
 .compony_time .time {
-  width: 212rpx;
+  width: 244rpx;
   font-size: 24rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
@@ -114,4 +117,23 @@ page {
   font-weight: 400;
   color: #666666;
   line-height: 36rpx;
+}
+.no_data {
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 28rpx;
+  flex-direction: column;
+}
+
+.no_data image {
+  width: 336rpx;
+  height: 336rpx;
+  margin-bottom: 24rpx;
 }

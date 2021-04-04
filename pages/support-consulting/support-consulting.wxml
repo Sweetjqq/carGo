@@ -2,20 +2,28 @@
 	<my-navigation-bar titleText='找支持' showIcon='{{true}}' />
 	<view class="question">咨询内容</view>
 	<view class="question_box">
-		<textarea maxlength="250" class="value" auto-height placeholder="请输入您咨询内容…" bindinput='getValue' value="{{content}}"></textarea>
+		<textarea maxlength="250" class="value" auto-height placeholder="请输入您咨询内容…" bindinput='getValue'
+			value="{{content}}"></textarea>
 		<text class="font_number">{{content.length}}/250</text>
 	</view>
 	<view class="btn_box">
-		<view class="btn">提交</view>
+		<view class="btn" bindtap="submit">提交</view>
 	</view>
-	<view class="list">
-		<view class="list_item">
-			<view class="compony_time">
-				<text class="name">广州前程国际货运代理有限公司</text>
-				<text class="time">2020-04-20 12:30</text>
+	<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
+		<block wx:if="{{listData.length>0}}">
+			<view class="list_item" wx:for="{{listData}}" wx:key="{{item.supportId}}">
+				<view class="compony_time">
+					<text class="name">{{item.createBy}}</text>
+					<text class="time">{{item.createTime}}</text>
+				</view>
+				<view class="text">{{item.content}}</view>
 			</view>
-			<view class="text">
-				“五穷六绝七翻身”的说法相信都不陌生。据传每到五六月份，市场就要下跌，等到七月才会好转。</view>
-		</view>
-	</view>
+		</block>
+		<block wx:else>
+			<view class="no_data">
+				<image src="../../assets/images/no_data.png"> </image>
+				<view>暂无数据</view>
+			</view>
+		</block>
+	</scroll-view>
 </view>

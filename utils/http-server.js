@@ -39,7 +39,6 @@ function httpServer(opt) {
       isFail,
       allReponse,
       success: function (res) {
-        console.log(res.data, '~~~~~~', url)
         clearTimeout(timer);
         if (res && res.statusCode == 200 && res.data.code == 0) {
           allReponse ? resolve(res.data) : resolve(res.data.result);
