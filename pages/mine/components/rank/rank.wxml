@@ -1,14 +1,13 @@
 <!--pages/mine/rank.wxml-->
-<view class="rank-all-wrap">
-  
-  <view class="rank_name">{{rankTitle}}</view>
-  <view class="rank-wrap">
-    <view class="num-wrap flex-colum-center" style="left={{percentage}}rpx">
-      <view class="num">{{currNum}}</view>
-      <view class="triangle-down"></view>
-    </view>
-    <view class="all-num">/ {{allNum}}</view>
-    <view class="bar"></view>
-    <view class="circle"></view>
-  </view>
+<view class="rank-all-wrap {{isLine?'have-borB':''}}">
+	<view class="rank_name">{{rankTitle}}</view>
+	<view class="rank-wrap">
+		<view class="all-num">/ {{allNum}}</view>
+		<view class="num-wrap flex-colum-center" style='left:{{percentage-numWidth/2}}rpx'>
+			<view class="num" id="num">{{currNum}}</view>
+			<view class="triangle-down"></view>
+		</view>
+		<view class="bar"></view>
+		<view class="circle" style="left:{{percentage-14}}rpx"></view>
+	</view>
 </view>

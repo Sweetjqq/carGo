@@ -1,9 +1,7 @@
-// pages/mine/mine.js
+// pages/mineDetail/mineDetail.js
 import {
-  myData,
-  myDataInfo
+  myData
 } from '../../api/login'
-let app = getApp()
 Page({
 
   /**
@@ -17,35 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-  goMyDetail(){
-   wx.navigateTo({
-     url: '/pages/mineDetail/mineDetail',
-   })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-    if (wx.myOpenId && wx.myPhone) {
-      this.onshowInit();
-    } else {
-      app.getUser(() => {
-        this.onshowInit();
-      });
-    }
-  },
-  onshowInit(){
-    this.getMyData();
-    this.getMyInfo();
+   this.getMyInfo();
   },
   getMyInfo(){
     myData({
@@ -57,14 +27,20 @@ Page({
       })
     })
   },
-  getMyData(){
-    myDataInfo({
-      "phone": wx.myPhone,
-      "wechatId": wx.myOpenId
-    }).then(()=>{
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
 
-    })
   },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
