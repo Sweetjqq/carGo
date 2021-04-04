@@ -48,7 +48,7 @@ Page({
     }
     supportList(params).then(data => {
       this.setData({
-        pageTotal:data.pageTotal,
+        pageTotal: data.pageTotal,
         listData: listData.concat(data.rows)
       })
     }).catch(error => {
@@ -81,4 +81,13 @@ Page({
       this.getList();
     })
   },
+  customer(event) {
+    console.log(event)
+    const {
+      customerid
+    } = event.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/support-consulting/support-consulting?customerid=${customerid}`,
+    })
+  }
 })

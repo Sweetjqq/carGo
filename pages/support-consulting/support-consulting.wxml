@@ -2,8 +2,8 @@
 	<my-navigation-bar titleText='找支持' showIcon='{{true}}' />
 	<view class="question">咨询内容</view>
 	<view class="question_box">
-		<textarea maxlength="250" class="value" auto-height placeholder="请输入您咨询内容…" bindinput='getValue' value="{{value}}"></textarea>
-		<text class="font_number">{{value.length}}/250</text>
+		<textarea maxlength="250" class="value" auto-height placeholder="请输入您咨询内容…" bindinput='getValue' value="{{content}}"></textarea>
+		<text class="font_number">{{content.length}}/250</text>
 	</view>
 	<view class="btn_box">
 		<view class="btn">提交</view>

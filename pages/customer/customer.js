@@ -15,17 +15,17 @@ Page({
   data: {
     customer: {
       customerName: '',
-      industry: '',
+      industry: null,
       turnover: "",
-      peopleNumber: '',
+      peopleNumber: null,
       inscompanyname: '',
       annualPremium: '', //年保费
-      dueDate: "",
+      dueDate: null,
       lossRatio: "",
       lossDetail: '',
       contactsPost: '',
       contactsName: '',
-      insuranceChance: '',
+      insuranceChance: null,
     },
     peopleArray: [],
     industryArray: [],

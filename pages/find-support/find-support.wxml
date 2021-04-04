@@ -9,7 +9,7 @@
 		</view>
 		<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
 			<block wx:if="{{listData.length>0}}">
-				<view wx:for="{{listData}}" wx:key="customerApplyId" class="list_item" data-item="{{item}}" bindtap="customer">
+				<view wx:for="{{listData}}" wx:key="customerApplyId" class="list_item"  bindtap="customer" data-customerId="{{item.customerId}}">
 					<view class="compony_name">{{item.customerName}}</view>
 					<view class="time">
 						最后操作时间：2021-03-02

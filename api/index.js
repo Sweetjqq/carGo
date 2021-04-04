@@ -186,3 +186,15 @@ export const getVisitCustomerList = (data) => {
     url: `/interface/cusvisit/getCusVisitList`,
   })
 }
+/**
+ * 支持记录列表
+ * @param {*} data 
+ */
+export const getCusVisitList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `/interface/cussupport/getCusVisitList`,
+  })
+}
