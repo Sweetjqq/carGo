@@ -28,7 +28,6 @@ export const getPoolCustomerList = (data) => {
 }
 
 /**
- * 
  * 抢客户（客户池）
  */
 export const saveCustomerPool = (data) => {
@@ -36,6 +35,7 @@ export const saveCustomerPool = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
+    allReponse:true,
     url: `interface/customer/saveCustomerPool`,
   })
 }

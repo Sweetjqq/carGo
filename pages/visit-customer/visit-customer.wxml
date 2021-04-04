@@ -9,7 +9,7 @@
 		</view>
 		<view class="my_customer">
 			<view class="customer_number">
-				我的客户(<text>10</text>)
+				我的客户(<text>{{dataTotal}}</text>)
 			</view>
 			<view class="add_customer" bindtap="addCustomer">
 				<image src="../../assets/images/add.png"></image>

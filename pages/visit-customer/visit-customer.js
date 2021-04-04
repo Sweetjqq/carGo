@@ -50,6 +50,7 @@ Page({
     }
     getCustomerList(params).then(data => {
       this.setData({
+        dataTotal:data.dataTotal,
         pageTotal:data.pageTotal,
         listData: listData.concat(data.rows)
       })
