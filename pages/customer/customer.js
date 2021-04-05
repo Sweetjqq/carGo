@@ -49,9 +49,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getDictData();
     let globalCustomer = app.globalData.customer;
-    console.log(globalCustomer,'globalCustomer')
+    console.log(globalCustomer, 'globalCustomer')
     const {
       customer
     } = this.data;
@@ -62,6 +61,7 @@ Page({
     }, () => {
       app.globalData.customer = null
     })
+    this.getDictData();
     if (customer.type == '02') {
       this.getCustomerInfo();
     }
@@ -96,16 +96,19 @@ Page({
     } = event.currentTarget.dataset;
     switch (type) {
       case 'industry':
-        customer[type] = industryArray[value].dictLabel;
+        customer[type] = industryArray[value].dictValue;
+        customer.industry_value = industryArray[value].dictLabel;
         break;
       case "peopleNumber":
-        customer[type] = peopleArray[value].dictLabel;
+        customer.peopleNumber_value = peopleArray[value].dictLabel;
+        customer[type] = peopleArray[value].dictValue;
         break;
       case "dueDate":
         customer[type] = value;
         break;
       case "insuranceChance":
-        customer[type] = insuranceArray[value].dictLabel;
+        customer[type] = insuranceArray[value].dictValue;
+        customer.insuranceChance_value = insuranceArray[value].dictLabel;
         break;
       default:
         break;
@@ -202,10 +205,21 @@ Page({
   },
   // 获取详情
   getCustomerInfo() {
-    const {
-      customer
+    let {
+      customer,
+      peopleArray,
+      industryArray,
+      insuranceArray
     } = this.data;
     getApplyCustomer(customer.customerApplyId).then(data => {
+      console.log(industryArray, '************');
+      if (data.industry) {
+        industryArray.map(item => {
+          if (item.dictValue == data.industry) {
+            customer.industry_value = item.dictLabel;
+          }
+        })
+      }
       this.setData({
         customer: Object.assign(customer, data)
       })
@@ -214,19 +228,17 @@ Page({
         wx.navigateBack({})
       })
     })
-
   },
   // 获取字典字数
   getDictData() {
     const {
       dictType
     } = this.data;
-    dictType.forEach((value, index) => {
+    dictType.forEach(value => {
       getDictData(value.params).then(data => {
         let obj = {};
         obj[value.dataType] = data;
-        this.setData(obj)
-        console.log(data, value.dataType, 'getApplyCustomer')
+        this.setData(obj);
       })
     })
   }

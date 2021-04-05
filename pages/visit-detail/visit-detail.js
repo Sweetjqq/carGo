@@ -2,7 +2,8 @@
 const app = getApp();
 import {
   getDictData,
-  getVisitList
+  getVisitList,
+  getCustomerById
 } from '../../api/index'
 Page({
 
@@ -17,7 +18,8 @@ Page({
     pageSize: 5,
     pageNum: 1,
     pageTotal: 0,
-    listData: []
+    listData: [],
+    customerDetail: {}
   },
   setCurrentTab(event) {
     const {
@@ -25,6 +27,7 @@ Page({
     } = event.currentTarget.dataset;
     if (index === 1) {
       this.getVisitList();
+      this.getCustomerById();
     }
     this.setData({
       currentTab: index
@@ -71,10 +74,37 @@ Page({
       pageSize,
       phone: wx.myPhone,
       wechatId: wx.myOpenId,
-      customerId:customer.customerId,
+      customerId: customer.customerId,
     }
     getVisitList(params).then(data => {
-      console.log(data)
+      this.setData({
+        pageTotal: data.pageTotal,
+        listData: listData.concat(data.rows)
+      })
     })
-  }
+  },
+  getCustomerById() {
+    const {
+      customer
+    } = this.data;
+    getCustomerById(customer.customerId).then(data => {
+      this.setData({
+        customerDetail: data
+      })
+    })
+  },
+  getNextPageData() {
+    const {
+      pageNum,
+      pageTotal
+    } = this.data;
+    if (pageNum < pageTotal) {
+      let newPageNum = pageNum + 1;
+      this.setData({
+        pageNum: newPageNum
+      }, () => {
+        this.getVisitList();
+      })
+    }
+  },
 })

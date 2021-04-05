@@ -9,7 +9,7 @@
 			<new-visit customer="{{customer}}" visitType="{{visitType}}" />
 		</block>
 		<block wx:else>
-			<visit-records customerId="{{customer.customerId}}" />
+			<visit-records listData="{{listData}}" customerDetail="{{customerDetail}}" customerId="{{customer.customerId}}" bindmyevent="getNextPageData"/>
 		</block>
 	</view>
 </view>
