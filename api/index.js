@@ -35,7 +35,7 @@ export const saveCustomerPool = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    allReponse:true,
+    allReponse: true,
     url: `interface/customer/saveCustomerPool`,
   })
 }
@@ -209,5 +209,17 @@ export const addCusSupprot = (data) => {
     method: 'post',
     data,
     url: `interface/cussupport/addCusSupprot`,
+  })
+}
+/**
+ *拜访记录列表
+ * @param {*} data 
+ */
+export const getVisitList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `interface/cusvisit/getCusVisitList`,
   })
 }

@@ -6,7 +6,7 @@
 	</view>
 	<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
 		<block wx:if="{{listData.length>0}}">
-			<view wx:for="{{listData}}" wx:key="{{item.trainId}}" class="list_item" data-trainId="{{item.trainId}}"
+			<view wx:for="{{listData}}" wx:key="trainId" class="list_item" data-trainId="{{item.trainId}}"
 				bindtap="goDetail">
 				<view class="content">
 					<view class="componey_name">航运人工作中最重要的到底是什么？</view>
