@@ -51,7 +51,7 @@ Page({
   onLoad: function (options) {
     this.getDictData();
     let globalCustomer = app.globalData.customer;
-    console.log(globalCustomer,'globalCustomer')
+    console.log(globalCustomer, 'globalCustomer')
     const {
       customer
     } = this.data;
@@ -96,16 +96,19 @@ Page({
     } = event.currentTarget.dataset;
     switch (type) {
       case 'industry':
-        customer[type] = industryArray[value].dictLabel;
+        customer[type] = industryArray[value].dictValue;
+        customer.industry_value = industryArray[value].dictLabel;
         break;
       case "peopleNumber":
-        customer[type] = peopleArray[value].dictLabel;
+        customer.peopleNumber_value = peopleArray[value].dictLabel;
+        customer[type] = peopleArray[value].dictValue;
         break;
       case "dueDate":
         customer[type] = value;
         break;
       case "insuranceChance":
-        customer[type] = insuranceArray[value].dictLabel;
+        customer[type] = insuranceArray[value].dictValue;
+        customer.insuranceChance_value = insuranceArray[value].dictLabel;
         break;
       default:
         break;
@@ -203,7 +206,10 @@ Page({
   // 获取详情
   getCustomerInfo() {
     const {
-      customer
+      customer,
+      peopleArray,
+      industryArray,
+      insuranceArray
     } = this.data;
     getApplyCustomer(customer.customerApplyId).then(data => {
       this.setData({
