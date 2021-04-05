@@ -14,8 +14,7 @@ Page({
     pageSize: 5,
     pageNum: 1,
     pageTotal: 0,
-    listData: [],
-    onlyLearned:false
+    listData: []
   },
   setCurrentTab(event) {
     const {
@@ -33,13 +32,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(app.globalData.trainType=='my'){
-      app.globalData.trainType=null;
-      this.setData({
-        onlyLearned:true,
-        currentTab:1
-      })
-    }
     
   },
   onShow(){
@@ -88,5 +80,19 @@ Page({
     wx.navigateTo({
       url: `/pages/train-detail/train-detail?trainid=${trainid}`,
     })
+  },
+  getNextPageData() {
+    const {
+      pageNum,
+      pageTotal
+    } = this.data;
+    if (pageNum < pageTotal) {
+      let newPageNum = pageNum + 1;
+      this.setData({
+        pageNum: newPageNum
+      }, () => {
+        this.getTrainList();
+      })
+    }
   }
 })

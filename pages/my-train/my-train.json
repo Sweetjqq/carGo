@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "my-navigation-bar": "../../components/my-navigation-bar/my-navigation-bar"
+  }
+}

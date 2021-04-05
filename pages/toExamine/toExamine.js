@@ -69,5 +69,19 @@ Page({
     wx.navigateTo({
       url: `/pages/train-detail/train-detail?trainid=${trainid}`,
     })
+  },
+  getNextPageData() {
+    const {
+      pageNum,
+      pageTotal
+    } = this.data;
+    if (pageNum < pageTotal) {
+      let newPageNum = pageNum + 1;
+      this.setData({
+        pageNum: newPageNum
+      }, () => {
+        this.getTrainList();
+      })
+    }
   }
 })

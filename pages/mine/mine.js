@@ -77,23 +77,22 @@ Page({
       url = '/pages/my-visit/my-visit'
       break;
       case 'train':
-      app.globalData.trainType = 'my';
-      url = '/pages/train/train'
+      url = '/pages/my-train/my-train'
       break;
       case 'examine':
-      url = '';
+      url = '/pages/toExamine/toExamine';
       break;
     }
     console.log(url,'url')
-    if(type=='train'){
-      wx.switchTab({
-        url:url
-      })
-    }else{
+    // if(type=='train'){
+    //   wx.switchTab({
+    //     url:url
+    //   })
+    // }else{
       wx.navigateTo({
         url: url,
       })
-    }
+    // }
     
   },
   /**

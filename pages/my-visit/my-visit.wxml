@@ -1,1 +1,62 @@
-	<my-navigation-bar titleText='我的访客记录' showIcon="{{true}}" />
+	<view class='container'>
+		<my-navigation-bar titleText='我的访客记录' showIcon="{{true}}" />
+		<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
+			<block wx:if="{{listData.length>0}}">
+				<block wx:for="{{listData}}" wx:key="visitId">
+					<view class="operation">
+						<text class="detail">拜访记录：{{item.createTime}}</text>
+						<view class="go_edit" data-visitId="{{item.visitId}}">
+							<image src='../../../../assets/images/go_edit.png'></image>
+							<text>前往修改</text>
+						</view>
+					</view>
+					<view class="basic_info">
+						<view class="box">x
+							<view class="info_item">
+								<text class="name">客户姓名</text>
+								<text class="value">{{item.customerName}}</text>
+							</view>
+							<view class="info_item">
+								<text class="name">拜访方式</text>
+								<text class="value">上门</text>
+							</view>
+							<view class="info_item">
+								<text class="name">拜访时间</text>
+								<text class="value">{{item.visitDate}}</text>
+							</view>
+							<view class="info_item">
+								<text class="name">被拜访人职务</text>
+								<text class="value">{{item.visitPost}}</text>
+							</view>
+							<view class="info_item">
+								<text class="name">被拜访人姓名</text>
+								<text class="value">{{item.visitName}}</text>
+							</view>
+							<view class="info_item_style">
+								<text class="name">拜访内容</text>
+								<text class="value">{{item.visitContent}}</text>
+							</view>
+							<view class="info_item">
+								<text class="name">需要支持</text>
+								<text class="value">{{item.needSupport}}</text>
+							</view>
+							<view class="info_item">
+								<text class="name">上传材料</text>
+							</view>
+							<view class="img_list" wx:if="{{item.visitFiles}}">
+								<view class="image_box">
+									<image src="../../../../assets/images/go_edit.png"></image>
+								</view>
+							</view>
+						</view>
+					</view>
+				</block>
+			</block>
+			<block wx:else>
+				<view class="no_data">
+					<image src="../../assets/images/no_data.png"> </image>
+					<view>暂无数据</view>
+				</view>
+			</block>
+		</scroll-view>
+	</view>

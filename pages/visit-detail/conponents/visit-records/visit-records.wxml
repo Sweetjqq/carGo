@@ -97,8 +97,24 @@
 					<text class="name">被拜访人姓名</text>
 					<text class="value">{{item.visitName}}</text>
 				</view>
+				<view class="info_item_style">
+					<text class="name">拜访内容</text>
+					<text class="value">{{item.visitContent}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">需要支持</text>
+					<text class="value">{{item.needSupport}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">上传材料</text>
+				</view>
+				<view class="img_list" wx:if="{{item.visitFiles}}">
+					<view class="image_box">
+						<image src="../../../../assets/images/go_edit.png"></image>
+					</view>
+				</view>
 			</view>
-			<view class="box">
+			<!-- <view class="box">
 				<view class="title">目前保险状况</view>
 				<view class="info_item">
 					<text class="name">保险公司</text>
@@ -120,8 +136,8 @@
 					<text class="name">往年赔付详情</text>
 					<text class="value">{{item.lossDetail}}</text>
 				</view>
-			</view>
-			<view class="box">
+			</view> -->
+			<!-- <view class="box">
 				<view class="title">其它信息</view>
 				<view class="info_item">
 					<text class="name">关系人职务</text>
@@ -151,7 +167,7 @@
 						<image src="../../../../assets/images/go_edit.png"></image>
 					</view>
 				</view>
-			</view>
+			</view> -->
 		</view>
 	</block>
 </scroll-view>

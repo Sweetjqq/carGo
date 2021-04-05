@@ -1,0 +1,152 @@
+/* pages/visit-detail/conponents/visit-records/visit-records.wxss */
+page {
+  height: 100vh;
+  overflow: hidden;
+}
+.records_box {
+  height: 100%;
+}
+
+.operation {
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #E6E6E6;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.operation .detail {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 32rpx;
+}
+
+.go_edit {
+  display: flex;
+  align-items: center;
+}
+
+.go_edit image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+}
+
+.go_edit text {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #3E95FD;
+  line-height: 24rpx;
+}
+
+.basic_info {
+  width: 750rpx;
+  background: #fff;
+}
+
+.box {
+  width: 686rpx;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #E6E6E6;
+  padding: 40rpx 0;
+  box-sizing: border-box;
+}
+
+.box:last-child {
+  border: none;
+}
+
+.title {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.info_item {
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info_item .name,
+.info_item .value {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+}
+
+.info_item .value {
+  width: 400rpx;
+  text-align: right;
+}
+
+.info_item_style {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.info_item_style .name,
+.info_item_style .value {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+}
+
+.info_item_style .value {
+  width: 400rpx;
+  text-align: right;
+}
+
+.img_list {
+  display: flex;
+}
+
+.img_list .image_box {
+  width: 148rpx;
+  height: 148rpx;
+  border: 1rpx solid #3E95FD;
+  margin: 0 32rpx 32rpx 0;
+}
+
+.img_list .image_box:nth-child(4n) {
+  margin-right: 0;
+}
+
+.img_list .image_box image {
+  width: 100%;
+  height: 100%;
+}
+
+
+.no_data {
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 28rpx;
+  flex-direction: column;
+}
+
+.no_data image {
+  width: 336rpx;
+  height: 336rpx;
+  margin-bottom: 24rpx;
+}

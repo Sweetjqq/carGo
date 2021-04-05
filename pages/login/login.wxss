@@ -6,9 +6,22 @@
   width: 100%;
   height: 100vh;
   display: block;
-  background-color: royalblue;
+  background: linear-gradient(128deg, #47B4FB 0%, #1957B2 100%);
 }
-
+.head-bg{
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 750rpx;
+  height: 660rpx;
+}
+.bottom-bg{
+  position: absolute;
+  bottom: 0rpx;
+  left: 0;
+  width: 750rpx;
+  height: 812rpx;
+}
 .cont {
   position: relative;
   overflow: hidden;

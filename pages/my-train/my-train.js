@@ -12,13 +12,30 @@ Page({
     pageSize: 5,
     pageNum: 1,
     pageTotal: 0,
-    listData: [],
+    listData: []
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getTrainList();
+    
+  },
+  onShow(){
+    if (wx.myOpenId && wx.myPhone) {
+      this.onshowInit();
+    } else {
+      app.getUser(() => {
+        this.onshowInit();
+      });
+    }
+  },
+  onshowInit(){
+    this.setData({
+      pageNum: 1,
+      listData: []
+    }, () => {
+      this.getTrainList();
+    })
   },
   //获取列表
   getTrainList() {
@@ -30,6 +47,7 @@ Page({
     getTrainList({
       pageNum,
       pageSize,
+      "queryType": '01', //01已学,02未学
       "wechatId": wx.myOpenId,
       "phone": wx.myPhone
     }).then((data) => {
