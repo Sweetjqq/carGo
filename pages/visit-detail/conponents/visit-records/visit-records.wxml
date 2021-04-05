@@ -1,4 +1,4 @@
-<scroll-view scroll-y="true" class='records_box'>
+<scroll-view scroll-y="true" class='records_box' bindscrolltolower="getNextData">
 	<!-- 公司详情 -->
 	<view class="operation">
 		<text class="detail">公司详情</text>
@@ -12,153 +12,146 @@
 			<view class="title">基本信息</view>
 			<view class="info_item">
 				<text class="name">客户姓名</text>
-				<text class="value">广州前程国际货运代理有限公司</text>
+				<text class="value">{{customerDetail.customerName}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">行业</text>
-				<text class="value">物流运输</text>
+				<text class="value">{{customerDetail.industry}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">营业额(万元)</text>
-				<text class="value">1000.00</text>
+				<text class="value">{{customerDetail.turnover}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">人数</text>
-				<text class="value">100</text>
+				<text class="value">{{customerDetail.peopleNumber}}</text>
 			</view>
 		</view>
 		<view class="box">
 			<view class="title">目前保险状况</view>
 			<view class="info_item">
 				<text class="name">保险公司</text>
-				<text class="value">中国平安</text>
+				<text class="value">{{customerDetail.inscompanyname}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">年保费(万元)</text>
-				<text class="value">100.00</text>
+				<text class="value">{{customerDetail.annualPremium}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">到期日</text>
-				<text class="value">2024-03-01</text>
+				<text class="value">{{customerDetail.dueDate}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">往年赔付率</text>
-				<text class="value">10%</text>
+				<text class="value">{{customerDetail.lossRatio}}</text>
 			</view>
 			<view class="info_item_style">
 				<text class="name">往年赔付详情</text>
-				<text class="value">请输入往年赔付详情，请输入往年赔付详情请，输入往年赔付详情，输入往年赔付详情</text>
+				<text class="value">{{customerDetail.lossDetail}}</text>
 			</view>
 		</view>
 		<view class="box">
 			<view class="title">其它信息</view>
 			<view class="info_item">
 				<text class="name">关系人职务</text>
-				<text class="value">副总经理</text>
+				<text class="value">{{customerDetail.contactsPost}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">关系人姓名</text>
-				<text class="value">XXX</text>
+				<text class="value">{{customerDetail.contactsName}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">险种机会</text>
-				<text class="value">货主责任险</text>
+				<text class="value">{{customerDetail.insuranceChance}}</text>
 			</view>
 		</view>
 	</view>
 	<!-- 拜访记录 -->
-	<view class="operation">
-		<text class="detail">拜访记录：2020-12-03</text>
-		<view class="go_edit">
-			<image src='../../../../assets/images/go_edit.png'></image>
-			<text>前往修改</text>
-		</view>
-	</view>
-	<view class="basic_info">
-		<view class="box">
-			<view class="info_item">
-				<text class="name">客户姓名</text>
-				<text class="value">广州前程国际货运代理有限公司</text>
-			</view>
-			<view class="info_item">
-				<text class="name">拜访方式</text>
-				<text class="value">上门</text>
-			</view>
-			<view class="info_item">
-				<text class="name">拜访时间</text>
-				<text class="value">2020-09-20</text>
-			</view>
-			<view class="info_item">
-				<text class="name">被拜访人职务</text>
-				<text class="value">副总经理</text>
-			</view>
-			<view class="info_item">
-				<text class="name">被拜访人姓名</text>
-				<text class="value">刘总</text>
+	<block wx:if="{{listData.length>0}}" wx:for="{{listData}}" wx:key="visitId">
+		<view class="operation">
+			<text class="detail">拜访记录：{{item.createTime}}</text>
+			<view class="go_edit" data-visitId="{{item.visitId}}">
+				<image src='../../../../assets/images/go_edit.png'></image>
+				<text>前往修改</text>
 			</view>
 		</view>
-		<view class="box">
-			<view class="title">目前保险状况</view>
-			<view class="info_item">
-				<text class="name">保险公司</text>
-				<text class="value">中国平安</text>
-			</view>
-			<view class="info_item">
-				<text class="name">年保费(万元)</text>
-				<text class="value">100.00</text>
-			</view>
-			<view class="info_item">
-				<text class="name">到期日</text>
-				<text class="value">2024-03-01</text>
-			</view>
-			<view class="info_item">
-				<text class="name">往年赔付率</text>
-				<text class="value">10%</text>
-			</view>
-			<view class="info_item_style">
-				<text class="name">往年赔付详情</text>
-				<text class="value">请输入往年赔付详情，请输入往年赔付详情请，输入往年赔付详情，输入往年赔付详情</text>
-			</view>
-		</view>
-		<view class="box">
-			<view class="title">其它信息</view>
-			<view class="info_item">
-				<text class="name">关系人职务</text>
-				<text class="value">副总经理</text>
-			</view>
-			<view class="info_item">
-				<text class="name">关系人姓名</text>
-				<text class="value">XXX</text>
-			</view>
-			<view class="info_item">
-				<text class="name">险种机会</text>
-				<text class="value">货主责任险</text>
-			</view>
-			<view class="info_item_style">
-				<text class="name">拜访内容</text>
-				<text class="value">请输入往年赔付详情，请输入往年赔付详情请，输入往年赔付详情，输入往年赔付详情</text>
-			</view>
-			<view class="info_item">
-				<text class="name">需要支持</text>
-				<text class="value">需要支持111</text>
-			</view>
-			<view class="info_item">
-				<text class="name">上传材料</text>
-			</view>
-			<view class="img_list">
-				<view class="image_box">
-					<image src="../../../../assets/images/go_edit.png"></image>
+		<view class="basic_info">
+			<view class="box">
+				<view class="info_item">
+					<text class="name">客户姓名</text>
+					<text class="value">{{item.customerName}}</text>
 				</view>
-				<view class="image_box">
-					<image src="../../../../assets/images/go_edit.png"></image>
+				<view class="info_item">
+					<text class="name">拜访方式</text>
+					<text class="value">上门</text>
 				</view>
-				<view class="image_box">
-					<image src="../../../../assets/images/go_edit.png"></image>
+				<view class="info_item">
+					<text class="name">拜访时间</text>
+					<text class="value">{{item.visitDate}}</text>
 				</view>
-				<view class="image_box">
-					<image src="../../../../assets/images/go_edit.png"></image>
+				<view class="info_item">
+					<text class="name">被拜访人职务</text>
+					<text class="value">{{item.visitPost}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">被拜访人姓名</text>
+					<text class="value">{{item.visitName}}</text>
+				</view>
+			</view>
+			<view class="box">
+				<view class="title">目前保险状况</view>
+				<view class="info_item">
+					<text class="name">保险公司</text>
+					<text class="value">{{item.inscompanyname}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">年保费(万元)</text>
+					<text class="value">{{item.annualPremium}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">到期日</text>
+					<text class="value">{{item.dueDate}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">往年赔付率</text>
+					<text class="value">{{item.lossRatio}}</text>
+				</view>
+				<view class="info_item_style">
+					<text class="name">往年赔付详情</text>
+					<text class="value">{{item.lossDetail}}</text>
+				</view>
+			</view>
+			<view class="box">
+				<view class="title">其它信息</view>
+				<view class="info_item">
+					<text class="name">关系人职务</text>
+					<text class="value">{{item.contactsPost}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">关系人姓名</text>
+					<text class="value">{{item.contactsName}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">险种机会</text>
+					<text class="value">{{item.insuranceChance}}</text>
+				</view>
+				<view class="info_item_style">
+					<text class="name">拜访内容</text>
+					<text class="value">{{item.visitContent}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">需要支持</text>
+					<text class="value">{{item.needSupport}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">上传材料</text>
+				</view>
+				<view class="img_list" wx:if="{{item.visitFiles}}">
+					<view class="image_box">
+						<image src="../../../../assets/images/go_edit.png"></image>
+					</view>
 				</view>
 			</view>
 		</view>
-	</view>
+	</block>
 </scroll-view>

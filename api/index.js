@@ -223,3 +223,14 @@ export const getVisitList = (data) => {
     url: `interface/cusvisit/getCusVisitList`,
   })
 }
+/**
+ *客户详情
+ * @param {*} data 
+ */
+export const getCustomerById = (customerId) => {
+  return httpServer({
+    host: 'baseHost',
+    isFail: true,
+    url: `interface/customer/getCustomer/${customerId}`,
+  })
+}
