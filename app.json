@@ -4,6 +4,7 @@
     "pages/login/login",
     "pages/smsCode/smsCode",
     "pages/customer/customer",
+    "pages/my-visit/my-visit",
     "pages/visit-customer/visit-customer",
     "pages/visit-detail/visit-detail",
     "pages/find-support/find-support",
