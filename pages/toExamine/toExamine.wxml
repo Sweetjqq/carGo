@@ -1,20 +1,17 @@
 <view class='container'>
-	<my-navigation-bar titleText='我的审核' />
+	<my-navigation-bar titleText='培训' />
 	<view class="tabBar" wx:if='{{!onlyLearned}}'>
 		<view class=" {{index===currentTab?'tab_item_active tab_item':'tab_item' }}" wx:for="{{tabBarData}}" wx:key="index"
 			data-index="{{index}}" bindtap="setCurrentTab">{{item}}</view>
 	</view>
 	<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
 		<block wx:if="{{listData.length>0}}">
-			<view wx:for="{{listData}}" wx:key="trainId" class="list_item" data-trainId="{{item.trainId}}"
-				bindtap="goDetail">
-				<view class="content">
-					<view class="componey_name">航运人工作中最重要的到底是什么？</view>
-					<view class="msg">在“一赢二平七亏”的股市中，通过让专在“一赢二平七亏”的股市中，通过让专</view>
-					<view class="time" wx:if="{{item.updateTime}}">{{item.updateTime}}</view>
+		<view wx:for="{{listData}}" wx:key="customerApplyId" class="list_item" data-item="{{item}}" bindtap="customer">
+					<view class="compony_name">{{item.customerName}}当然更看到反馈给对方看到风格看到风格</view>
+					<view class="time">
+	         最后操作时间：{{item.updateTime?item.updateTime:'暂无'}}
+					</view>
 				</view>
-				<image src="../../assets/images/upload.png"> </image>
-			</view>
 		</block>
 		<block wx:else>
 			<view class="no_data">

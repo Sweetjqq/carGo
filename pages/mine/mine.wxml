@@ -8,7 +8,7 @@
 			<view class='nick_name'>
 				<open-data type='userNickName'></open-data>
 			</view>
-			<view class="data_integrity">资料完整度40%</view>
+			<!-- <view class="data_integrity">资料完整度40%</view> -->
 		</view>
 		<image class="icon" src='../../assets/images/right_icon.png'> </image>
 	</view>
@@ -27,8 +27,8 @@
 					</view>
 				</view>
 			</view>
-			<rank rankTitle='保费数排名：' allNum='20' currNum='{{myData.premiumRank?myData.premiumRank:0}}' isLine='true'></rank>
-			<rank rankTitle='客户数排名：' allNum='30' currNum='10'></rank>
+			<rank rankTitle='保费数排名：' allNum='20' currNum='{{myData.premiumRank}}' isLine='true'></rank>
+			<rank rankTitle='客户数排名：' allNum='30' currNum='{{myData.signCusRank}}'></rank>
 		</view>
 		<view class="modular">
 			<view class="title">客户数排名</view>
@@ -40,8 +40,8 @@
 					</view>
 				</view>
 			</view>
-			<rank rankTitle='公司排名：' allNum='20' currNum='0' isLine='true'></rank>
-			<rank rankTitle='本机构排名：' allNum='30' currNum='10'></rank>
+			<rank rankTitle='公司排名：' allNum='20' currNum='{{myData.cusCompanyRank}}' isLine='true'></rank>
+			<rank rankTitle='本机构排名：' allNum='30' currNum='{{myData.cusBranchCompanyRank}}'></rank>
 		</view>
 		<view class="modular">
 			<view class="title">用心实干排名</view>
@@ -49,12 +49,12 @@
 				<view class="number">
 					<view class="number_item">
 						<text>访客数：</text>
-						<view class="numbers">30,000.00</view>
+						<view class="numbers">{{myData.visitCount?myData.visitCount:0}}</view>
 					</view>
 				</view>
 			</view>
-			<rank rankTitle='公司排名：' allNum='20' currNum='0' isLine='true'></rank>
-			<rank rankTitle='本机构排名：' allNum='30' currNum='10'></rank>
+			<rank rankTitle='公司排名：' allNum='20' currNum='{{myData.visitCompanyRank}}' isLine='true'></rank>
+			<rank rankTitle='本机构排名：' allNum='30' currNum='{{myData.visitBranchCompanyRank}}'></rank>
 		</view>
 		<view class="modular">
 			<view class="title">参训排名</view>

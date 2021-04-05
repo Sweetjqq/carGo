@@ -1,2 +1,1 @@
-<!--pages/my-visit/my-visit.wxml-->
-<text>pages/my-visit/my-visit.wxml</text>
+	<my-navigation-bar titleText='我的访客记录' showIcon="{{true}}" />

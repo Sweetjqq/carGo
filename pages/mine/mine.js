@@ -77,6 +77,7 @@ Page({
       url = '/pages/my-visit/my-visit'
       break;
       case 'train':
+      app.globalData.trainType = 'my';
       url = '/pages/train/train'
       break;
       case 'examine':

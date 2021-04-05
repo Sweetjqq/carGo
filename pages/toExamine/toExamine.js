@@ -9,13 +9,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabBarData: ['未学', '已学'],
+    tabBarData: ['我的提交', '审核处理中', '审核完成'],
     currentTab: 0,
     pageSize: 5,
     pageNum: 1,
     pageTotal: 0,
     listData: [],
-    onlyLearned:false
   },
   setCurrentTab(event) {
     const {
@@ -33,31 +32,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(app.globalData.trainType=='my'){
-      app.globalData.trainType=null;
-      this.setData({
-        onlyLearned:true,
-        currentTab:1
-      })
-    }
-    
-  },
-  onShow(){
     if (wx.myOpenId && wx.myPhone) {
-      this.onshowInit();
+      this.getTrainList();
     } else {
       app.getUser(() => {
-        this.onshowInit();
-      });
+        this.getTrainList();
+      })
     }
-  },
-  onshowInit(){
-    this.setData({
-      pageNum: 1,
-      listData: []
-    }, () => {
-      this.getTrainList();
-    })
   },
   //获取列表
   getTrainList() {

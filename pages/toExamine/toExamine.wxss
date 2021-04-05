@@ -1,51 +1,40 @@
-/* pages/visit-customer/visit-customer.wxss */
+/* pages/train/train.wxss */
+/* pages/visit-detail/visit-detail.wxss */
 page {
   height: 100vh;
   overflow: hidden;
 }
 
-.visit-customer-content {
-  padding: 32rpx 0;
-  box-sizing: border-box;
-}
-
-.search {
-  width: 686rpx;
-  height: 64rpx;
-  background: #F5F5F5;
-  border-radius: 32rpx;
-  margin: 0 auto 42rpx;
+.tabBar {
+  width: 750rpx;
+  height: 112rpx;
+  background: #FFFFFF;
   display: flex;
   align-items: center;
-  padding: 0 32rpx;
-  box-sizing: border-box;
+  justify-content: space-around;
+  border-bottom: 1rpx solid #E4E4E4;
+  margin-bottom: 22rpx;
 }
 
-.placeholder {
-  font-size: 24rpx;
+.tab_item {
+  text-align: center;
+  line-height: 112rpx;
+  width: 50%;
+  border-bottom: 4rpx solid #fff;
+  font-size: 32rpx;
   font-family: PingFangSC-Regular, PingFang SC, sans-serif;
   font-weight: 400;
-  color: #999999;
-  line-height: 24rpx
+  color: #333333;
 }
 
-.search .icon {
-  width: 32rpx;
-}
-
-.weui-input {
-  flex: 1;
-  margin-left: 24rpx;
-  font-size: 24rpx;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
-  color: #999999;
+.tab_item_active {
+  border-color: #3E95FD;
+  color: #3E95FD;
 }
 
 .list {
-  height: calc(100vh - 324rpx);
+  height: calc(100vh - 300rpx);
 }
-
 .list_item {
   width: 686rpx;
   height: 152rpx;
@@ -58,7 +47,6 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
 }
 .list_item:nth-of-type(1){
   margin-top: 10rpx;
@@ -80,15 +68,6 @@ page {
   margin-top: 16rpx;
 }
 
-.tips {
-  position: absolute;
-  width: 20rpx;
-  height: 20rpx;
-  background: #FF674B;
-  border-radius: 50%;
-  right: 12rpx;
-  top: 12rpx;
-}
 .no_data {
   height: 100%;
   background-color: #fff;

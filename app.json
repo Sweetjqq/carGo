@@ -12,6 +12,7 @@
     "pages/train/train",
     "pages/train-detail/train-detail",
     "pages/mine/mine",
+    "pages/toExamine/toExamine",
     "pages/mineDetail/mineDetail",
     "pages/add-customer/add-customer"
   ],

@@ -5,7 +5,7 @@ page {
 }
 
 .visit-customer-content {
-  padding: 32rpx;
+  padding: 32rpx 0;
   box-sizing: border-box;
 }
 
@@ -43,10 +43,10 @@ page {
 }
 
 .my_customer {
+  margin:0 32rpx 38rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 38rpx;
   flex-wrap: nowrap;
 }
 
@@ -100,7 +100,9 @@ page {
   flex-direction: column;
   justify-content: center;
 }
-
+.list_item:nth-of-type(1){
+  margin-top: 10rpx;
+}
 .compony_name {
   font-size: 28rpx;
   font-family: PingFangSC-Medium, PingFang SC, sans-serif;
