@@ -19,10 +19,10 @@ Page({
   onLoad: function (options) {
 
   },
-  goMyDetail(){
-   wx.navigateTo({
-     url: '/pages/mineDetail/mineDetail',
-   })
+  goMyDetail() {
+    wx.navigateTo({
+      url: '/pages/mineDetail/mineDetail',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -43,27 +43,57 @@ Page({
       });
     }
   },
-  onshowInit(){
+  onshowInit() {
     this.getMyData();
-    this.getMyInfo();
+    // this.getMyInfo();
   },
-  getMyInfo(){
-    myData({
-      "phone": wx.myPhone,
-      "wechatId": wx.myOpenId
-    }).then((data)=>{
-      this.setData({
-        my:data
-      })
-    })
-  },
-  getMyData(){
+  // getMyInfo(){
+  //   myData({
+  //     "phone": wx.myPhone,
+  //     "wechatId": wx.myOpenId
+  //   }).then((data)=>{
+  //     this.setData({
+  //       my:data
+  //     })
+  //   })
+  // },
+  getMyData() {
     myDataInfo({
       "phone": wx.myPhone,
       "wechatId": wx.myOpenId
-    }).then(()=>{
-
+    }).then((data) => {
+      this.setData({
+        myData: data
+      })
     })
+  },
+  goOneServe(e) {
+    const {
+      type
+    } = e.currentTarget.dataset;
+    let url='';
+    switch (type) {
+      case 'visitor':
+      url = '/pages/my-visit/my-visit'
+      break;
+      case 'train':
+      url = '/pages/train/train'
+      break;
+      case 'examine':
+      url = '';
+      break;
+    }
+    console.log(url,'url')
+    if(type=='train'){
+      wx.switchTab({
+        url:url
+      })
+    }else{
+      wx.navigateTo({
+        url: url,
+      })
+    }
+    
   },
   /**
    * 生命周期函数--监听页面隐藏

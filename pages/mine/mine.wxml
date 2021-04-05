@@ -19,15 +19,15 @@
 				<view class="number">
 					<view class="number_item">
 						<text>保费数(万元)：</text>
-						<view class="numbers">30,000.00</view>
+						<view class="numbers">{{myData.premiumCount?myData.premiumCount:0}}</view>
 					</view>
 					<view class="number_item last_number_item">
 						<text>签单客户数：</text>
-						<view class="numbers">200</view>
+						<view class="numbers">{{myData.signCusCount?myData.signCusCount:0}}</view>
 					</view>
 				</view>
 			</view>
-			<rank rankTitle='保费数排名：' allNum='20' currNum='0' isLine='true'></rank>
+			<rank rankTitle='保费数排名：' allNum='20' currNum='{{myData.premiumRank?myData.premiumRank:0}}' isLine='true'></rank>
 			<rank rankTitle='客户数排名：' allNum='30' currNum='10'></rank>
 		</view>
 		<view class="modular">
@@ -36,7 +36,7 @@
 				<view class="number">
 					<view class="number_item">
 						<text>客户数：</text>
-						<view class="numbers">30,000.00</view>
+						<view class="numbers">{{myData.cusCount?myData.cusCount:0}}</view>
 					</view>
 				</view>
 			</view>
@@ -62,44 +62,30 @@
 				<view class="number">
 					<view class="number_item">
 						<text>参训时长(分钟)：</text>
-						<view class="numbers">30,000.00</view>
+						<view class="numbers">{{myData.trainCount?myData.trainCount:0}}</view>
 					</view>
 				</view>
 			</view>
-			<rank rankTitle='保费数排名：' allNum='20' currNum='0' isLine='true'></rank>
-			<rank rankTitle='客户数排名：' allNum='30' currNum='10'></rank>
-		</view>
-		<view class="modular">
-			<view class="title">参训排名</view>
-			<view class="main_msg">
-				<view class="number">
-					<view class="number_item">
-						<text>参训时长(分钟)：</text>
-						<view class="numbers">30,000.00</view>
-					</view>
-				</view>
-			</view>
-			<rank rankTitle='保费数排名：' allNum='20' currNum='0' isLine='true'></rank>
-			<rank rankTitle='客户数排名：' allNum='30' currNum='10'></rank>
+			<rank rankTitle='公司排名：' allNum='20' currNum='{{myData.trainCompanyRank?myData.trainCompanyRank:0}}' isLine='true'></rank>
 		</view>
     <view class="modular">
 			<view class="title no-borderB">我的服务</view>
       <view class="sever-wrap flex-center">
-			  <view class="one-serve flex-column-alignCenter">
+			  <view class="one-serve flex-column-alignCenter" bindtap="goOneServe" data-type='examine'>
 				<image mode="widthFix" src="../../assets/images/examine-icon.png"></image>
 				<text>我的审核</text>
 				</view>
-				 <view class="one-serve flex-column-alignCenter">
+				 <view class="one-serve flex-column-alignCenter" bindtap="goOneServe" data-type='visitor'>
 				<image mode="widthFix" src="../../assets/images/visitor-icon.png"></image>
 				<text>我的访客记录</text>
 				</view>
-				 <view class="one-serve flex-column-alignCenter">
+				 <view class="one-serve flex-column-alignCenter" bindtap="goOneServe" data-type='train'>
 				<image mode="widthFix" src="../../assets/images/train-icon.png"></image>
 				<text>我的培训</text>
 				</view>
 			</view>
 		</view>
-		<view class="out-login">退出登录</view>
+		<!-- <view class="out-login">退出登录</view> -->
 	</view>
 
 

@@ -104,7 +104,8 @@ export default class Tips {
   static error(title, onHide) {
     wx.showToast({
       title: title,
-      image: '/images/error.png',
+      icon:'error',
+      // image: '/images/error.png',
       mask: true,
       duration: 1500,
     });

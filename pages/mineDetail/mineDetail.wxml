@@ -18,46 +18,51 @@
 		<view class="info_item flex-alignJustify">
 			<view class='item_title'>姓名</view>
 			<view class='item_content'>
-				<input data-type="turnover" placeholder-class='placeholder' class="input_value" value="{{my.salerName}}" bindinput="getInputValue" placeholder="刘某某" />
+        {{my.salerName}}
+				<!-- <input data-type="turnover" placeholder-class='placeholder' class="input_value" value="{{my.salerName}}" bindinput="getInputValue" placeholder="刘某某" /> -->
 			</view>
 		</view>
 		<view class="info_item flex-alignJustify">
 			<view class='item_title'>手机号</view>
 			<view class='item_content'>
-				<input data-type="turnover" placeholder-class='placeholder' class="input_value" bindinput="getInputValue"  placeholder="请输入您的手机号" value="{{my.phone}}" />
+        {{my.phone}}
+				<!-- <input data-type="turnover" placeholder-class='placeholder' class="input_value" bindinput="getInputValue"  placeholder="请输入您的手机号" value="{{my.phone}}" /> -->
 			</view>
 		</view>
 		<view class="info_item flex-alignJustify">
 			<view class='item_title'>分公司</view>
-			<picker range-key='dictLabel' data-type='industry' bindchange="bindPickerChange" value="{{my.subCompanyName}}" range="{{industryArray}}">
+      <view class="item_content">{{my.subCompanyName}}</view>
+			<!-- <picker range-key='dictLabel' data-type='industry' bindchange="bindPickerChange" value="{{my.subCompanyName}}" range="{{industryArray}}">
 				<view class='item_content flex-jend-acenter'>
 					<text class="picker_no" wx:if="{{customer.industry==''}}">请选择</text>
 					<text wx:else class="picker_value">{{customer.industry}}</text>
 					<image src="../../assets/images/right_icon.png"> </image>
 				</view>
-			</picker>
+			</picker> -->
 		</view>
 		<view class="info_item flex-alignJustify">
 			<view class='item_title'>支公司</view>
-			<picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange" range="{{insuranceArray}}" value="{{my.branchCompanyName}}">
+      <view class="item_content">{{my.branchCompanyName}}</view>
+			<!-- <picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange" range="{{insuranceArray}}" value="{{my.branchCompanyName}}">
 				<view class='item_content flex-jend-acenter'>
 					<text class="picker_no" wx:if="{{customer.insuranceChance==''}}">请选择</text>
 					<text wx:else class="picker_value">{{customer.insuranceChance}}</text>
 					<image src="../../assets/images/right_icon.png"> </image>
 				</view>
-			</picker>
+			</picker> -->
 		</view>
 		<view class="info_item flex-alignJustify">
 			<view class='item_title'>部门</view>
-			<picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange" range="{{insuranceArray}}" value="{{my.deptName}}">
+      <view class="item_content">{{my.deptName}}</view>
+			<!-- <picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange" range="{{insuranceArray}}" value="{{my.deptName}}">
 				<view class='item_content flex-jend-acenter'>
 					<text class="picker_no" wx:if="{{customer.insuranceChance==''}}">请选择</text>
 					<text wx:else class="picker_value">{{customer.insuranceChance}}</text>
 					<image src="../../assets/images/right_icon.png"> </image>
 				</view>
-			</picker>
+			</picker> -->
 		</view>
 	</view>
 
-		<view class="btn_text" bindtap="getData">保存</view>
+		<!-- <view class="btn_text" bindtap="getData">保存</view> -->
 </view>
