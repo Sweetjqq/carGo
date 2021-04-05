@@ -4,10 +4,12 @@
 		<view class=" {{index===currentTab?'tab_item_active tab_item':'tab_item' }}" wx:for="{{tabBarData}}" wx:key="index"
 			data-index="{{index}}" bindtap="setCurrentTab">{{item}}</view>
 	</view>
-	<block wx:if='{{currentTab===0}}'>
-		<new-visit customer="{{customer}}" />
-	</block>
-	<block wx:else>
-		<visit-records />
-	</block>
+	<view class="scroll_box">
+		<block wx:if='{{currentTab===0}}'>
+			<new-visit customer="{{customer}}" visitType="{{visitType}}" />
+		</block>
+		<block wx:else>
+			<visit-records customerId="{{customer.customerId}}" />
+		</block>
+	</view>
 </view>

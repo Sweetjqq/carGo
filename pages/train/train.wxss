@@ -87,11 +87,20 @@ page {
 
 .no_data {
   height: 100%;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 34rpx;
+  font-size: 28rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #999999;
+  line-height: 28rpx;
+  flex-direction: column;
+}
+
+.no_data image {
+  width: 336rpx;
+  height: 336rpx;
+  margin-bottom: 24rpx;
 }

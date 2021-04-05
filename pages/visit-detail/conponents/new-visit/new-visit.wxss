@@ -1,5 +1,6 @@
 /* pages/customer/components/basic-info/basic-info.wxss */
 .basic_info {
+  height: 100%;
   margin-top: 20rpx;
 }
 
@@ -116,7 +117,6 @@
   width: 148rpx;
   height: 148rpx;
   border-radius: 8rpx;
-  border: 1rpx solid #3E95FD;
   margin: 0 26rpx 30rpx 0;
   position: relative;
 }

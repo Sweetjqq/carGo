@@ -13,7 +13,7 @@ Page({
     currentTab: 0,
     pageSize: 5,
     pageNum: 1,
-    pageTotal: 5,
+    pageTotal: 0,
     listData: []
   },
   setCurrentTab(event) {
@@ -50,13 +50,18 @@ Page({
       "phone": wx.myPhone
     }).then((data) => {
       this.setData({
-        listData: listData.concat(data)
+        pageTotal: data.pageTotal,
+        listData: listData.concat(data.rows)
       })
     })
   },
-  goDetail() {
+  goDetail(event) {
+    console.log(event)
+    const {
+      trainid
+    } = event.currentTarget.dataset;
     wx.navigateTo({
-      url: '/pages/train-detail/train-detail',
+      url: `/pages/train-detail/train-detail?trainid=${trainid}`,
     })
   },
 

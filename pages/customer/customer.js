@@ -15,17 +15,17 @@ Page({
   data: {
     customer: {
       customerName: '',
-      industry: '',
+      industry: null,
       turnover: "",
-      peopleNumber: '',
+      peopleNumber: null,
       inscompanyname: '',
       annualPremium: '', //年保费
-      dueDate: "",
+      dueDate: null,
       lossRatio: "",
       lossDetail: '',
       contactsPost: '',
       contactsName: '',
-      insuranceChance: '',
+      insuranceChance: null,
     },
     peopleArray: [],
     industryArray: [],
@@ -41,7 +41,8 @@ Page({
     }, {
       dataType: 'industryArray',
       params: 'sys_industry_type'
-    }]
+    }],
+    options: {}
   },
 
   /**
@@ -50,6 +51,7 @@ Page({
   onLoad: function (options) {
     this.getDictData();
     let globalCustomer = app.globalData.customer;
+    console.log(globalCustomer,'globalCustomer')
     const {
       customer
     } = this.data;
@@ -146,15 +148,37 @@ Page({
     }
   },
   modalClick() {
+    const {
+      options
+    } = this.data;
     this.setData({
-      showModal: false
+      options: {
+        ...options,
+        show: false
+      }
     })
-    console.log("modal点击了ok")
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   },
   //抢Api
   grabCustomer(params) {
     saveCustomerPool(params).then(data => {
-      console.log(data)
+      const {
+        message
+      } = data;
+      const {
+        options
+      } = this.data;
+      this.setData({
+        options: {
+          ...options,
+          show: true,
+          icon: 'success',
+          title: '提交成功',
+          mdMessage: message
+        }
+      })
     }).catch(error => {
       console.log(error)
     })
@@ -162,7 +186,16 @@ Page({
   //改API
   upDataCustomer(params) {
     updateCustomerPool(params).then(data => {
-
+      wx.showToast({
+        title: '修改信息成功',
+        icon: 'success',
+        duration: 1500
+      })
+      setTimeout(() => {
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      }, 1600)
     }).catch(err => {
       console.log(err)
     })
@@ -173,36 +206,15 @@ Page({
       customer
     } = this.data;
     getApplyCustomer(customer.customerApplyId).then(data => {
-      console.log(data, 'getApplyCustomer')
+      this.setData({
+        customer: Object.assign(customer, data)
+      })
     }).catch(err => {
       app.showTip(err.message, () => {
         wx.navigateBack({})
       })
     })
 
-  },
-  paramsHandle() {
-    let data = {
-      "annualPremium": 0,
-      "contactsName": "string",
-      "contactsPhone": "string",
-      "contactsPost": "string",
-      "customerApplyId": 0,
-      "customerName": "string",
-      "customerPoolId": 0,
-      "deptId": 0,
-      "dueDate": "string",
-      "industry": "string",
-      "inscompanyname": "string",
-      "insuranceChance": "string",
-      "lossDetail": "string",
-      "lossRatio": "string",
-      "peopleNumber": 0,
-      "phone": wx.myOpenId,
-      "turnover": "string",
-      "wechatId": wx.myOpenId
-    }
-    return data;
   },
   // 获取字典字数
   getDictData() {

@@ -1,6 +1,6 @@
 // pages/visit-customer/visit-customer.js
 import {
-  getCustomerList
+  getVisitCustomerList
 } from '../../api/index';
 const app = getApp();
 Page({
@@ -11,7 +11,7 @@ Page({
   data: {
     pageSize: 5,
     pageNum: 1,
-    pageTotal: 5,
+    pageTotal: 0,
     customerName: '',
     listData: []
   },
@@ -48,9 +48,11 @@ Page({
       phone: wx.myPhone,
       wechatId: wx.myOpenId
     }
-    getCustomerList(params).then(data => {
+    getVisitCustomerList(params).then(data => {
       this.setData({
-        listData: listData.concat(data)
+        dataTotal:data.dataTotal,
+        pageTotal:data.pageTotal,
+        listData: listData.concat(data.rows)
       })
     }).catch(error => {
       console.log(error)

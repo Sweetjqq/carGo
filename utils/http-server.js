@@ -2,6 +2,7 @@ import alert from './alert';
 import tip from './tip';
 import * as hosts from './env-config'
 const app = getApp();
+
 function httpServer(opt) {
   const DEFAULT_REQUEST_OPTIONS = {
     url: '',
@@ -20,6 +21,7 @@ function httpServer(opt) {
     header,
     method,
     isFail,
+    allReponse,
     host
   } = options;
   let timer = null;
@@ -35,19 +37,19 @@ function httpServer(opt) {
       method,
       header,
       isFail,
+      allReponse,
       success: function (res) {
-        console.log(res.data,'~~~~~~',url)
         clearTimeout(timer);
-        if (res &&res.statusCode==200 && res.data.code==0) {
-          resolve(res.data.result);
-        } else if(res&&res.statusCode==200&&isFail){
+        if (res && res.statusCode == 200 && res.data.code == 0) {
+          allReponse ? resolve(res.data) : resolve(res.data.result);
+        } else if (res && res.statusCode == 200 && isFail) {
           reject(res.data);
-        } else{
-          alert('提示', res.data&&res.data.message?res.data.message:'系统错误请稍后再试');
+        } else {
+          alert('提示', res.data && res.data.message ? res.data.message : '系统错误请稍后再试');
         }
       },
       fail: function (err) {
-        console.log(err,"*****")
+        console.log(err, "*****")
         clearTimeout(timer);
         if (err.message) {
           alert('提示', err.message);

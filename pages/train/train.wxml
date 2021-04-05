@@ -6,19 +6,21 @@
 	</view>
 	<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
 		<block wx:if="{{listData.length>0}}">
-			<block wx:for="{{listData}}" wx:key="trainId">
-				<view class="list_item" bindtap="goDetail">
-					<view class="content">
-						<view class="componey_name">航运人工作中最重要的到底是什么？</view>
-						<view class="msg">在“一赢二平七亏”的股市中，通过让专在“一赢二平七亏”的股市中，通过让专</view>
-						<view class="time">2021-03-03 16:00</view>
-					</view>
-					<image src="../../assets/images/upload.png"> </image>
+			<view wx:for="{{listData}}" wx:key="trainId" class="list_item" data-trainId="{{item.trainId}}"
+				bindtap="goDetail">
+				<view class="content">
+					<view class="componey_name">航运人工作中最重要的到底是什么？</view>
+					<view class="msg">在“一赢二平七亏”的股市中，通过让专在“一赢二平七亏”的股市中，通过让专</view>
+					<view class="time" wx:if="{{item.updateTime}}">{{item.updateTime}}</view>
 				</view>
-			</block>
+				<image src="../../assets/images/upload.png"> </image>
+			</view>
 		</block>
 		<block wx:else>
-			<view class="no_data">暂无数据</view>
+			<view class="no_data">
+				<image src="../../assets/images/no_data.png"> </image>
+				<view>暂无数据</view>
+			</view>
 		</block>
 	</scroll-view>
 </view>

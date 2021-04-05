@@ -1,6 +1,11 @@
 /* pages/visit-detail/visit-detail.wxss */
 page {
   background-color: #F6F6F6;
+  height: 100vh;
+  overflow: hidden;
+}
+.scroll_box{
+  height: calc(100vh - 300rpx);
 }
 
 .tabBar {

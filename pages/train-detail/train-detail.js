@@ -19,6 +19,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const {trainid}=options;
+    this.setData({
+      trainid
+    })
     let videoContext = wx.createVideoContext('myVideo')
     videoContext.seek(100)
     this.data.initial_time = 100;
@@ -57,10 +61,9 @@ Page({
     })
   },
   getTrainById(){
+    const {trainid}=this.data;
     getTrainById({
-      "queryType": "string",
-      "recordType": "string",
-      "trainId": 0,
+      "trainId": trainid,
       "wechatId": wx.myOpenId,
       "phone": wx.myPhone
     }).then((data)=>{

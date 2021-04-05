@@ -23,12 +23,11 @@ export const getPoolCustomerList = (data) => {
     method: 'post',
     data,
     isFail: true,
-    url: `/interface/customer/getPoolCustomerList`,
+    url: `interface/customer/getPoolCustomerList`,
   })
 }
 
 /**
- * 
  * 抢客户（客户池）
  */
 export const saveCustomerPool = (data) => {
@@ -36,6 +35,7 @@ export const saveCustomerPool = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
+    allReponse: true,
     url: `interface/customer/saveCustomerPool`,
   })
 }
@@ -133,7 +133,7 @@ export const getCustomerList = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    url: `/interface/customer/getCustomerList`,
+    url: `interface/customer/getCustomerList`,
   })
 }
 /**
@@ -145,7 +145,7 @@ export const addCustomer = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    url: `/interface/customer/addCustomer`,
+    url: `interface/customer/addCustomer`,
   })
 }
 /**
@@ -157,7 +157,7 @@ export const addCusVisit = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    url: `/interface/cusvisit/addCusVisit`,
+    url: `interface/cusvisit/addCusVisit`,
   })
 }
 
@@ -170,6 +170,56 @@ export const supportList = (data) => {
     host: 'baseHost',
     method: 'post',
     data,
-    url: `/interface/cussupport/getCustomerList`,
+    url: `interface/cussupport/getCustomerList`,
+  })
+}
+
+/**
+ * 访客户列表
+ * @param {*} data 
+ */
+export const getVisitCustomerList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `interface/cusvisit/getCustomerList`,
+  })
+}
+/**
+ * 支持记录列表
+ * @param {*} data 
+ */
+export const getCusVisitList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `interface/cussupport/getCusVisitList`,
+  })
+}
+
+/**
+ * 支新增支持内容
+ * @param {*} data 
+ */
+export const addCusSupprot = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `interface/cussupport/addCusSupprot`,
+  })
+}
+/**
+ *拜访记录列表
+ * @param {*} data 
+ */
+export const getVisitList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `interface/cusvisit/getCusVisitList`,
   })
 }

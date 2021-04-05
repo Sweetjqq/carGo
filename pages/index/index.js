@@ -33,7 +33,7 @@ Page({
     inputValue: "",
     pageSize: 5,
     pageNum: 1,
-    pageTotal: 5
+    pageTotal: 0
   },
 
   onLoad() {},
@@ -110,7 +110,8 @@ Page({
       pageSize: pageSize
     }).then(data => {
       this.setData({
-        listData: listData.concat(data)
+        pageTotal:data.pageTotal,
+        listData: listData.concat(data.rows)
       })
     })
   },

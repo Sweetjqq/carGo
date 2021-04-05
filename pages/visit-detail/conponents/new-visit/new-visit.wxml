@@ -1,4 +1,4 @@
-<view class='basic_info'>
+<scroll-view scroll-y="true" class='basic_info'>
 	<view class="info_content">
 		<view class="info_item flex-alignJustify">
 			<view class='item_title'>客户姓名</view>
@@ -6,10 +6,10 @@
 		</view>
 		<view class="info_item flex-alignJustify">
 			<view class='item_title'>拜访方式</view>
-			<picker data-type='visit_method' bindchange="bindPickerChange" range="{{methodArray}}">
+			<picker range-key='dictLabel' data-type='visitType' bindchange="bindPickerChange" range="{{visitType}}">
 				<view class='item_content flex-jend-acenter'>
-					<text class="picker_no" wx:if="{{customer.visit_method==''}}">请选择</text>
-					<text wx:else class="picker_value">{{customer.visit_method}}</text>
+					<text class="picker_no" wx:if="{{customer.visitType==null}}">请选择</text>
+					<text wx:else class="picker_value">{{customer.visitType}}</text>
 					<image src="../../../../assets/images/right_icon.png"> </image>
 				</view>
 			</picker>
@@ -54,10 +54,10 @@
 		<view class="upload">
 			<view class='item_title'>上传材料</view>
 			<view class="img_list">
-				<view class="img_only">
-					<image class="delete" src="../../../../assets/images/delete.png"></image>
+				<view class="img_only" wx:for="{{fileArr}}" wx:key="item">
+					<image class="delete" src="{{item}}"></image>
 				</view>
-				<view class="img_only">
+				<view class="img_only" bindtap="chooseImg">
 					<image class="upload_img" src="../../../../assets/images/upload.png"></image>
 				</view>
 			</view>
@@ -65,4 +65,4 @@
 
 	</view>
 	<view class="submit" bindtap="submit">提交</view>
-</view>
+</scroll-view>
