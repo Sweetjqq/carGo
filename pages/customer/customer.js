@@ -49,7 +49,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getDictData();
     let globalCustomer = app.globalData.customer;
     console.log(globalCustomer, 'globalCustomer')
     const {
@@ -62,6 +61,7 @@ Page({
     }, () => {
       app.globalData.customer = null
     })
+    this.getDictData();
     if (customer.type == '02') {
       this.getCustomerInfo();
     }
@@ -205,13 +205,21 @@ Page({
   },
   // 获取详情
   getCustomerInfo() {
-    const {
+    let {
       customer,
       peopleArray,
       industryArray,
       insuranceArray
     } = this.data;
     getApplyCustomer(customer.customerApplyId).then(data => {
+      console.log(industryArray, '************');
+      if (data.industry) {
+        industryArray.map(item => {
+          if (item.dictValue == data.industry) {
+            customer.industry_value = item.dictLabel;
+          }
+        })
+      }
       this.setData({
         customer: Object.assign(customer, data)
       })
@@ -220,19 +228,17 @@ Page({
         wx.navigateBack({})
       })
     })
-
   },
   // 获取字典字数
   getDictData() {
     const {
       dictType
     } = this.data;
-    dictType.forEach((value, index) => {
+    dictType.forEach(value => {
       getDictData(value.params).then(data => {
         let obj = {};
         obj[value.dataType] = data;
-        this.setData(obj)
-        console.log(data, value.dataType, 'getApplyCustomer')
+        this.setData(obj);
       })
     })
   }
