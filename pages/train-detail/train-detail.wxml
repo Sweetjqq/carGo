@@ -1,7 +1,8 @@
 <view class='container'>
 	<my-navigation-bar titleText='培训' showIcon="{{true}}" />
-	<video id="myVideo" bindtimeupdate="timeUpdate" src='http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400' initial-time="{{initial_time}}" poster="视频封面图片链接地址" controls class="video">
-	</video>
+	<video id="myVideo" bindtimeupdate="timeUpdate" src='{{trainInfo.trainPath}}' initial-time="{{initial_time}}" poster="{{trainInfo.picPath}}" controls class="video"></video>
+	<!-- <video id="myVideo" bindtimeupdate="timeUpdate" src='http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400' initial-time="{{initial_time}}" poster="视频封面图片链接地址" controls class="video">
+	</video> -->
 	<view class="video_msg">
 		<text class="title">航运人工作中最重要的到底是什么？</text>
 		<text class="time">发布时间：05-29 16:00</text>

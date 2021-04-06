@@ -10,10 +10,10 @@
 		<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
 			<block wx:if="{{listData.length>0}}">
 				<view wx:for="{{listData}}" wx:key="customerApplyId" class="list_item" bindtap="customer"
-					data-customerId="{{item.customerId}}">
+					data-customerId="{{item.customerId}}" data-supportmsg='{{item.supportMsg}}'>
 					<view class="compony_name">{{item.customerName}}</view>
 					<view class="time">
-						最后操作时间：2021-03-02
+						最后操作时间：{{item.lastOperateTime?item.lastOperateTime:'暂无'}}
 					</view>
 					<view class="tips" wx:if="{{item.supportMsg===true}}"></view>
 				</view>

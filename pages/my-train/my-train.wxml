@@ -9,7 +9,7 @@
 					<view class="msg">在“一赢二平七亏”的股市中，通过让专在“一赢二平七亏”的股市中，通过让专</view>
 					<view class="time" wx:if="{{item.updateTime}}">{{item.updateTime}}</view>
 				</view>
-				<image src="../../assets/images/upload.png"> </image>
+				<image src="{{item.picPath?item.picPath:'../../assets/images/upload.png'}}"></image>
 			</view>
 		</block>
 		<block wx:else>

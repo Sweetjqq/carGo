@@ -56,15 +56,12 @@ Page({
     } = this.data;
     this.setData({
       customer: Object.assign(customer, globalCustomer),
-      titleText: customer.type === '02' ? '修改客户' : '抢客户',
-      btnText: customer.type === '02' ? '提交修改' : '客户归我'
+      titleText: customer.type === '01' ? '修改客户' : '抢客户',
+      btnText: customer.type === '01' ? '提交修改' : '客户归我'
     }, () => {
       app.globalData.customer = null
     })
     this.getDictData();
-    if (customer.type == '02') {
-      this.getCustomerInfo();
-    }
   },
 
   /**
@@ -144,9 +141,9 @@ Page({
       phone: wx.myPhone,
       wechatId: wx.myOpenId
     }
-    if (customer.type === '01') {
+    if (customer.type === '00') {
       this.grabCustomer(newParams);
-    } else if (customer.type === '02') {
+    } else if (customer.type === '01') {
       this.upDataCustomer(newParams);
     }
   },
@@ -220,6 +217,20 @@ Page({
           }
         })
       }
+      if (data.peopleNumber) {
+        peopleArray.map(item => {
+          if (item.dictValue == data.peopleNumber) {
+            customer.peopleNumber_value = item.dictLabel;
+          }
+        })
+      }
+      if (data.insuranceChance) {
+        insuranceArray.map(item => {
+          if (item.dictValue == data.insuranceChance) {
+            customer.insuranceChance_value = item.dictLabel;
+          }
+        })
+      }
       this.setData({
         customer: Object.assign(customer, data)
       })
@@ -230,16 +241,22 @@ Page({
     })
   },
   // 获取字典字数
-  getDictData() {
+  async getDictData() {
     const {
-      dictType
+      dictType,
+      customer
     } = this.data;
-    dictType.forEach(value => {
-      getDictData(value.params).then(data => {
+    for (let i = 0; i < dictType.length; i++) {
+      await getDictData(dictType[i].params).then(data => {
         let obj = {};
-        obj[value.dataType] = data;
+        obj[dictType[i].dataType] = data;
         this.setData(obj);
+        if (i == dictType.length - 1) {
+          if (customer.type == '01') {
+            this.getCustomerInfo();
+          }
+        }
       })
-    })
+    }
   }
 })

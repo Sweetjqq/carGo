@@ -175,6 +175,17 @@ export const supportList = (data) => {
 }
 
 /**
+ *  修改找支持的未读状态
+ * @param {*} data 
+ */
+export const updateSupportMsgStatus= (customerId) => {
+  return httpServer({
+    host: 'baseHost',
+    url: `interface/cussupport/updateSupportMsgStatus/${customerId}`,
+  })
+}
+
+/**
  * 访客户列表
  * @param {*} data 
  */

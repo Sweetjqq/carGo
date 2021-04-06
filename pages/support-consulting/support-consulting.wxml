@@ -11,7 +11,7 @@
 	</view>
 	<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
 		<block wx:if="{{listData.length>0}}">
-			<view class="list_item" wx:for="{{listData}}" wx:key="{{item.supportId}}">
+			<view class="list_item" wx:for="{{listData}}" wx:key="supportId">
 				<view class="compony_time">
 					<text class="name">{{item.createBy}}</text>
 					<text class="time">{{item.createTime}}</text>

@@ -62,7 +62,8 @@
 			<view class='item_title'>上传材料</view>
 			<view class="img_list">
 				<view class="img_only" wx:for="{{fileArr}}" wx:key="item">
-					<image class="delete" src="{{item}}"></image>
+				  <image src="{{baseHost+item.filePath}}" class="bg"></image>
+					<image class="delete" src="../../../../assets/images/delete.png" data-index='{{index}}' bindtap="deleteImg"></image>
 				</view>
 				<view class="img_only" bindtap="chooseImg">
 					<image class="upload_img" src="../../../../assets/images/upload.png"></image>
@@ -71,5 +72,5 @@
 		</view>
 
 	</view>
-	<view class="submit" bindtap="submit">提交</view>
+	<view class="submit" bindtap="addVisit">提交</view>
 </scroll-view>

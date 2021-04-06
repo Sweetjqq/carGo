@@ -21,9 +21,7 @@
 				<view wx:for="{{listData}}" wx:key="customerApplyId" class="list_item" data-item="{{item}}" bindtap="customer">
 					<view class="compony_name">{{item.customerName}}</view>
 					<view class="time">
-						<block wx:if="{{item.updateTime}}">
-							最后操作时间：{{item.updateTime}}
-						</block>
+							最后操作时间：{{item.lastOperateTime?item.lastOperateTime:'暂无'}}
 					</view>
 				</view>
 			</block>

@@ -1,7 +1,10 @@
 // pages/find-support/find-support.js
 import {
-  supportList
+  supportList,
+  updateSupportMsgStatus
+
 } from '../../api/index'
+let app=getApp()
 Page({
   /**
    * 页面的初始数据
@@ -24,6 +27,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (wx.myOpenId && wx.myPhone) {
+      this.onshowInit();
+    } else {
+      app.getUser(() => {
+        this.onshowInit();
+      });
+    }
+  },
+  onshowInit(){
     this.setData({
       pageNum: 1,
       customerName: '',
@@ -84,10 +96,15 @@ Page({
   customer(event) {
     console.log(event)
     const {
-      customerid
+      customerid,
+      supportmsg
     } = event.currentTarget.dataset;
     wx.navigateTo({
       url: `/pages/support-consulting/support-consulting?customerid=${customerid}`,
+      success: (res)=> {
+        if(!supportmsg)return;
+        updateSupportMsgStatus(customerid)
+      }
     })
   }
 })

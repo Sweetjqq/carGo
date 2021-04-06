@@ -109,8 +109,8 @@
 					<text class="name">上传材料</text>
 				</view>
 				<view class="img_list" wx:if="{{item.visitFiles}}">
-					<view class="image_box">
-						<image src="../../../../assets/images/go_edit.png"></image>
+					<view class="image_box" wx:for="{{item.visitFiles}}" wx:for-item="itemName" wx:key="attachmentPath">
+						<image src="{{baseHost+itemName.attachmentPath}}"></image>
 					</view>
 				</view>
 			</view>

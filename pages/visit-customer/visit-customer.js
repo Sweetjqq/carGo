@@ -26,6 +26,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (wx.myOpenId && wx.myPhone) {
+      this.onshowInit();
+    } else {
+      app.getUser(() => {
+        this.onshowInit();
+      });
+    }
+  },
+  onshowInit() {
     this.setData({
       pageNum: 1,
       customerName: '',
@@ -50,8 +59,8 @@ Page({
     }
     getVisitCustomerList(params).then(data => {
       this.setData({
-        dataTotal:data.dataTotal,
-        pageTotal:data.pageTotal,
+        dataTotal: data.dataTotal,
+        pageTotal: data.pageTotal,
         listData: listData.concat(data.rows)
       })
     }).catch(error => {
@@ -91,7 +100,7 @@ Page({
   },
   customer(event) {
     const item = event.currentTarget.dataset.item;
-    app.globalData.customer =item;
+    app.globalData.customer = item;
     wx.navigateTo({
       url: `/pages/visit-detail/visit-detail`,
     })

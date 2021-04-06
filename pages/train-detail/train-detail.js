@@ -19,13 +19,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const {trainid}=options;
+    const {
+      trainid
+    } = options;
     this.setData({
       trainid
     })
-    let videoContext = wx.createVideoContext('myVideo')
-    videoContext.seek(100)
-    this.data.initial_time = 100;
   },
   //监听视频播放进度
   timeUpdate: function (e) {
@@ -49,24 +48,39 @@ Page({
     this.data.duration = duration;
   },
   updateDuration() {
-    updateDuration({
-      "duration": "string",
-      "queryType": "string",
-      "recordType": "string",
-      "trainId": 0,
-      "wechatId": wx.myOpenId,
-      "phone": wx.myPhone
-    }).then((data) => {
+    const {
+      trainid,
+      duration,
+      video_real_time
+    } = this.data;
+    if (duration >= 0) {
+      updateDuration({
+        "duration": video_real_time,
+        "total": duration,
+        "trainId": trainid,
+        "wechatId": wx.myOpenId,
+        "phone": wx.myPhone
+      }).then((data) => {
 
-    })
+      })
+    }
+
   },
-  getTrainById(){
-    const {trainid}=this.data;
+  getTrainById() {
+    const {
+      trainid
+    } = this.data;
     getTrainById({
       "trainId": trainid,
       "wechatId": wx.myOpenId,
       "phone": wx.myPhone
-    }).then((data)=>{
+    }).then((data) => {
+      let videoContext = wx.createVideoContext('myVideo')
+      videoContext.seek(data.duration ? data.duration : 0)
+      this.setData({
+        trainInfo: data,
+        initial_time: data.duration ? data.duration : 0
+      })
 
     })
   },
@@ -88,13 +102,15 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    this.updateDuration();
+    console.log('onhide');
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log('onunload');
+    this.updateDuration();
   }
 })

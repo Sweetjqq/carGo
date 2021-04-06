@@ -15,18 +15,23 @@ Page({
     tabContent: ['全国机会', '身边机会'],
     activeTab: 0,
     buttonType: {
-      '01': {
+      '00': {
         text: '抢',
         bgColor: '#3E95FD'
       },
-      '02': {
+      '01': {
         text: '改',
         bgColor: '#FD9A3E'
+      },
+      '02': {
+        text: '已得',
+        bgColor: '#80CA5B'
       },
       '03': {
         text: '名花有主',
         bgColor: '#80CA5B'
       }
+      //00初始(抢) 01(改),02已审核(已得),03已归属(别人名花有主)
       //01 抢 02 改 03 名花有主
     },
     listData: [],
@@ -117,16 +122,17 @@ Page({
   },
   customer(event) {
     const item = event.currentTarget.dataset.item;
-    if (item.status === '03') return;
-    app.globalData.customer = {
-      type: item.status,
-      customerName: item.customerName,
-      customerPoolId: item.customerPoolId,
-      customerApplyId: item.customerApplyId
+    if (item.status === '00' || item.status === '01'){
+      app.globalData.customer = {
+        type: item.status,
+        customerName: item.customerName,
+        customerPoolId: item.customerPoolId,
+        customerApplyId: item.customerApplyId
+      }
+      wx.navigateTo({
+        url: `/pages/customer/customer`,
+      })
     }
-    wx.navigateTo({
-      url: `/pages/customer/customer`,
-    })
   },
   searchList(event) {
     const {
