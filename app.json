@@ -1,5 +1,5 @@
 {
-  "pages": [
+  "pages": [ 
     "pages/index/index",
     "pages/login/login",
     "pages/smsCode/smsCode",
@@ -15,7 +15,8 @@
     "pages/mine/mine",
     "pages/toExamine/toExamine",
     "pages/mineDetail/mineDetail",
-    "pages/add-customer/add-customer"
+    "pages/add-customer/add-customer",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",

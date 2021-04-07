@@ -1,0 +1,3 @@
+<!--pages/test/test.wxml-->
+	<select-insurance bind:saveInsurance='getInsData' showInsurance='{{showInsurance}}' orInsuraData="{{orInsuraData}}" selectedIns="{{selected}}">
+  </select-insurance>
