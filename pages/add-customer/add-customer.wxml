@@ -15,8 +15,8 @@
         <view class='item_title'>行业</view>
         <picker range-key='dictLabel' data-type='industry' bindchange="bindPickerChange" range="{{industryArray}}">
           <view class='item_content flex-jend-acenter'>
-            <text class="picker_no" wx:if="{{customer.industry==''}}">请选择</text>
-            <text wx:else class="picker_value">{{customer.industry}}</text>
+            <text class="picker_no" wx:if="{{!customer.industry_value}}">请选择</text>
+            <text wx:else class="picker_value">{{customer.industry_value}}</text>
             <image src="../../assets/images/right_icon.png"> </image>
           </view>
         </picker>
@@ -32,8 +32,8 @@
         <view class='item_title'>人数</view>
         <picker range-key='dictLabel' data-type='peopleNumber' bindchange="bindPickerChange" range="{{peopleArray}}">
           <view class='item_content flex-jend-acenter'>
-            <text class="picker_no" wx:if="{{customer.peopleNumber==''}}">请选择</text>
-            <text wx:else class="picker_value">{{customer.peopleNumber}}</text>
+            <text class="picker_no" wx:if="{{!customer.peopleNumber_value}}">请选择</text>
+            <text wx:else class="picker_value">{{customer.peopleNumber_value}}</text>
             <image src="../../assets/images/right_icon.png"> </image>
           </view>
         </picker>
@@ -105,8 +105,8 @@
         <picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange"
           range="{{insuranceArray}}">
           <view class='item_content flex-jend-acenter'>
-            <text class="picker_no" wx:if="{{customer.insuranceChance==''}}">请选择</text>
-            <text wx:else class="picker_value">{{customer.insuranceChance}}</text>
+            <text class="picker_no" wx:if="{{!customer.insuranceChance_value}}">请选择</text>
+            <text wx:else class="picker_value">{{customer.insuranceChance_value}}</text>
             <image src="../../assets/images/right_icon.png"> </image>
           </view>
         </picker>

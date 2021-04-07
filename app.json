@@ -15,7 +15,9 @@
     "pages/mine/mine",
     "pages/toExamine/toExamine",
     "pages/mineDetail/mineDetail",
-    "pages/add-customer/add-customer"
+    "pages/add-customer/add-customer",
+    "pages/edit-myCustomer/edit-myCustomer",
+    "pages/edit-myVisit/edit-myVisit"
   ],
   "window": {
     "backgroundTextStyle": "light",

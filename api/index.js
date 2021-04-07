@@ -178,7 +178,7 @@ export const supportList = (data) => {
  *  修改找支持的未读状态
  * @param {*} data 
  */
-export const updateSupportMsgStatus= (customerId) => {
+export const updateSupportMsgStatus = (customerId) => {
   return httpServer({
     host: 'baseHost',
     url: `interface/cussupport/updateSupportMsgStatus/${customerId}`,
@@ -282,5 +282,16 @@ export const myTrainList = (data) => {
     method: 'post',
     data,
     url: `interface/saler/getTrainListBySaler`,
+  })
+}
+/**
+ *拜访记录详情
+ * @param {*} data 
+ */
+export const getCusVisitDetail = (visitId) => {
+  return httpServer({
+    host: 'baseHost',
+    isFail: true,
+    url: `interface/cusvisit/getCusVisit/${visitId}`,
   })
 }
