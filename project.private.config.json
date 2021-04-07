@@ -1,0 +1,106 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/customer/customer",
+          "pathName": "pages/customer/customer",
+          "query": "type=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/visit-customer/visit-customer",
+          "pathName": "pages/visit-customer/visit-customer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/visit-detail/visit-detail",
+          "pathName": "pages/visit-detail/visit-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/find-support/find-support",
+          "pathName": "pages/find-support/find-support",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/support-consulting/support-consulting",
+          "pathName": "pages/support-consulting/support-consulting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/train/train",
+          "pathName": "pages/train/train",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/train-detail/train-detail",
+          "pathName": "pages/train-detail/train-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "pages/smsCode/smsCode",
+          "pathName": "pages/smsCode/smsCode",
+          "query": "phone=18317775214",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "login",
+          "pathName": "pages/login/login",
+          "query": "phone=18317775214",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mineDetail/mineDetail",
+          "pathName": "pages/mineDetail/mineDetail",
+          "query": "phone=18317775214",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/toExamine/toExamine",
+          "pathName": "pages/toExamine/toExamine",
+          "query": "phone=18317775214",
+          "scene": null
+        },
+        {
+          "name": "pages/edit-myVisit/edit-myVisit",
+          "pathName": "pages/edit-myVisit/edit-myVisit",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -58,7 +58,8 @@ Component({
       } = event.currentTarget.dataset;
       switch (type) {
         case 'visitType':
-          customer[type] = visitType[value].dictLabel;
+          customer[type] = visitType[value].dictValue;
+          customer.visitType_value = visitType[value].dictLabel;
           break;
         case "visitDate":
           customer[type] = value;
@@ -214,10 +215,6 @@ Component({
       this.setData({
         fileArr
       })
-
-      // fileArr.filter((item, index) => {
-      //   return index !== index;
-      // })
     }
   }
 })

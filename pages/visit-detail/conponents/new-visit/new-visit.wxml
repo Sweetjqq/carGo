@@ -8,8 +8,8 @@
 			<view class='item_title'>拜访方式</view>
 			<picker range-key='dictLabel' data-type='visitType' bindchange="bindPickerChange" range="{{visitType}}">
 				<view class='item_content flex-jend-acenter'>
-					<text class="picker_no" wx:if="{{customer.visitType==null}}">请选择</text>
-					<text wx:else class="picker_value">{{customer.visitType}}</text>
+					<text class="picker_no" wx:if="{{!customer.visitType_value}}">请选择</text>
+					<text wx:else class="picker_value">{{customer.visitType_value}}</text>
 					<image src="../../../../assets/images/right_icon.png"> </image>
 				</view>
 			</picker>
@@ -62,8 +62,9 @@
 			<view class='item_title'>上传材料</view>
 			<view class="img_list">
 				<view class="img_only" wx:for="{{fileArr}}" wx:key="item">
-				  <image src="{{baseHost+item.filePath}}" class="bg"></image>
-					<image class="delete" src="../../../../assets/images/delete.png" data-index='{{index}}' bindtap="deleteImg"></image>
+					<image src="{{baseHost+item.filePath}}" class="bg"></image>
+					<image class="delete" src="../../../../assets/images/delete.png" data-index='{{index}}' bindtap="deleteImg">
+					</image>
 				</view>
 				<view class="img_only" bindtap="chooseImg">
 					<image class="upload_img" src="../../../../assets/images/upload.png"></image>

@@ -2,7 +2,7 @@
 	<!-- 公司详情 -->
 	<view class="operation">
 		<text class="detail">公司详情</text>
-		<view class="go_edit">
+		<view class="go_edit"  bindtap="editMyCustomer">
 			<image src='../../../../assets/images/go_edit.png'></image>
 			<text>前往修改</text>
 		</view>
@@ -12,30 +12,30 @@
 			<view class="title">基本信息</view>
 			<view class="info_item">
 				<text class="name">客户姓名</text>
-				<text class="value">{{customerDetail.customerName}}</text>
+				<text class="value">{{customerDetail.customerName?customerDetail.customerName:''}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">行业</text>
-				<text class="value">{{customerDetail.industry}}</text>
+				<text class="value">{{customerDetail.industry?customerDetail.industry:''}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">营业额(万元)</text>
-				<text class="value">{{customerDetail.turnover}}</text>
+				<text class="value">{{customerDetail.turnover?customerDetail.turnover:''}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">人数</text>
-				<text class="value">{{customerDetail.peopleNumber}}</text>
+				<text class="value">{{customerDetail.peopleNumber?customerDetail.peopleNumber:''}}</text>
 			</view>
 		</view>
 		<view class="box">
 			<view class="title">目前保险状况</view>
 			<view class="info_item">
 				<text class="name">保险公司</text>
-				<text class="value">{{customerDetail.inscompanyname}}</text>
+				<text class="value">{{customerDetail.inscompanyname?customerDetail.inscompanyname:''}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">年保费(万元)</text>
-				<text class="value">{{customerDetail.annualPremium}}</text>
+				<text class="value">{{customerDetail.annualPremium?customerDetail.annualPremium:''}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">到期日</text>
@@ -43,26 +43,26 @@
 			</view>
 			<view class="info_item">
 				<text class="name">往年赔付率</text>
-				<text class="value">{{customerDetail.lossRatio}}</text>
+				<text class="value">{{customerDetail.lossRatio?customerDetail.lossRatio:''}}</text>
 			</view>
 			<view class="info_item_style">
 				<text class="name">往年赔付详情</text>
-				<text class="value">{{customerDetail.lossDetail}}</text>
+				<text class="value">{{customerDetail.lossDetail?customerDetail.lossDetail:''}}</text>
 			</view>
 		</view>
 		<view class="box">
 			<view class="title">其它信息</view>
 			<view class="info_item">
 				<text class="name">关系人职务</text>
-				<text class="value">{{customerDetail.contactsPost}}</text>
+				<text class="value">{{customerDetail.contactsPost?customerDetail.contactsPost:''}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">关系人姓名</text>
-				<text class="value">{{customerDetail.contactsName}}</text>
+				<text class="value">{{customerDetail.contactsName?customerDetail.contactsName:''}}</text>
 			</view>
 			<view class="info_item">
 				<text class="name">险种机会</text>
-				<text class="value">{{customerDetail.insuranceChance}}</text>
+				<text class="value">{{customerDetail.insuranceChance?customerDetail.insuranceChance:''}}</text>
 			</view>
 		</view>
 	</view>
@@ -70,7 +70,7 @@
 	<block wx:if="{{listData.length>0}}" wx:for="{{listData}}" wx:key="visitId">
 		<view class="operation">
 			<text class="detail">拜访记录：{{item.createTime}}</text>
-			<view class="go_edit" data-visitId="{{item.visitId}}">
+			<view class="go_edit" data-visitId="{{item.visitId}}" bindtap="editMyVisit">
 				<image src='../../../../assets/images/go_edit.png'></image>
 				<text>前往修改</text>
 			</view>
@@ -79,31 +79,31 @@
 			<view class="box">
 				<view class="info_item">
 					<text class="name">客户姓名</text>
-					<text class="value">{{item.customerName}}</text>
+					<text class="value">{{item.customerName?item.customerName:''}}</text>
 				</view>
 				<view class="info_item">
 					<text class="name">拜访方式</text>
-					<text class="value">上门</text>
+					<text class="value">{{item.visitType?item.visitType:''}}</text>
 				</view>
 				<view class="info_item">
 					<text class="name">拜访时间</text>
-					<text class="value">{{item.visitDate}}</text>
+					<text class="value">{{item.visitDate?item.visitDate:''}}</text>
 				</view>
 				<view class="info_item">
 					<text class="name">被拜访人职务</text>
-					<text class="value">{{item.visitPost}}</text>
+					<text class="value">{{item.visitPost?item.visitPost:''}}</text>
 				</view>
 				<view class="info_item">
 					<text class="name">被拜访人姓名</text>
-					<text class="value">{{item.visitName}}</text>
+					<text class="value">{{item.visitName?item.visitName:''}}</text>
 				</view>
 				<view class="info_item_style">
 					<text class="name">拜访内容</text>
-					<text class="value">{{item.visitContent}}</text>
+					<text class="value">{{item.visitContent?item.visitContent:''}}</text>
 				</view>
 				<view class="info_item">
 					<text class="name">需要支持</text>
-					<text class="value">{{item.needSupport}}</text>
+					<text class="value">{{item.needSupport?item.needSupport:''}}</text>
 				</view>
 				<view class="info_item">
 					<text class="name">上传材料</text>

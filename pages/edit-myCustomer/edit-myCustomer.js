@@ -1,6 +1,8 @@
+// pages/customer/customer.js
 let app = getApp();
 import {
-  addCustomer,
+  getCustomerById,
+  updateCustomer,
   getDictData
 } from '../../api/index'
 
@@ -12,17 +14,17 @@ Page({
   data: {
     customer: {
       customerName: '',
-      industry: '',
+      industry: null,
       turnover: "",
-      peopleNumber: '',
+      peopleNumber: null,
       inscompanyname: '',
       annualPremium: '', //年保费
-      dueDate: "",
+      dueDate: null,
       lossRatio: "",
       lossDetail: '',
       contactsPost: '',
       contactsName: '',
-      insuranceChance: '',
+      insuranceChance: null,
     },
     peopleArray: [],
     industryArray: [],
@@ -38,30 +40,27 @@ Page({
     }, {
       dataType: 'industryArray',
       params: 'sys_industry_type'
-    }]
+    }],
+    options: {},
+    customerId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getDictData();
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+    const {
+      customerId
+    } = options;
+    this.setData({
+      customerId
+    }, () => {
+      this.getDictData();
+    })
 
   },
   bindPickerChange(event) {
+    console.log(event)
     const {
       value
     } = event.detail;
@@ -115,21 +114,7 @@ Page({
     })
 
   },
-  add(params) {
-    addCustomer(params).then(data => {
-      wx.showToast({
-        title: '添加成功',
-        icon: 'success',
-        duration: 1500
-      })
-      setTimeout(() => {
-        wx.switchTab({
-          url: '/pages/visit-customer/visit-customer',
-        })
-      }, 1600)
-    })
-  },
-  addCustomer() {
+  getData() {
     const {
       customer
     } = this.data;
@@ -138,25 +123,90 @@ Page({
       phone: wx.myPhone,
       wechatId: wx.myOpenId
     }
-    this.add(newParams);
+    this.upDataCustomer(newParams);
   },
   modalClick() {
+    const {
+      options
+    } = this.data;
     this.setData({
-      showModal: false
+      options: {
+        ...options,
+        show: false
+      }
     })
-    console.log("modal点击了ok")
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
+  //改API
+  upDataCustomer(params) {
+    updateCustomer(params).then(data => {
+      wx.showToast({
+        title: '修改信息成功',
+        icon: 'success',
+        duration: 1500
+      })
+      setTimeout(() => {
+        wx.navigateTo({
+          url: '/pages/visit-detail/visit-detail',
+        })
+      }, 1600)
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+  // 获取详情
+  getCustomerById() {
+    let {
+      customer,
+      peopleArray,
+      industryArray,
+      insuranceArray,
+      customerId
+    } = this.data;
+    getCustomerById(customerId).then(data => {
+      console.log(industryArray, '************');
+      if (data.industry) {
+        industryArray.map(item => {
+          if (item.dictValue == data.industry) {
+            customer.industry_value = item.dictLabel;
+          }
+        })
+      }
+      if (data.peopleNumber) {
+        peopleArray.map(item => {
+          if (item.dictValue == data.peopleNumber) {
+            customer.peopleNumber_value = item.dictLabel;
+          }
+        })
+      }
+      if (data.insuranceChance) {
+        insuranceArray.map(item => {
+          if (item.dictValue == data.insuranceChance) {
+            customer.insuranceChance_value = item.dictLabel;
+          }
+        })
+      }
+      this.setData({
+        customer: Object.assign(customer, data)
+      })
+    })
   },
   // 获取字典字数
-  getDictData() {
+  async getDictData() {
     const {
       dictType
     } = this.data;
-    dictType.forEach((value, index) => {
-      getDictData(value.params).then(data => {
+    for (let i = 0; i < dictType.length; i++) {
+      await getDictData(dictType[i].params).then(data => {
         let obj = {};
-        obj[value.dataType] = data;
-        this.setData(obj)
+        obj[dictType[i].dataType] = data;
+        this.setData(obj);
+        if (i == dictType.length - 1) {
+          this.getCustomerById();
+        }
       })
-    })
+    }
   }
 })
