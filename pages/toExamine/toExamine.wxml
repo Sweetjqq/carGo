@@ -1,17 +1,16 @@
 <view class='container'>
-	<my-navigation-bar titleText='我的审核' showIcon="{{true}}"/>
+	<my-navigation-bar titleText='我的审核' showIcon="{{true}}" />
 	<view class="tabBar" wx:if='{{!onlyLearned}}'>
-		<view class=" {{index===currentTab?'tab_item_active tab_item':'tab_item' }}" wx:for="{{tabBarData}}" wx:key="index"
-			data-index="{{index}}" bindtap="setCurrentTab">{{item}}</view>
+		<view class=" {{index===currentTab?'tab_item_active tab_item':'tab_item' }}" wx:for="{{tabBarData}}" wx:key="index" data-index="{{index}}" bindtap="setCurrentTab">{{item}}</view>
 	</view>
 	<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
 		<block wx:if="{{listData.length>0}}">
-		<view wx:for="{{listData}}" wx:key="customerApplyId" class="list_item" data-item="{{item}}" bindtap="customer">
-					<view class="compony_name">{{item.customerName}}当然更看到反馈给对方看到风格看到风格</view>
-					<view class="time">
-	         最后操作时间：{{item.updateTime?item.updateTime:'暂无'}}
-					</view>
+			<view wx:for="{{listData}}" wx:key="customerApplyId" class="list_item" data-item="{{item}}" bindtap="customer">
+				<view class="compony_name">{{item.customerName}}</view>
+				<view class="time">
+					最后操作时间：{{item.lastOperateTime?item.lastOperateTime:'暂无'}}
 				</view>
+			</view>
 		</block>
 		<block wx:else>
 			<view class="no_data">

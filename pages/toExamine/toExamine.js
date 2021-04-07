@@ -1,7 +1,7 @@
 // pages/train/train.js
 let app = getApp();
 import {
-  getTrainList
+  getExamineList
 } from '../../api/index'
 Page({
 
@@ -25,7 +25,7 @@ Page({
       listData: [],
       pageNum: 1
     }, () => {
-      this.getTrainList();
+      this.getExamineList();
     })
   },
   /**
@@ -33,25 +33,25 @@ Page({
    */
   onLoad: function (options) {
     if (wx.myOpenId && wx.myPhone) {
-      this.getTrainList();
+      this.getExamineList();
     } else {
       app.getUser(() => {
-        this.getTrainList();
+        this.getExamineList();
       })
     }
   },
   //获取列表
-  getTrainList() {
+  getExamineList() {
     const {
       currentTab,
       pageNum,
       pageSize,
       listData
     } = this.data;
-    getTrainList({
+    getExamineList({
       pageNum,
       pageSize,
-      "queryType": currentTab === 0 ? "02" : '01', //01已学,02未学
+      "myQueryType": '0'+(currentTab+1), //01:我的提交, 02:审核处理中, 03:审核完成
       "wechatId": wx.myOpenId,
       "phone": wx.myPhone
     }).then((data) => {
@@ -61,14 +61,21 @@ Page({
       })
     })
   },
-  goDetail(event) {
-    console.log(event)
-    const {
-      trainid
-    } = event.currentTarget.dataset;
-    wx.navigateTo({
-      url: `/pages/train-detail/train-detail?trainid=${trainid}`,
-    })
+  customer(event) {
+    let currentTab = this.data.currentTab;
+    currentTab = '0'+(currentTab+1);
+    const item = event.currentTarget.dataset.item;
+    if (currentTab === '01' || currentTab === '02'){
+      app.globalData.customer = {
+        type: '01',
+        customerName: item.customerName,
+        customerPoolId: item.customerPoolId,
+        customerApplyId: item.customerApplyId
+      }
+      wx.navigateTo({
+        url: `/pages/customer/customer`,
+      })
+    }
   },
   getNextPageData() {
     const {
@@ -80,7 +87,7 @@ Page({
       this.setData({
         pageNum: newPageNum
       }, () => {
-        this.getTrainList();
+        this.getExamineList();
       })
     }
   }

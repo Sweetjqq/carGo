@@ -62,7 +62,7 @@ Page({
     getTrainList({
       pageNum,
       pageSize,
-      "queryType": currentTab === 0 ? "02" : '01', //01已学,02未学
+      "queryType": currentTab === 0 ? "01" : '02', //01未学,02已学
       "wechatId": wx.myOpenId,
       "phone": wx.myPhone
     }).then((data) => {

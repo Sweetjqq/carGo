@@ -4,7 +4,9 @@ page{
 }
 .header {
   height: 268rpx;
-  background-color: #47B4FB;
+  /* background-color: #47B4FB; */
+  position: relative;
+  z-index: 20;
 }
 
 .content {
@@ -63,6 +65,7 @@ page{
   border-radius: 16rpx;
   margin: -180rpx auto 0;
   position: relative;
+  z-index: 20;
 }
 
 .indicatorDots {

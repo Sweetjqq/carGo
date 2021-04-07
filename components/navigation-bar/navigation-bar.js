@@ -11,6 +11,10 @@ Component({
     "showIcon": {
       type: Boolean,
       value: false
+    },
+    "isArc":{
+      type:Boolean,
+      value: false
     }
   },
 

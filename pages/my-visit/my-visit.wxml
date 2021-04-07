@@ -6,12 +6,12 @@
 					<view class="operation">
 						<text class="detail">拜访记录：{{item.createTime}}</text>
 						<view class="go_edit" data-visitId="{{item.visitId}}">
-							<image src='../../../../assets/images/go_edit.png'></image>
+							<image src='../../assets/images/go_edit.png'></image>
 							<text>前往修改</text>
 						</view>
 					</view>
 					<view class="basic_info">
-						<view class="box">x
+						<view class="box">
 							<view class="info_item">
 								<text class="name">客户姓名</text>
 								<text class="value">{{item.customerName}}</text>
@@ -36,18 +36,20 @@
 								<text class="name">拜访内容</text>
 								<text class="value">{{item.visitContent}}</text>
 							</view>
-							<view class="info_item">
+							<view class="info_item" wx:if='{{item.needSupport}}'>
 								<text class="name">需要支持</text>
 								<text class="value">{{item.needSupport}}</text>
 							</view>
-							<view class="info_item">
-								<text class="name">上传材料</text>
-							</view>
-							<view class="img_list" wx:if="{{item.visitFiles}}">
-								<view class="image_box">
-									<image src="../../../../assets/images/go_edit.png"></image>
+							<block wx:if='{{item.visitFiles&&item.visitFiles.length>0}}'>
+								<view class="info_item">
+									<text class="name">上传材料</text>
 								</view>
-							</view>
+								<view class="img_list">
+									<view class="image_box" wx:for="{{item.visitFiles}}" wx:for-item="itemName" wx:key="attachmentPath">
+										<image src="{{baseHost+itemName.attachmentPath}}"></image>
+									</view>
+								</view>
+							</block>
 						</view>
 					</view>
 				</block>

@@ -48,7 +48,7 @@ page {
 }
 
 .list {
-  height: calc(100vh - 300rpx);
+  height: calc(100vh - 180rpx);
 }
 
 .list_item image {

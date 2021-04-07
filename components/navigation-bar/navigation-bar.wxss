@@ -1,24 +1,44 @@
 /* components/navigation-bar/navigation-bar.wxss */
 /* components/my-navigation-bar/my-navigation-bar.wxss */
+
 .navigation_bar {
-  width: 750rpx;
-  height: 320rpx;
-  background: linear-gradient(132deg, #47B4FB 0%, #46B3FA 13%, #1957B2 100%);
-  display: flex;
-  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
+  width: 750rpx;
+  margin: auto;
+  overflow: hidden;
   z-index: 10;
-  border-bottom-left-radius: 40rpx;
-  border-bottom-right-radius:40rpx;
 }
 
 .title {
+  padding-top: 108rpx;
+  position: relative;
+  width: 100%;
+  height: 320rpx;
+  text-align: center;
   font-size: 32rpx;
   font-family: PingFangSC-Regular, PingFang SC, sans-serif;
   font-weight: 400;
   color: #FFFFFF;
   line-height: 44px;
-  margin-top: 108rpx;
+  /* margin-top: 108rpx; */
+}
+
+.title:after {
+  width: 140%;
+  height: 320rpx;
+  position: absolute;
+  left: -20%;
+  top: 0;
+  z-index: -1;
+  content: '';
+  border-radius: 0 0 50% 50%;
+  background: linear-gradient(132deg, #47B4FB 0%, #46B3FA 13%, #1957B2 100%);
+}
+.h448{
+  height: 448rpx;
+}
+.h448::after{
+  height: 448rpx;
 }

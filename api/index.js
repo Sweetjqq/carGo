@@ -245,3 +245,42 @@ export const getCustomerById = (customerId) => {
     url: `interface/customer/getCustomer/${customerId}`,
   })
 }
+
+/**
+ * 我的审核
+ * @param {*} data 
+ */
+export const getExamineList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `interface/saler/getCustomerListBySaler`,
+  })
+}
+
+/**
+ * 我的拜访记录列表
+ * @param {*} data 
+ */
+export const myVisitList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `interface/saler/getCusVisitListBySaler`,
+  })
+}
+
+/**
+ * 我的培训列表学习列表
+ * @param {*} data 
+ */
+export const myTrainList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `interface/saler/getTrainListBySaler`,
+  })
+}

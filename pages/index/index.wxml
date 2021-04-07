@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-	<my-navigation-bar />
+	<my-navigation-bar isArc ='true'/>
 	<view class="header">
 		<view class="content">
 			<text class="name">早上好！</text>

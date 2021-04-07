@@ -25,7 +25,7 @@ Page({
       },
       '02': {
         text: '已得',
-        bgColor: '#80CA5B'
+        bgColor: '#B3D0F2'
       },
       '03': {
         text: '名花有主',

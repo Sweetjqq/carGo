@@ -1,7 +1,10 @@
 // pages/train/train.js
 let app = getApp();
 import {
-  getTrainList
+  baseHost
+} from '../../utils/env-config';
+import {
+  myVisitList
 } from '../../api/index'
 Page({
 
@@ -13,21 +16,22 @@ Page({
     pageNum: 1,
     pageTotal: 0,
     listData: [],
+    baseHost:baseHost
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getTrainList();
+    this.myVisitList();
   },
   //获取列表
-  getTrainList() {
+  myVisitList() {
     const {
       pageNum,
       pageSize,
       listData
     } = this.data;
-    getTrainList({
+    myVisitList({
       pageNum,
       pageSize,
       "wechatId": wx.myOpenId,
@@ -58,7 +62,7 @@ Page({
       this.setData({
         pageNum: newPageNum
       }, () => {
-        this.getTrainList();
+        this.myVisitList();
       })
     }
   }

@@ -1,7 +1,7 @@
 // pages/train/train.js
 let app = getApp();
 import {
-  getTrainList
+  myTrainList
 } from '../../api/index'
 Page({
 
@@ -34,20 +34,19 @@ Page({
       pageNum: 1,
       listData: []
     }, () => {
-      this.getTrainList();
+      this.myTrainList();
     })
   },
   //获取列表
-  getTrainList() {
+  myTrainList() {
     const {
       pageNum,
       pageSize,
       listData
     } = this.data;
-    getTrainList({
+    myTrainList({
       pageNum,
       pageSize,
-      "queryType": '01', //01已学,02未学
       "wechatId": wx.myOpenId,
       "phone": wx.myPhone
     }).then((data) => {
