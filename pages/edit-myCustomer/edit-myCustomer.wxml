@@ -23,8 +23,7 @@
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>营业额(万元)</view>
 				<view class='item_content'>
-					<input type="number" value="{{customer.turnover}}" data-type="turnover" placeholder-class='placeholder' class="input_value"
-						bindinput="getInputValue" placeholder="请输入营业额" />
+					<input type="number" value="{{customer.turnover}}" data-type="turnover" placeholder-class='placeholder' class="input_value" bindinput="getInputValue" placeholder="请输入营业额" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
@@ -45,15 +44,13 @@
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>保险公司</view>
 				<view class='item_content'>
-					<input value="{{customer.inscompanyname}}" data-type="inscompanyname" placeholder-class='placeholder'
-						class="input_value" placeholder="请输入保险公司" bindinput="getInputValue" />
+					<input value="{{customer.inscompanyname}}" data-type="inscompanyname" placeholder-class='placeholder' class="input_value" placeholder="请输入保险公司" bindinput="getInputValue" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>年保费(万元)</view>
 				<view class='item_content'>
-					<input type="number" data-type="annualPremium" bindinput="getInputValue" placeholder-class='placeholder' class="input_value"
-						placeholder="请输入年保费" value="{{customer.annualPremium}}" />
+					<input type="number" data-type="annualPremium" bindinput="getInputValue" placeholder-class='placeholder' class="input_value" placeholder="请输入年保费" value="{{customer.annualPremium}}" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
@@ -69,15 +66,13 @@
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>往年赔付率</view>
 				<view class='item_content flex-jend-acenter'>
-					<input value="{{customer.lossRatio}}" data-type="lossRatio" bindinput="getInputValue"
-						placeholder-class='placeholder' class="input_value" placeholder="请输入往年赔付率" type="number"/>
+					<input value="{{customer.lossRatio}}" data-type="lossRatio" bindinput="getInputValue" placeholder-class='placeholder' class="input_value" placeholder="请输入往年赔付率" type="number" />
 					<text wx:if='{{customer.lossRatio>0}}' class="input_value">%</text>
 				</view>
 			</view>
 			<view class="info_item_auto">
 				<view class='item_title '>往年赔付详情</view>
-				<textarea value="{{customer.lossDetail}}" data-type="lossDetail" maxlength="-1" placeholder-class='placeholder'
-					bindinput="getInputValue" class="input_value my_textarea" placeholder="请输入往年赔付详情">
+				<textarea value="{{customer.lossDetail}}" data-type="lossDetail" maxlength="-1" placeholder-class='placeholder' bindinput="getInputValue" class="input_value my_textarea" placeholder="请输入往年赔付详情">
         </textarea>
 			</view>
 		</view>
@@ -89,30 +84,30 @@
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>关系人职务</view>
 				<view class='item_content'>
-					<input value="{{customer.contactsPost}}" bindinput="getInputValue" data-type="contactsPost"
-						placeholder-class='placeholder' class="input_value" placeholder="请输入关系人职务" />
+					<input value="{{customer.contactsPost}}" bindinput="getInputValue" data-type="contactsPost" placeholder-class='placeholder' class="input_value" placeholder="请输入关系人职务" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>关系人姓名</view>
 				<view class='item_content'>
-					<input value="{{customer.contactsName}}" bindinput="getInputValue" data-type="contactsName"
-						placeholder-class='placeholder' class="input_value" placeholder="请输入关系人姓名" />
+					<input value="{{customer.contactsName}}" bindinput="getInputValue" data-type="contactsName" placeholder-class='placeholder' class="input_value" placeholder="请输入关系人姓名" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>险种机会</view>
-				<picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange"
-					range="{{insuranceArray}}">
-					<view class='item_content flex-jend-acenter'>
-						<text class="picker_no" wx:if="{{!customer.insuranceChance_value}}">请选择</text>
-						<text wx:else class="picker_value">{{customer.insuranceChance_value}}</text>
-						<image src="../../assets/images/right_icon.png"> </image>
-					</view>
-				</picker>
+				<!-- <picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange"
+					range="{{insuranceArray}}"> -->
+				<view class='item_content flex-jend-acenter' bindtap="setSelected">
+					<text class="picker_no" wx:if="{{!customer.insuranceChance_value}}">请选择</text>
+					<text wx:else class="picker_value">{{customer.insuranceChance_value}}</text>
+					<image src="../../assets/images/right_icon.png"> </image>
+				</view>
+				<!-- </picker> -->
 			</view>
 		</view>
 	</view>
+	<select-insurance bind:saveInsurance='getInsData' showInsurance='{{showInsurance}}' orInsuraData="{{insuranceArray}}" selectedIns="{{selected}}">
+	</select-insurance>
 	<view class="btn">
 		<text class="btn_text" bindtap="getData">提交修改</text>
 	</view>
