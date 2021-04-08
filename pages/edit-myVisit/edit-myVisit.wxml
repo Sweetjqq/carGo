@@ -1,6 +1,7 @@
 <view class="customer">
   <my-navigation-bar showIcon="{{true}}" titleText="修改拜访记录" />
   <view class='basic_info'>
+    <view class="vi_time">拜访记录：{{customer.createTime}}</view>
     <view class="info_content">
       <view class="info_item flex-alignJustify">
         <view class='item_title'>客户姓名</view>

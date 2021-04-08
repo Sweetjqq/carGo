@@ -29,7 +29,7 @@ function httpServer(opt) {
   timer = setTimeout(() => {
     tip.loading();
   }, 3000);
-
+  console.log(data,'入参url')
   return new Promise(function (resolve, reject) {
     wx.request({
       url: url.includes('http') ? url : `${hosts[host]}${url}`,
@@ -39,6 +39,7 @@ function httpServer(opt) {
       isFail,
       allReponse,
       success: function (res) {
+        console.log(res,'~~~~',url)
         clearTimeout(timer);
         if (res && res.statusCode == 200 && res.data.code == 0) {
           allReponse ? resolve(res.data) : resolve(res.data.result);

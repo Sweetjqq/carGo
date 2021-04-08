@@ -4,13 +4,10 @@
 	<!-- <video id="myVideo" bindtimeupdate="timeUpdate" src='http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400' initial-time="{{initial_time}}" poster="视频封面图片链接地址" controls class="video">
 	</video> -->
 	<view class="video_msg">
-		<text class="title">航运人工作中最重要的到底是什么？</text>
-		<text class="time">发布时间：05-29 16:00</text>
+		<text class="title">{{trainInfo.trainTitle?trainInfo.trainTitle:"暂无"}}</text>
+		<text class="time">发布时间：{{trainInfo.createTime?trainInfo.createTime:"暂无"}}</text>
 	</view>
 	<view class="content_mag">
-		行业老大中国远洋以90亿元的亏损额持续领跑并被ST，而另一央企兄弟企业ST长油则因亏损12.39亿元而暂停上市。至于中海发展、中海集运、中远航运等通过资产变卖、运力、航线调整等多种方式，成功实现扭亏为盈，但生存状况仍不容乐观。
-		我国A股ST制度无疑是悬在上市航企头上的达摩克利斯之剑。ST长油因亏损已被暂停上市，若2013年无法实现扭亏为盈，其将成为第一家被退市的央企，其也将失去A股融资平台。中国远洋也面临同样的威胁，连续两年登上"亏损王"已被ST，扭亏为盈成为ST远洋主要工作目标。
-		航运业低迷的景气与金融危机后全球经济萎靡、贸易不振密切相关。BDI指数已经从2008年5月的11400多点雪崩式下滑到当前的900多点，2012年均值不到1000点，而2011年年均值约为1500点。从盈亏平衡的角度来看，BDI指数大约1700点是航企盈亏平衡的点数。从全球经济和贸易形势来看，BDI大幅上涨的可能性并不高，国内航企应该做好长期过冬的准备。同时需要警惕高额的负债带来的信贷风险。
-		从行业供需的角度来看，运力严重供大于求是行业景气低迷的重要原因。当前大部分的运力是2007、2008年航运高峰期以及2010年小幅回暖期的订单。从订单签订到交付大约有2-3年的时间，这期间航运需求大幅下滑，供需矛盾日渐凸显。尽管已经过了2012年运力供给大年，但2013年存量运力和新增运力总体仍较大，行业供需矛盾仍然突出，闲置、调配运力仍是各航企应对当前困境的必选方式，运价上涨动能不大。
+	{{trainInfo.trainContent?trainInfo.trainContent:"暂无"}}
 	</view>
 </view>

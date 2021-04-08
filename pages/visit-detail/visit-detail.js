@@ -67,7 +67,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const {
+      currentTab
+    } = this.data;
+    if (currentTab === 1) {
+      this.setData({
+        pageNum: 1,
+        listData: []
+      },()=>{
+        this.getVisitList();
+      })
+      this.getCustomerById();
+    }
   },
   // 获取字典字数
   async getDictData() {

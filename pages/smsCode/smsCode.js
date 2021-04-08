@@ -40,7 +40,7 @@ Page({
       })
   },
   // 校验验证码
-  verifySmsCode(verifyCode) {
+  verifySmsCode() {
     const {
       smsCode,
       mobile
@@ -52,7 +52,7 @@ Page({
     }).then(data=>{
       this.clearTimer();
       wx.reLaunch({
-        url: '/"pages/index/index"',
+        url: "/pages/index/index",
       })
     })
   },

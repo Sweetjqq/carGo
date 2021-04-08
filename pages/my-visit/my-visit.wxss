@@ -121,7 +121,7 @@ page {
 .img_list .image_box {
   width: 148rpx;
   height: 148rpx;
-  border: 1rpx solid #3E95FD;
+  border: 1px solid #3E95FD;
   margin: 0 32rpx 32rpx 0;
 }
 
@@ -130,6 +130,7 @@ page {
 }
 
 .img_list .image_box image {
+  display: block;
   width: 100%;
   height: 100%;
 }

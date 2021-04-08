@@ -13,13 +13,18 @@
 }
 
 .content {
+  position: relative;
+  width: 750rpx;
+  height: 92rpx;
+  text-align: center;
+}
+.icon_box{
+  position: absolute;
+  left: 32rpx;
+  width: 80rpx;
   height: 92rpx;
   display: flex;
   align-items: center;
-  flex-direction: row;
-}
-.icon_box{
-  margin-bottom: 14rpx;
 }
 
 .title {
@@ -29,11 +34,10 @@
   color: #FFFFFF;
   line-height: 44px;
 }
-
-.icon {
+/* .icon {
   position: absolute;
   left: 32rpx;
-}
+} */
 
 .left {
   width: 7px;

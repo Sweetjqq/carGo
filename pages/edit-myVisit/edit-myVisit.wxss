@@ -3,6 +3,19 @@
   margin-top: 180rpx;
 }
 
+.vi_time {
+  width: 750rpx;
+  height: 112rpx;
+  text-indent: 32rpx;
+  line-height: 112rpx;
+  background: #FFF;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 20rpx solid #F6F6F6;
+}
+
 .basic_info .title {
   height: 100rpx;
   font-size: 36rpx;
@@ -119,13 +132,15 @@
   margin: 0 26rpx 30rpx 0;
   position: relative;
 }
-.img_only .bg{
+
+.img_only .bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 148rpx;
   height: 148rpx;
 }
+
 .img_only:nth-child(4n) {
   margin-right: 0;
 }
