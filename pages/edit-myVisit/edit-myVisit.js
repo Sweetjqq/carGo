@@ -7,6 +7,7 @@ import {
 import {
   baseHost
 } from '../../utils/env-config';
+let app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -197,6 +198,7 @@ Page({
       "phone": wx.myPhone
     }
     updateCusVisit(pramData).then(() => {
+      console.log(222222222222);
       app.showTip('修改拜访记录成功', () => {
         wx.navigateBack({})
       })

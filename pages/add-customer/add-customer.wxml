@@ -24,7 +24,7 @@
       <view class="info_item flex-alignJustify">
         <view class='item_title'>营业额(万元)</view>
         <view class='item_content'>
-          <input data-type="turnover" placeholder-class='placeholder' class="input_value" bindinput="getInputValue"
+          <input type="number" data-type="turnover" placeholder-class='placeholder' class="input_value" bindinput="getInputValue"
             placeholder="请输入营业额" />
         </view>
       </view>
@@ -53,7 +53,7 @@
       <view class="info_item flex-alignJustify">
         <view class='item_title'>年保费(万元)</view>
         <view class='item_content'>
-          <input data-type="annualPremium" bindinput="getInputValue" placeholder-class='placeholder' class="input_value"
+          <input type="number" data-type="annualPremium" bindinput="getInputValue" placeholder-class='placeholder' class="input_value"
             placeholder="请输入年保费" value="{{customer.annualPremium}}" />
         </view>
       </view>
@@ -69,9 +69,10 @@
       </view>
       <view class="info_item flex-alignJustify">
         <view class='item_title'>往年赔付率</view>
-        <view class='item_content'>
+        <view class='item_content flex-jend-acenter'>
           <input data-type="lossRatio" bindinput="getInputValue" placeholder-class='placeholder' class="input_value"
-            placeholder="请输入往年赔付率" />
+            placeholder="请输入往年赔付率" type="number" />
+          <text wx:if='{{customer.lossRatio>0}}' class="input_value">%</text>
         </view>
       </view>
       <view class="info_item_auto">

@@ -20,17 +20,22 @@ Component({
     'orInsuraData,selectedIns': function(orInsuraData,selectedIns) {
       console.log(orInsuraData,selectedIns,'2222')
       if(orInsuraData.length>0&&selectedIns.length>0){
-        // selectedIns.forEach(item=>{
-        //   let inx = orInsuraData.findIndex(val => {
-        //      val.dictValue == item;
-        //   })
-        //   if(inx>=0){
-        //     orInsuraData[inx].isSelect=true;
-        //   }
-        // })
-        // this.setData({
-        //   orInsuraData
-        // })
+        let newArr = this.copyArr(selectedIns),
+           newTwo = this.copyArr(orInsuraData);
+         this.setData({
+          selectedIns:[]
+         })
+        newArr.forEach(item=>{
+          let inx = orInsuraData.findIndex(val => {
+             return val.dictValue == item;
+          })
+          if(inx>=0){
+            newTwo[inx].isSelect=true;
+          }
+        })
+        this.setData({
+          orInsuraData:newTwo
+        })
       }
     }
   },
@@ -43,6 +48,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    copyArr(source) {
+      let sourceCopy = source instanceof Array ? [] : {};
+      for (let item in source) {
+        sourceCopy[item] = typeof source[item] === 'object' ? this.copyArr(source[item]) : source[item];
+      }
+      return sourceCopy;
+    },
     move(){},
     closeEvent(){
       this.setData({

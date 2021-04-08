@@ -75,6 +75,10 @@ Page({
       wx.navigateTo({
         url: `/pages/customer/customer`,
       })
+    }else{
+      wx.navigateTo({
+        url:`/pages/edit-myCustomer/edit-myCustomer?customerId=${item.customerId}`,
+      })
     }
   },
   getNextPageData() {

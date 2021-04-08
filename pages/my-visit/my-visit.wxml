@@ -5,7 +5,7 @@
 				<block wx:for="{{listData}}" wx:key="visitId">
 					<view class="operation">
 						<text class="detail">拜访记录：{{item.createTime}}</text>
-						<view class="go_edit" data-visitId="{{item.visitId}}">
+						<view class="go_edit" data-visitId="{{item.visitId}}" bindtap="editMyVisit">
 							<image src='../../assets/images/go_edit.png'></image>
 							<text>前往修改</text>
 						</view>

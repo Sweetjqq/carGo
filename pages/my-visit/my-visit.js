@@ -43,13 +43,12 @@ Page({
       })
     })
   },
-  goDetail(event) {
-    console.log(event)
+  editMyVisit(event) {
     const {
-      trainid
+      visitid
     } = event.currentTarget.dataset;
     wx.navigateTo({
-      url: `/pages/train-detail/train-detail?trainid=${trainid}`,
+      url: `/pages/edit-myVisit/edit-myVisit?visitId=${visitid}`,
     })
   },
   getNextPageData() {
