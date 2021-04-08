@@ -7,19 +7,19 @@ Component({
       value: false,
       type: Boolean
     },
-    orInsuraData:{
-      value:[],
-      type:Array
+    orInsuraData: {
+      value: [],
+      type: Array
     },
-    selectedIns:{
-      value:[],
-      type:Array
+    selectedIns: {
+      value: [],
+      type: Array
     }
   },
   observers: {
-    'orInsuraData,selectedIns': function(orInsuraData,selectedIns) {
-      console.log(orInsuraData,selectedIns,'2222')
-      if(orInsuraData.length>0&&selectedIns.length>0){
+    'orInsuraData,selectedIns': function (orInsuraData, selectedIns) {
+      console.log(orInsuraData, selectedIns, '2222')
+      if (orInsuraData.length > 0 && selectedIns.length > 0) {
         // selectedIns.forEach(item=>{
         //   let inx = orInsuraData.findIndex(val => {
         //      val.dictValue == item;
@@ -37,40 +37,47 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {
-  },
+  data: {},
   /**
    * 组件的方法列表
    */
   methods: {
-    move(){},
-    closeEvent(){
+    move() {},
+    closeEvent() {
       this.setData({
-        showInsurance:false
+        showInsurance: false
       })
     },
-    selectEvent(e){
-      const {inx}=e.currentTarget.dataset;
-      const {orInsuraData}=this.data;
+    selectEvent(e) {
+      const {
+        inx
+      } = e.currentTarget.dataset;
+      const {
+        orInsuraData
+      } = this.data;
       this.setData({
-        [`orInsuraData[${inx}].isSelect`]:orInsuraData[inx].isSelect?false:true
+        [`orInsuraData[${inx}].isSelect`]: orInsuraData[inx].isSelect ? false : true
+      }, () => {
+        console.log(orInsuraData)
       })
     },
-     saveTime(){
-      const {orInsuraData}=this.data;
-      let arr=[];
-      orInsuraData.forEach(item=>{
-        if(item.isSelect){
+    saveTime() {
+      const {
+        orInsuraData
+      } = this.data;
+      let arr = [];
+      orInsuraData.forEach(item => {
+        if (item.isSelect) {
           arr.push({
-            dictLabel:item.dictLabel,
-            dictValue:item.dictValue
+            dictLabel: item.dictLabel,
+            dictValue: item.dictValue
           })
         }
       })
       this.closeEvent();
-      this.triggerEvent('saveInsurance',{
-        reInsData:arr
+      this.triggerEvent('saveInsurance', {
+        reInsData: arr
       })
-     }
+    }
   }
 })
