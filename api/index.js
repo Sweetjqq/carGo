@@ -295,3 +295,16 @@ export const getCusVisitDetail = (visitId) => {
     url: `interface/cusvisit/getCusVisit/${visitId}`,
   })
 }
+
+/**
+ * 修改我的拜访记录
+ * @param {*} data 
+ */
+export const updateCusVisit = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'put',
+    data,
+    url: `interface/cusvisit/updateCusVisit`,
+  })
+}

@@ -1,7 +1,8 @@
 // pages/edit-myVisit/edit-myVisit.js
 import {
   getDictData,
-  getCusVisitDetail
+  getCusVisitDetail,
+  updateCusVisit
 } from '../../api/index';
 import {
   baseHost
@@ -184,4 +185,23 @@ Page({
       }
     });
   },
+  submit() {
+    const {
+      customer,
+      fileArr
+    } = this.data;
+    let pramData = {
+      ...customer,
+      "filesPath": fileArr,
+      "wechatId": wx.myOpenId,
+      "phone": wx.myPhone
+    }
+    updateCusVisit(pramData).then(() => {
+      app.showTip('修改拜访记录成功', () => {
+        wx.navigateBack({})
+      })
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 })
