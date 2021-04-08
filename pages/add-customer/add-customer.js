@@ -38,7 +38,9 @@ Page({
     }, {
       dataType: 'industryArray',
       params: 'sys_industry_type'
-    }]
+    }],
+    showInsurance: false,
+    selected: []
   },
 
   /**
@@ -158,5 +160,26 @@ Page({
         this.setData(obj)
       })
     })
-  }
+  },
+  getInsData(e) {
+    const {
+      reDictLabel,
+      reDictValue
+    } = e.detail;
+    const {
+      customer
+    } = this.data;
+    this.setData({
+      customer: {
+        ...customer,
+        insuranceChance: reDictValue,
+        insuranceChance_value: reDictLabel
+      }
+    })
+  },
+  setSelected() {
+    this.setData({
+      showInsurance: true
+    })
+  },
 })

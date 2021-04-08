@@ -17,24 +17,24 @@ Component({
     }
   },
   observers: {
-    'orInsuraData,selectedIns': function(orInsuraData,selectedIns) {
-      console.log(orInsuraData,selectedIns,'2222')
-      if(orInsuraData.length>0&&selectedIns.length>0){
+    'orInsuraData,selectedIns': function (orInsuraData, selectedIns) {
+      console.log(orInsuraData, selectedIns, '2222')
+      if (orInsuraData.length > 0 && selectedIns.length > 0) {
         let newArr = this.copyArr(selectedIns),
-           newTwo = this.copyArr(orInsuraData);
-         this.setData({
-          selectedIns:[]
-         })
-        newArr.forEach(item=>{
+          newTwo = this.copyArr(orInsuraData);
+        this.setData({
+          selectedIns: []
+        })
+        newArr.forEach(item => {
           let inx = orInsuraData.findIndex(val => {
-             return val.dictValue == item;
+            return val.dictValue == item;
           })
-          if(inx>=0){
-            newTwo[inx].isSelect=true;
+          if (inx >= 0) {
+            newTwo[inx].isSelect = true;
           }
         })
         this.setData({
-          orInsuraData:newTwo
+          orInsuraData: newTwo
         })
       }
     }
@@ -54,8 +54,8 @@ Component({
       }
       return sourceCopy;
     },
-    move(){},
-    closeEvent(){
+    move() {},
+    closeEvent() {
       this.setData({
         showInsurance: false
       })
@@ -77,18 +77,20 @@ Component({
       const {
         orInsuraData
       } = this.data;
-      let arr = [];
+      let label=[],
+          val =[],i=0;
       orInsuraData.forEach(item => {
         if (item.isSelect) {
-          arr.push({
-            dictLabel: item.dictLabel,
-            dictValue: item.dictValue
-          })
+          i++;
+          label.push(item.dictLabel);
+          val.push(item.dictValue);
         }
       })
+      if(i==0)return;
       this.closeEvent();
       this.triggerEvent('saveInsurance', {
-        reInsData: arr
+        reDictLabel:label.join(","),
+        reDictValue:val.join(',')
       })
     }
   }

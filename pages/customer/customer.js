@@ -42,7 +42,9 @@ Page({
       dataType: 'industryArray',
       params: 'sys_industry_type'
     }],
-    options: {}
+    options: {},
+    showInsurance: false,
+    selected: ''
   },
 
   /**
@@ -76,6 +78,11 @@ Page({
    */
   onShow: function () {
 
+  },
+  setSelected() {
+    this.setData({
+      showInsurance: true
+    })
   },
   bindPickerChange(event) {
     console.log(event)
@@ -258,5 +265,21 @@ Page({
         }
       })
     }
-  }
+  },
+  getInsData(e) {
+    const {
+      reDictLabel,
+      reDictValue
+    } = e.detail;
+    const {
+      customer
+    } = this.data;
+    this.setData({
+      customer: {
+        ...customer,
+        insuranceChance: reDictValue,
+        insuranceChance_value: reDictLabel
+      }
+    })
+  },
 })

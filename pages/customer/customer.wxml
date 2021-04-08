@@ -23,8 +23,8 @@
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>营业额(万元)</view>
 				<view class='item_content'>
-					<input type="number" value="{{customer.turnover}}" data-type="turnover" placeholder-class='placeholder' class="input_value"
-						bindinput="getInputValue" placeholder="请输入营业额" />
+					<input type="number" value="{{customer.turnover}}" data-type="turnover" placeholder-class='placeholder'
+						class="input_value" bindinput="getInputValue" placeholder="请输入营业额" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
@@ -52,8 +52,8 @@
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>年保费(万元)</view>
 				<view class='item_content'>
-					<input type="number" data-type="annualPremium" bindinput="getInputValue" placeholder-class='placeholder' class="input_value"
-						placeholder="请输入年保费" value="{{customer.annualPremium}}" />
+					<input type="number" data-type="annualPremium" bindinput="getInputValue" placeholder-class='placeholder'
+						class="input_value" placeholder="请输入年保费" value="{{customer.annualPremium}}" />
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
@@ -102,17 +102,20 @@
 			</view>
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>险种机会</view>
-				<picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange"
-					range="{{insuranceArray}}">
-					<view class='item_content flex-jend-acenter'>
-						<text class="picker_no" wx:if="{{!customer.insuranceChance_value}}">请选择</text>
-						<text wx:else class="picker_value">{{customer.insuranceChance_value}}</text>
-						<image src="../../assets/images/right_icon.png"> </image>
-					</view>
-				</picker>
+				<!-- <picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange" -->
+				<!-- range="{{insuranceArray}}"> -->
+				<view class='item_content flex-jend-acenter' bindtap="setSelected">
+					<text class="picker_no" wx:if="{{!customer.insuranceChance_value}}">请选择</text>
+					<text wx:else class="picker_value">{{customer.insuranceChance_value}}</text>
+					<image src="../../assets/images/right_icon.png"> </image>
+				</view>
+				<!-- </picker> -->
 			</view>
 		</view>
 	</view>
+	<select-insurance bind:saveInsurance='getInsData' showInsurance='{{showInsurance}}' orInsuraData="{{insuranceArray}}"
+		selectedIns="{{selected}}">
+	</select-insurance>
 	<view class="btn">
 		<text class="btn_text" bindtap="getData">{{btnText}}</text>
 	</view>
