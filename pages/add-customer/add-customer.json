@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "my-navigation-bar": "../../components/my-navigation-bar/my-navigation-bar",
-    "modal": "../../components/modal/modal"
+    "modal": "../../components/modal/modal",
+    "select-insurance":"../../components/insurance/insurance"
   }
 }

@@ -7,34 +7,34 @@ Component({
       value: false,
       type: Boolean
     },
-    orInsuraData:{
-      value:[],
-      type:Array
+    orInsuraData: {
+      value: [],
+      type: Array
     },
-    selectedIns:{
-      value:[],
-      type:Array
+    selectedIns: {
+      value: [],
+      type: Array
     }
   },
   observers: {
-    'orInsuraData,selectedIns': function(orInsuraData,selectedIns) {
-      console.log(orInsuraData,selectedIns,'2222')
-      if(orInsuraData.length>0&&selectedIns.length>0){
+    'orInsuraData,selectedIns': function (orInsuraData, selectedIns) {
+      console.log(orInsuraData, selectedIns, '2222')
+      if (orInsuraData.length > 0 && selectedIns.length > 0) {
         let newArr = this.copyArr(selectedIns),
-           newTwo = this.copyArr(orInsuraData);
-         this.setData({
-          selectedIns:[]
-         })
-        newArr.forEach(item=>{
+          newTwo = this.copyArr(orInsuraData);
+        this.setData({
+          selectedIns: []
+        })
+        newArr.forEach(item => {
           let inx = orInsuraData.findIndex(val => {
-             return val.dictValue == item;
+            return val.dictValue == item;
           })
-          if(inx>=0){
-            newTwo[inx].isSelect=true;
+          if (inx >= 0) {
+            newTwo[inx].isSelect = true;
           }
         })
         this.setData({
-          orInsuraData:newTwo
+          orInsuraData: newTwo
         })
       }
     }
@@ -42,8 +42,7 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {
-  },
+  data: {},
   /**
    * 组件的方法列表
    */
@@ -55,34 +54,44 @@ Component({
       }
       return sourceCopy;
     },
-    move(){},
-    closeEvent(){
+    move() {},
+    closeEvent() {
       this.setData({
-        showInsurance:false
+        showInsurance: false
       })
     },
-    selectEvent(e){
-      const {inx}=e.currentTarget.dataset;
-      const {orInsuraData}=this.data;
+    selectEvent(e) {
+      const {
+        inx
+      } = e.currentTarget.dataset;
+      const {
+        orInsuraData
+      } = this.data;
       this.setData({
-        [`orInsuraData[${inx}].isSelect`]:orInsuraData[inx].isSelect?false:true
+        [`orInsuraData[${inx}].isSelect`]: orInsuraData[inx].isSelect ? false : true
+      }, () => {
+        console.log(orInsuraData)
       })
     },
-     saveTime(){
-      const {orInsuraData}=this.data;
-      let arr=[];
-      orInsuraData.forEach(item=>{
-        if(item.isSelect){
-          arr.push({
-            dictLabel:item.dictLabel,
-            dictValue:item.dictValue
-          })
+    saveTime() {
+      const {
+        orInsuraData
+      } = this.data;
+      let label=[],
+          val =[],i=0;
+      orInsuraData.forEach(item => {
+        if (item.isSelect) {
+          i++;
+          label.push(item.dictLabel);
+          val.push(item.dictValue);
         }
       })
+      if(i==0)return;
       this.closeEvent();
-      this.triggerEvent('saveInsurance',{
-        reInsData:arr
+      this.triggerEvent('saveInsurance', {
+        reDictLabel:label.join(","),
+        reDictValue:val.join(',')
       })
-     }
+    }
   }
 })

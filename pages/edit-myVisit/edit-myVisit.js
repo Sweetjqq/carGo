@@ -131,7 +131,7 @@ Page({
       fileArr
     } = this.data;
     var that = this;
-    if (fileArr.length > 3) {
+    if (fileArr.length >= 3) {
       wx.showToast({
         title: '最多只能上传三张图片',
         icon: 'none',

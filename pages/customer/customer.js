@@ -42,7 +42,9 @@ Page({
       dataType: 'industryArray',
       params: 'sys_industry_type'
     }],
-    options: {}
+    options: {},
+    showInsurance: false,
+    selected: []
   },
 
   /**
@@ -76,6 +78,11 @@ Page({
    */
   onShow: function () {
 
+  },
+  setSelected() {
+    this.setData({
+      showInsurance: true
+    })
   },
   bindPickerChange(event) {
     console.log(event)
@@ -225,11 +232,32 @@ Page({
         })
       }
       if (data.insuranceChance) {
-        insuranceArray.map(item => {
-          if (item.dictValue == data.insuranceChance) {
-            customer.insuranceChance_value = item.dictLabel;
-          }
-        })
+        if (data.insuranceChance.indexOf(",") === -1) {
+          insuranceArray.map(item => {
+            if (item.dictValue == data.insuranceChance) {
+              customer.insuranceChance_value = item.dictLabel;
+              this.setData({
+                selected: [item.dictValue]
+              })
+            }
+          })
+        } else {
+          let label = [],
+            value = [];
+          const insuranceChanceArr = data.insuranceChance.split(",");
+          insuranceChanceArr.map(item => {
+            insuranceArray.map(only => {
+              if (item == only.dictValue) {
+                label.push(only.dictLabel);
+                value.push(only.dictValue)
+              }
+            })
+          })
+          customer.insuranceChance_value = label.join(',');
+          this.setData({
+            selected: value
+          })
+        }
       }
       this.setData({
         customer: Object.assign(customer, data)
@@ -258,5 +286,21 @@ Page({
         }
       })
     }
-  }
+  },
+  getInsData(e) {
+    const {
+      reDictLabel,
+      reDictValue
+    } = e.detail;
+    const {
+      customer
+    } = this.data;
+    this.setData({
+      customer: {
+        ...customer,
+        insuranceChance: reDictValue,
+        insuranceChance_value: reDictLabel
+      }
+    })
+  },
 })

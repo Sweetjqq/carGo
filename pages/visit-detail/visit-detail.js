@@ -154,11 +154,24 @@ Page({
         })
       }
       if (data.insuranceChance) {
-        insuranceArray.map(item => {
-          if (item.dictValue == data.insuranceChance) {
-            data.insuranceChance = item.dictLabel;
-          }
-        })
+        if (data.insuranceChance.indexOf(",") > -1) {
+          let label = [];
+          const insuranceChanceArr = data.insuranceChance.split(",");
+          insuranceChanceArr.map(item => {
+            insuranceArray.map(only => {
+              if (item == only.dictValue) {
+                label.push(only.dictLabel);
+              }
+            })
+          })
+          data.insuranceChance = label.join(',');
+        } else {
+          insuranceArray.map(item => {
+            if (item.dictValue == data.insuranceChance) {
+              data.insuranceChance = item.dictLabel;
+            }
+          })
+        }
       }
       this.setData({
         customerDetail: data

@@ -110,7 +110,7 @@
 				</view>
 				<view class="img_list" wx:if="{{item.visitFiles}}">
 					<view class="image_box" wx:for="{{item.visitFiles}}" wx:for-item="itemName" wx:key="attachmentPath">
-						<image src="{{baseHost+itemName.attachmentPath}}"></image>
+						<image src="{{baseHost+itemName.filePath}}"></image>
 					</view>
 				</view>
 			</view>
