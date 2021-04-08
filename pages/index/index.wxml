@@ -3,7 +3,7 @@
 	<my-navigation-bar isArc ='true'/>
 	<view class="header">
 		<view class="content">
-			<text class="name">早上好！</text>
+			<text class="name">{{timeTxt}}</text>
 			<view class="input_box">
 				<icon class="icon" color="#fff" type="search" size="28rpx"></icon>
 				<input value="{{inputValue}}" class="weui-input" placeholder-class='placeholder' placeholder="请输入搜索内容"
@@ -55,4 +55,5 @@
 			</view>
 		</block>
 	</scroll-view>
+
 </view>

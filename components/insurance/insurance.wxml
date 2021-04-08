@@ -1,0 +1,15 @@
+<view class="pop-wrap" wx:if='{{showInsurance}}' bindtap="closeEvent">
+	<view class="pop-cont" catchtap="move">
+		<view class="pop-title">
+			险种机会
+			<image class="img-left" src="../../assets/images/close-icon.png"  catchtap="closeEvent"></image>
+		</view>
+		<view class="one-cont" wx:for='{{orInsuraData}}' wx:key="index" catchtap="selectEvent" data-inx='{{index}}'>
+			<view class="cont-name">{{item.dictLabel}}</view>
+			<image class="select" src='{{item.isSelect?"../../assets/images/select-icon.png":"../../assets/images/no-select-icon.png"}}'></image>
+		</view>
+		<view class="btn-wrap">
+			<view class="blue-btn" catchtap="saveTime">保存</view>
+		</view>
+	</view>
+</view>

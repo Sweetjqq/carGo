@@ -1,5 +1,5 @@
 {
-  "pages": [
+  "pages": [ 
     "pages/index/index",
     "pages/login/login",
     "pages/smsCode/smsCode",
@@ -16,6 +16,7 @@
     "pages/toExamine/toExamine",
     "pages/mineDetail/mineDetail",
     "pages/add-customer/add-customer",
+    "pages/test/test",
     "pages/edit-myCustomer/edit-myCustomer",
     "pages/edit-myVisit/edit-myVisit"
   ],

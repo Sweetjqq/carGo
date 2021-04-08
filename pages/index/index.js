@@ -2,10 +2,14 @@ import {
   getPoolCustomerList,
   getBanners
 } from '../../api/index'
+import {
+  getTimeState
+} from '../../utils/util'
 const app = getApp()
 
 Page({
   data: {
+    timeTxt:'',
     background: [],
     autoplay: true,
     interval: 2000,
@@ -53,6 +57,7 @@ Page({
   },
   onshowInit() {
     this.setData({
+      timeTxt:getTimeState(),
       pageNum: 1,
       inputValue: '',
       listData: []

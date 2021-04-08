@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "select-insurance":"../../components/insurance/insurance"
+  }
+}
