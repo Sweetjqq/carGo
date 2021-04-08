@@ -44,7 +44,7 @@ Page({
     }],
     options: {},
     showInsurance: false,
-    selected: ''
+    selected: []
   },
 
   /**
@@ -232,11 +232,32 @@ Page({
         })
       }
       if (data.insuranceChance) {
-        insuranceArray.map(item => {
-          if (item.dictValue == data.insuranceChance) {
-            customer.insuranceChance_value = item.dictLabel;
-          }
-        })
+        if (data.insuranceChance.indexOf(",") === -1) {
+          insuranceArray.map(item => {
+            if (item.dictValue == data.insuranceChance) {
+              customer.insuranceChance_value = item.dictLabel;
+              this.setData({
+                selected: [item.dictValue]
+              })
+            }
+          })
+        } else {
+          let label = [],
+            value = [];
+          const insuranceChanceArr = data.insuranceChance.split(",");
+          insuranceChanceArr.map(item => {
+            insuranceArray.map(only => {
+              if (item == only.dictValue) {
+                label.push(only.dictLabel);
+                value.push(only.dictValue)
+              }
+            })
+          })
+          customer.insuranceChance_value = label.join(',');
+          this.setData({
+            selected: value
+          })
+        }
       }
       this.setData({
         customer: Object.assign(customer, data)
