@@ -30,7 +30,7 @@ Page({
     industryArray: [],
     insuranceArray: [],
     showModal: false,
-    titleText: '',
+    titleText: '修改我的客户信息',
     dictType: [{
       dataType: 'insuranceArray',
       params: 'sys_risk_type'
@@ -148,9 +148,10 @@ Page({
         duration: 1500
       })
       setTimeout(() => {
-        wx.navigateTo({
-          url: '/pages/visit-detail/visit-detail',
-        })
+        wx.navigateBack({})
+        // wx.navigateTo({
+        //   url: '/pages/visit-detail/visit-detail',
+        // })
       }, 1600)
     }).catch(err => {
       console.log(err)

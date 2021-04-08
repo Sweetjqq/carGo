@@ -43,7 +43,7 @@
 			</view>
 			<view class="info_item">
 				<text class="name">往年赔付率</text>
-				<text class="value">{{customerDetail.lossRatio?customerDetail.lossRatio:''}}</text>
+				<text class="value">{{customerDetail.lossRatio?customerDetail.lossRatio+'%':''}}</text>
 			</view>
 			<view class="info_item_style">
 				<text class="name">往年赔付详情</text>
