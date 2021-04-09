@@ -6,7 +6,7 @@ Component({
   properties: {
     "titleText": {
       type: String,
-      value: "货客包"
+      value: "货客保"
     },
     "showIcon": {
       type: Boolean,
