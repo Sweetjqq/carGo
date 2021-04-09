@@ -22,6 +22,7 @@ Page({
       lossDetail: '',
       contactsPost: '',
       contactsName: '',
+      contactsPhone:'',
       insuranceChance: '',
     },
     peopleArray: [],

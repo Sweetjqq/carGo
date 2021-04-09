@@ -61,6 +61,10 @@
 				<text class="value">{{customerDetail.contactsName?customerDetail.contactsName:''}}</text>
 			</view>
 			<view class="info_item">
+				<text class="name">关系人手机号</text>
+				<text class="value">{{customerDetail.contactsPhone?customerDetail.contactsPhone:''}}</text>
+			</view>
+			<view class="info_item">
 				<text class="name">险种机会</text>
 				<text class="value">{{customerDetail.insuranceChance?customerDetail.insuranceChance:''}}</text>
 			</view>

@@ -101,6 +101,13 @@
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
+        <view class='item_title'>关系人手机号</view>
+        <view class='item_content'>
+          <input type="number" maxlength="11" value="{{customer.contactsPhone}}" bindinput="getInputValue" data-type="contactsPhone" placeholder-class='placeholder' class="input_value"
+            placeholder="请输入关系人手机号" />
+        </view>
+      </view>
+			<view class="info_item flex-alignJustify">
 				<view class='item_title'>险种机会</view>
 				<!-- <picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange" -->
 				<!-- range="{{insuranceArray}}"> -->
