@@ -39,47 +39,43 @@ Component({
   data: {
     fileArr: [],
     baseHost: baseHost,
-    requiredRules: {
-      customerName: {
-        required: true,
-        message: '请填写客户姓名'
-      },
-      visitType: {
+    rules: [{
+      name: 'visitType',
+      rules: {
         required: true,
         message: '请选择拜访方式'
       },
-      visitDate: {
+    }, {
+      name: 'visitDate',
+      rules: {
         required: true,
         message: '请选择拜访时间'
       },
-      visitPost: {
+    }, {
+      name: 'visitPost',
+      rules: {
         required: true,
         message: '请输入被拜访人职务'
       },
-      visitName: {
+    }, {
+      name: 'visitName',
+      rules: {
         required: true,
         message: '请输入被拜访人姓名'
       },
-      visitContent: {
+    }, {
+      name: 'visitContent',
+      rules: {
         required: true,
         message: '请填写拜访内容'
       },
-    }
+    }, ]
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    verification() {
-      const {
-        customer,
-        requiredRules
-      } = this.data;
-      for (let key in customer) {
-        console.log(key, '------->', customer[key])
-      }
-    },
     bindPickerChange(event) {
       console.log(event)
       const {
@@ -125,26 +121,41 @@ Component({
       })
 
     },
-    addVisit(params) {
-      this.verification();
-      // const {
-      //   customer,
-      //   fileArr
-      // } = this.data;
-      // let pramData = {
-      //   ...customer,
-      //   "filesPath": fileArr,
-      //   "wechatId": wx.myOpenId,
-      //   "phone": wx.myPhone
-      // }
+    submitForm() {
+      this.selectComponent('#form').validate((valid, errors) => {
+        console.log('valid', valid, errors)
+        if (!valid) {
+          const firstError = Object.keys(errors)
+          if (firstError.length) {
+            wx.showToast({
+              title: errors[firstError[0]].message,
+              icon: 'none'
+            })
+          }
+        } else {
+          this.addVisit();
+        }
+      })
+    },
+    addVisit() {
+      const {
+        customer,
+        fileArr
+      } = this.data;
+      let pramData = {
+        ...customer,
+        "filesPath": fileArr,
+        "wechatId": wx.myOpenId,
+        "phone": wx.myPhone
+      }
 
-      // addCusVisit(pramData).then(() => {
-      //   app.showTip('新增拜访记录成功', () => {
-      //     wx.navigateBack({})
-      //   })
-      // }).catch(error => {
-      //   console.log(error)
-      // })
+      addCusVisit(pramData).then(() => {
+        app.showTip('新增拜访记录成功', () => {
+          wx.navigateBack({})
+        })
+      }).catch(error => {
+        console.log(error)
+      })
     },
     submit() {
       const {

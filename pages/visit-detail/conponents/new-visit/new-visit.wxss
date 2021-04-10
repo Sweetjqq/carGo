@@ -165,3 +165,6 @@
   font-weight: 400;
   color: #FFFFFF;
 }
+.weui-cell-nopad{
+  padding: 0;
+}

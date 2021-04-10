@@ -26,6 +26,37 @@ Page({
     visitId: '',
     fileArr: [],
     baseHost,
+    rules: [{
+      name: 'visitType',
+      rules: {
+        required: true,
+        message: '请选择拜访方式'
+      },
+    }, {
+      name: 'visitDate',
+      rules: {
+        required: true,
+        message: '请选择拜访时间'
+      },
+    }, {
+      name: 'visitPost',
+      rules: {
+        required: true,
+        message: '请输入被拜访人职务'
+      },
+    }, {
+      name: 'visitName',
+      rules: {
+        required: true,
+        message: '请输入被拜访人姓名'
+      },
+    }, {
+      name: 'visitContent',
+      rules: {
+        required: true,
+        message: '请填写拜访内容'
+      },
+    }, ]
   },
 
   /**
@@ -184,6 +215,22 @@ Page({
         }
       }
     });
+  },
+  submitForm() {
+    this.selectComponent('#form').validate((valid, errors) => {
+      console.log('valid', valid, errors)
+      if (!valid) {
+        const firstError = Object.keys(errors)
+        if (firstError.length) {
+          wx.showToast({
+            title: errors[firstError[0]].message,
+            icon: 'none'
+          })
+        }
+      } else {
+        this.submit();
+      }
+    })
   },
   submit() {
     const {

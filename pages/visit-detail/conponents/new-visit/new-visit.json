@@ -1,6 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "timePicker":"../../../../components/timePicker"
+    "timePicker":"../../../../components/timePicker",
+    "mp-form": "weui-miniprogram/form/form",
+    "mp-cell": "weui-miniprogram/cell/cell"
   }
 }
