@@ -121,7 +121,6 @@ page {
 .img_list .image_box {
   width: 148rpx;
   height: 148rpx;
-  border: 1px solid #3E95FD;
   margin: 0 32rpx 32rpx 0;
 }
 

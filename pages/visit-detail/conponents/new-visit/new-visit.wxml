@@ -16,20 +16,12 @@
 		</view>
 		<view class="info_item flex-alignJustify">
 			<view class='item_title'>拜访时间</view>
-			<timePicker mode="dateTime" data-type='visitDate' bind:onPickerChange="bindPickerChange">
-				<view class='item_content flex-jend-acenter'>
-					<text class="picker_no" wx:if="{{customer.visitDate==null}}">请选择</text>
-					<text wx:else class="picker_value">{{customer.visitDate}}</text>
-					<image src="../../../../assets/images/right_icon.png"> </image>
-				</view>
-			</timePicker>
-			<!-- <picker data-type='visitDate' bindchange="bindPickerChange" mode='date'>
-				<view class='item_content flex-jend-acenter'>
-					<text class="picker_no" wx:if="{{customer.visitDate==null}}">请选择</text>
-					<text wx:else class="picker_value">{{customer.visitDate}}</text>
-					<image src="../../../../assets/images/right_icon.png"> </image>
-				</view>
-			</picker> -->
+			<view class='item_content flex-jend-acenter'>
+				<timePicker mode="dateTime" data-type='visitDate' bind:onPickerChange="bindPickerChange"
+					dateString="{{customer.visitDate}}">
+				</timePicker>
+				<image src="../../../../assets/images/right_icon.png"> </image>
+			</view>
 		</view>
 		<view class="info_item flex-alignJustify">
 			<view class='item_title'>被拜访人职务</view>

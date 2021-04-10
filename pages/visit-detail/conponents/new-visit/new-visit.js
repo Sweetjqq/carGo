@@ -38,14 +38,50 @@ Component({
    */
   data: {
     fileArr: [],
-    baseHost: baseHost
+    baseHost: baseHost,
+    requiredRules: {
+      customerName: {
+        required: true,
+        message: '请填写客户姓名'
+      },
+      visitType: {
+        required: true,
+        message: '请选择拜访方式'
+      },
+      visitDate: {
+        required: true,
+        message: '请选择拜访时间'
+      },
+      visitPost: {
+        required: true,
+        message: '请输入被拜访人职务'
+      },
+      visitName: {
+        required: true,
+        message: '请输入被拜访人姓名'
+      },
+      visitContent: {
+        required: true,
+        message: '请填写拜访内容'
+      },
+    }
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    verification() {
+      const {
+        customer,
+        requiredRules
+      } = this.data;
+      for (let key in customer) {
+        console.log(key, '------->', customer[key])
+      }
+    },
     bindPickerChange(event) {
+      console.log(event)
       const {
         value
       } = event.detail;
@@ -90,23 +126,25 @@ Component({
 
     },
     addVisit(params) {
-      const {
-        customer,
-        fileArr
-      } = this.data;
-      let pramData = {
-        ...customer,
-        "filesPath": fileArr,
-        "wechatId": wx.myOpenId,
-        "phone": wx.myPhone
-      }
-      addCusVisit(pramData).then(() => {
-        app.showTip('新增拜访记录成功', () => {
-          wx.navigateBack({})
-        })
-      }).catch(error => {
-        console.log(error)
-      })
+      this.verification();
+      // const {
+      //   customer,
+      //   fileArr
+      // } = this.data;
+      // let pramData = {
+      //   ...customer,
+      //   "filesPath": fileArr,
+      //   "wechatId": wx.myOpenId,
+      //   "phone": wx.myPhone
+      // }
+
+      // addCusVisit(pramData).then(() => {
+      //   app.showTip('新增拜访记录成功', () => {
+      //     wx.navigateBack({})
+      //   })
+      // }).catch(error => {
+      //   console.log(error)
+      // })
     },
     submit() {
       const {
@@ -141,6 +179,7 @@ Component({
           console.log(res, 'shibai')
         }
       })
+
     },
     // 上传图片
     chooseImg: function (e) {
