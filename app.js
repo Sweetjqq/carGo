@@ -11,10 +11,20 @@ App({
     userInfo: null
   },
   getPixelRatio() {
-    wx.pixelRatio = 2;
+    let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     wx.getSystemInfo({
-      success: function (res) {
+      success: res => {
         wx.pixelRatio = res.pixelRatio;
+        let statusBarHeight = res.statusBarHeight,
+          navTop = menuButtonObject.top,//胶囊按钮与顶部的距离
+          navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2;//导航高度
+        wx.navHeight = navHeight;
+        wx.navTop = navTop;
+        wx.windowHeight = res.windowHeight;
+        console.log(navHeight,navTop,wx.windowHeight);
+      },
+      fail(err) {
+        console.log(err);
       }
     })
   },
