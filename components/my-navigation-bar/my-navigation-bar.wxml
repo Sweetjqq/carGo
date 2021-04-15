@@ -1,10 +1,11 @@
 <!--components/my-navigation-bar/my-navigation-bar.wxml-->
-<view class="navigation_bar">
-	<view class="content">
-		<view class="icon_box" wx:if='{{showIcon}}' bindtap="goBack">
-			  <view class="left icon"></view>
+<view class="navigation_bar" style = "height:{{barHeight}}">
+	<view class="content" style="margin-top:{{topBar}};line-height:{{menubtnHeight}}">
+		<view class="icon_box" wx:if='{{showIcon}}' bindtap="goBack" style="height:{{barHeight}};top:{{loseTop}}">
+			  <view class="left icon" style="margin-top:{{iconTop}}"></view>
 			<!-- <icon class="icon" color="#fff" type="search" size="30"></icon> -->
 		</view>
 		<text class="title">{{titleText}}</text>
 	</view>
 </view>
+<view style="height:{{barHeight}}"></view>

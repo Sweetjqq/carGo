@@ -38,7 +38,38 @@ Component({
    */
   data: {
     fileArr: [],
-    baseHost: baseHost
+    baseHost: baseHost,
+    rules: [{
+      name: 'visitType',
+      rules: {
+        required: true,
+        message: '请选择拜访方式'
+      },
+    }, {
+      name: 'visitDate',
+      rules: {
+        required: true,
+        message: '请选择拜访时间'
+      },
+    }, {
+      name: 'visitPost',
+      rules: {
+        required: true,
+        message: '请输入被拜访人职务'
+      },
+    }, {
+      name: 'visitName',
+      rules: {
+        required: true,
+        message: '请输入被拜访人姓名'
+      },
+    }, {
+      name: 'visitContent',
+      rules: {
+        required: true,
+        message: '请填写拜访内容'
+      },
+    }, ]
   },
 
   /**
@@ -46,6 +77,7 @@ Component({
    */
   methods: {
     bindPickerChange(event) {
+      console.log(event)
       const {
         value
       } = event.detail;
@@ -89,7 +121,23 @@ Component({
       })
 
     },
-    addVisit(params) {
+    submitForm() {
+      this.selectComponent('#form').validate((valid, errors) => {
+        console.log('valid', valid, errors)
+        if (!valid) {
+          const firstError = Object.keys(errors)
+          if (firstError.length) {
+            wx.showToast({
+              title: errors[firstError[0]].message,
+              icon: 'none'
+            })
+          }
+        } else {
+          this.addVisit();
+        }
+      })
+    },
+    addVisit() {
       const {
         customer,
         fileArr
@@ -100,6 +148,7 @@ Component({
         "wechatId": wx.myOpenId,
         "phone": wx.myPhone
       }
+
       addCusVisit(pramData).then(() => {
         app.showTip('新增拜访记录成功', () => {
           wx.navigateBack({})
@@ -141,6 +190,7 @@ Component({
           console.log(res, 'shibai')
         }
       })
+
     },
     // 上传图片
     chooseImg: function (e) {

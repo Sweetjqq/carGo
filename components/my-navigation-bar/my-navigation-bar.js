@@ -18,7 +18,11 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+   barHeight:`${wx.navHeight}px`,
+   topBar:`${wx.navTop}px`,
+   menubtnHeight:`${wx.BarHeight}px`,
+   loseTop:`-${wx.navTop}px`,
+   iconTop:`${wx.navTop+wx.BarHeight/2}px`,
   },
 
   /**

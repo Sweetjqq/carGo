@@ -2,10 +2,6 @@
 page {
   background-color: #F6F6F6;
 }
-
-.customer {
-  margin-top: 180rpx;
-}
 .head{
   height: 196rpx;
   border-bottom: 1rpx solid #E6E6E6;

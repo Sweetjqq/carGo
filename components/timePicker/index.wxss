@@ -1,8 +1,9 @@
 /* components/timePicker/index.wxss */
 
-.weui-input{
+.weui-input {
     text-align: right;
 }
+
 .input_base {
     border: 2rpx solid #ccc;
     padding-left: 10rpx;
@@ -17,4 +18,8 @@
 .col-1 {
     -webkit-box-flex: 1;
     box-flex: 1;
+}
+
+.placeholder {
+    color: #999;
 }

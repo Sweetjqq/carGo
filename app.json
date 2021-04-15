@@ -1,5 +1,5 @@
 {
-  "pages": [ 
+  "pages": [
     "pages/index/index",
     "pages/login/login",
     "pages/smsCode/smsCode",
@@ -32,8 +32,7 @@
   "tabBar": {
     "color": "#999999",
     "selectedColor": "#3E95FD",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "./assets/images/index_default.png",
@@ -64,5 +63,8 @@
         "selectedIconPath": "./assets/images/mine_active.png"
       }
     ]
+  },
+  "useExtendedLib": {
+    "weui": true
   }
 }

@@ -1,4 +1,7 @@
 <!--components/my-navigation-bar/my-navigation-bar.wxml-->
 <view class="navigation_bar">
-	<view class="title {{isArc?'h448':''}}">{{titleText}}</view>
+	<view class="title" style='height:{{isArc?indexBarHeight:myBarHeight}}'>
+		<view style='margin-top:{{topBar}};height:{{menuButtonHeight}};line-height:{{menuButtonHeight}};'>{{titleText}}</view>
+	</view>
 </view>
+<view style="height:{{spaceHeight}}"></view>

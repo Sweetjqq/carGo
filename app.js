@@ -14,14 +14,16 @@ App({
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     wx.getSystemInfo({
       success: res => {
-        wx.pixelRatio = res.pixelRatio;
+        let pxRatio = res.pixelRatio;
+        console.log(pxRatio);
+        wx.pixelRatio = pxRatio;
         let statusBarHeight = res.statusBarHeight,
-          navTop = menuButtonObject.top,//胶囊按钮与顶部的距离
-          navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2;//导航高度
-        wx.navHeight = navHeight;
-        wx.navTop = navTop;
-        wx.windowHeight = res.windowHeight;
-        console.log(navHeight,navTop,wx.windowHeight);
+          navTop = menuButtonObject.top,
+          navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2+4;
+        wx.navTop = navTop;  //胶囊按钮与顶部的距离
+        wx.navHeight = navHeight;  //导航高度
+        wx.BarHeight = menuButtonObject.height;  //胶囊高度
+        console.log(wx.navTop,wx.navHeight,wx.BarHeight);
       },
       fail(err) {
         console.log(err);

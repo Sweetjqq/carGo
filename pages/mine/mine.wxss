@@ -11,7 +11,6 @@ page {
   box-shadow: 0px 0px 16rpx 0px rgba(86, 86, 86, 0.12);
   border-radius: 8rpx;
   /* position: absolute; */
-  top: 206rpx;
   left: 32rpx;
   z-index: 101;
   display: flex;
@@ -24,7 +23,7 @@ page {
 
 .msg_box {
   position: absolute;
-  top: 390rpx;
+  /* top: 390rpx; */
   left: 32rpx;
   /* z-index: 101; */
 }

@@ -25,7 +25,7 @@ Page({
       lossDetail: '',
       contactsPost: '',
       contactsName: '',
-      contactsPhone:'',
+      contactsPhone: '',
       insuranceChance: null,
     },
     peopleArray: [],
@@ -149,11 +149,40 @@ Page({
       phone: wx.myPhone,
       wechatId: wx.myOpenId
     }
-    if (customer.type === '00') {
-      this.grabCustomer(newParams);
-    } else if (customer.type === '01') {
-      this.upDataCustomer(newParams);
+    let valited = {
+      customerName: '',
+      industry: null,
+      turnover: "",
+      peopleNumber: null,
+      inscompanyname: '',
+      annualPremium: '', //年保费
+      dueDate: null,
+      lossRatio: "",
+      lossDetail: '',
+      contactsPost: '',
+      contactsName: '',
+      contactsPhone: '',
+      insuranceChance: null,
     }
+    let hasValited = {};
+    for (let key in customer) {
+      if (Object.keys(valited).includes(key) && customer[key]) {
+        hasValited[key] = customer[key]
+      }
+    }
+    if (Object.keys(hasValited).length > 2) {
+      if (customer.type === '00') {
+        this.grabCustomer(newParams);
+      } else if (customer.type === '01') {
+        this.upDataCustomer(newParams);
+      }
+    } else {
+      wx.showToast({
+        title: '请填写至少三项',
+        icon: 'none'
+      })
+    }
+
   },
   modalClick() {
     const {

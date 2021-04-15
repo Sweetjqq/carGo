@@ -3,10 +3,6 @@ page {
   background-color: #F6F6F6;
 }
 
-.customer {
-  margin-top: 180rpx;
-}
-
 .btn {
   width: 750rpx;
   height: 120rpx;

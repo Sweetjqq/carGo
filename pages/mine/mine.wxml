@@ -1,6 +1,6 @@
 <view class='mine-container'>
 	<my-navigation-bar titleText='我的' />
-	<view class="head" bindtap="goMyDetail">
+	<view class="head" bindtap="goMyDetail" style="top:{{headTop}}">
 		<view class='head-portrait'>
 			<open-data type='userAvatarUrl'></open-data>
 		</view>
@@ -12,7 +12,7 @@
 		</view>
 		<image class="icon" src='../../assets/images/right_icon.png'> </image>
 	</view>
-	<view class="msg_box">
+	<view class="msg_box" style="top:{{myTop}}">
 		<view class="modular">
 			<view class="title">签单排名</view>
 			<view class="main_msg">

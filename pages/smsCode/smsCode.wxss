@@ -1,7 +1,6 @@
 /* pages/smsCode/smsCode.wxss */
 
 .tip {
-  margin-top: 180rpx;
   width: 750rpx;
   height: 68rpx;
   line-height: 68rpx;

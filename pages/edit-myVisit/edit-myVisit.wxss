@@ -1,8 +1,4 @@
 /* pages/customer/components/basic-info/basic-info.wxss */
-.customer {
-  margin-top: 180rpx;
-}
-
 .vi_time {
   width: 750rpx;
   height: 112rpx;
@@ -178,4 +174,7 @@
   font-family: PingFangSC-Regular, PingFang SC, sans-serif;
   font-weight: 400;
   color: #FFFFFF;
+}
+.weui-cell-nopad{
+  padding: 0;
 }

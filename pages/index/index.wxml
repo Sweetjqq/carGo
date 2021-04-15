@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-	<my-navigation-bar isArc ='true'/>
+	<my-navigation-bar isArc='true' />
 	<view class="header">
 		<view class="content">
 			<text class="name">{{timeTxt}}</text>
@@ -55,5 +55,4 @@
 			</view>
 		</block>
 	</scroll-view>
-
 </view>

@@ -2,6 +2,8 @@
   "usingComponents": {
     "my-navigation-bar": "../../components/my-navigation-bar/my-navigation-bar",
     "modal": "../../components/modal/modal",
-    "timePicker":"../../components/timePicker"
+    "timePicker":"../../components/timePicker",
+    "mp-form": "weui-miniprogram/form/form",
+    "mp-cell": "weui-miniprogram/cell/cell"
   }
 }

@@ -10,7 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    headTop:`${wx.navHeight+(16/wx.pixelRatio)}px`,
+    myTop:`${wx.navHeight+(210/wx.pixelRatio)}px`
   },
 
   /**
