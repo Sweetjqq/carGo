@@ -3,6 +3,16 @@
 	<my-navigation-bar showIcon="{{true}}" titleText="{{titleText}}" />
 	<modal options="{{options}}" bindmyevent="modalClick" />
 	<view class='basic_info'>
+		<view class="describe">
+			<view class="describe_name" bindtap="setStatus">
+				<text>{{customer.customerName}}</text>
+				<image class="{{showDescribe?'down_icon':'right_icon'}}"
+					src="{{showDescribe?'../../assets/images/down_icon.png':'../../assets/images/right_icon.png'}}"> </image>
+			</view>
+			<view class="describe_content" wx:if="{{showDescribe}}">
+				{{customer.describe?customer.describe:'暂无描述'}}
+			</view>
+		</view>
 		<view class="title">基本信息</view>
 		<view class="info_content">
 			<view class="info_item flex-alignJustify">
@@ -101,12 +111,12 @@
 				</view>
 			</view>
 			<view class="info_item flex-alignJustify">
-        <view class='item_title'>关系人手机号</view>
-        <view class='item_content'>
-          <input type="number" maxlength="11" value="{{customer.contactsPhone}}" bindinput="getInputValue" data-type="contactsPhone" placeholder-class='placeholder' class="input_value"
-            placeholder="请输入关系人手机号" />
-        </view>
-      </view>
+				<view class='item_title'>关系人手机号</view>
+				<view class='item_content'>
+					<input type="number" maxlength="11" value="{{customer.contactsPhone}}" bindinput="getInputValue"
+						data-type="contactsPhone" placeholder-class='placeholder' class="input_value" placeholder="请输入关系人手机号" />
+				</view>
+			</view>
 			<view class="info_item flex-alignJustify">
 				<view class='item_title'>险种机会</view>
 				<!-- <picker range-key='dictLabel' data-type='insuranceChance' bindchange="bindPickerChange" -->

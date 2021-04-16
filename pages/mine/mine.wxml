@@ -66,7 +66,7 @@
 					</view>
 				</view>
 			</view>
-			<rank rankTitle='公司排名：' allNum='{{myData.trainCompanyCount}}' currNum='{{myData.trainCompanyRank}}' isLine='true'></rank>
+			<rank rankTitle='公司排名：' allNum='{{myData.trainCompanyCount}}' currNum='{{myData.trainCompanyRank}}'></rank>
 		</view>
     <view class="modular">
 			<view class="title no-borderB">我的服务</view>

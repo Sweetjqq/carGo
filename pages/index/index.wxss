@@ -1,7 +1,8 @@
-page{
+page {
   height: 100vh;
   overflow-y: hidden;
 }
+
 .header {
   height: 268rpx;
   /* background-color: #47B4FB; */
@@ -18,9 +19,9 @@ page{
   justify-content: space-around;
 }
 
-.name {
+.header .name {
   flex: 1;
-  font-size: 36rpx;
+  font-size: 32rpx;
   font-family: PingFangSC-Regular, PingFang SC, sans-serif;
   font-weight: 400;
   color: #FFFFFF;
@@ -67,7 +68,8 @@ page{
   z-index: 20;
   overflow: hidden;
 }
-.my_swiper image{
+
+.my_swiper image {
   display: block;
   width: 686rpx;
   height: 240rpx;
@@ -123,9 +125,11 @@ page{
 .hide_active {
   background: #fff
 }
-.list_content{
-  height:  calc(100vh - 664rpx);
+
+.list_content {
+  height: calc(100vh - 664rpx);
 }
+
 .list {
   width: 686rpx;
   background: #FFFFFF;
@@ -154,7 +158,7 @@ page{
 }
 
 .list .compony .name {
-  font-size: 28rpx;
+  font-size: 32rpx;
   font-family: PingFangSC-Medium, PingFang SC, sans-serif;
   font-weight: 500;
   color: #333333;
@@ -174,6 +178,7 @@ page{
   color: #FFFFFF;
   margin-left: 30rpx;
 }
+
 .no_data {
   height: 100%;
   background-color: #fff;

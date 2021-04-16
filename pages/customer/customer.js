@@ -26,7 +26,7 @@ Page({
       contactsPost: '',
       contactsName: '',
       contactsPhone: '',
-      insuranceChance: null,
+      insuranceChance: null
     },
     peopleArray: [],
     industryArray: [],
@@ -45,7 +45,8 @@ Page({
     }],
     options: {},
     showInsurance: false,
-    selected: []
+    selected: [],
+    showDescribe: false
   },
 
   /**
@@ -83,6 +84,14 @@ Page({
   setSelected() {
     this.setData({
       showInsurance: true
+    })
+  },
+  setStatus() {
+    const {
+      showDescribe
+    } = this.data;
+    this.setData({
+      showDescribe: !showDescribe
     })
   },
   bindPickerChange(event) {

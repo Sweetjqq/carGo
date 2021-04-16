@@ -13,7 +13,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-bottom: 1rpx solid #E4E4E4;
+  border-bottom: 1rpx solid #e6e6e6;
 }
 
 .tab_item {
@@ -49,16 +49,18 @@ page {
 
 .list {
   height: calc(100vh - 300rpx);
+  margin-top: 2rpx;
 }
 
 .list_item image {
   width: 204rpx;
   height: 148rpx;
   margin-left: 30rpx;
+  border-radius: 8rpx;
 }
 
 .componey_name {
-  font-size: 28rpx;
+  font-size: 32rpx;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #333333;

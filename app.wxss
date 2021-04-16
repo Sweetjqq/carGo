@@ -7,10 +7,12 @@
   align-items: center;
   justify-content: center;
 }
-.flex-column{
+
+.flex-column {
   display: flex;
   flex-direction: column;
 }
+
 .flex-acenter {
   display: flex;
   align-items: center;
@@ -90,6 +92,7 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
 .over-ellipsis {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -103,6 +106,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
 .over-ellipsis-3 {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -111,3 +115,13 @@
   -webkit-box-orient: vertical;
 }
 
+page::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2rpx;
+  background-color: #e6e6e6;
+  z-index: 9999;
+}

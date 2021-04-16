@@ -12,7 +12,7 @@ Page({
     timeTxt:'',
     background: [],
     autoplay: true,
-    interval: 2000,
+    interval: 3000,
     duration: 500,
     circular: true,
     current: 0,

@@ -105,6 +105,18 @@
         {
           "name": "pages/test/test",
           "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/customer/customer",
+          "pathName": "pages/customer/customer",
           "scene": null
         }
       ]

@@ -3,6 +3,46 @@ page {
   background-color: #F6F6F6;
 }
 
+.describe {
+  width: 750rpx;
+  margin-top: 20rpx;
+  background: #FFFFFF;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+.describe_name {
+  height: 120rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.describe_name .right_icon {
+  width: 26rpx;
+  height: 32rpx;
+}
+
+.describe_name .down_icon {
+  width: 32rpx;
+  height: 26rpx;
+}
+
+.describe_content {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  line-height: 40rpx;
+  padding: 24rpx 0 40rpx;
+  box-sizing: border-box;
+  border-top: 1rpx solid #E6E6E6;
+}
+
 .btn {
   width: 750rpx;
   height: 120rpx;
@@ -112,7 +152,8 @@ page {
   color: #333333;
   text-align: right;
 }
-.my_textarea{
+
+.my_textarea {
   padding: 32rpx 0;
   box-sizing: border-box;
   height: 184rpx;
@@ -122,14 +163,17 @@ page {
   font-weight: 400;
   color: #333333;
 }
-.info_item_auto{
-  height: auto ;
+
+.info_item_auto {
+  height: auto;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-.info_item_auto .item_title{
+
+.info_item_auto .item_title {
   margin-top: 32rpx;
 }
-.txt_right{
+
+.txt_right {
   text-align: right;
 }
