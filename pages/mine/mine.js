@@ -11,7 +11,8 @@ Page({
    */
   data: {
     headTop:`${wx.navHeight+(16/wx.pixelRatio)}px`,
-    myTop:`${wx.navHeight+(210/wx.pixelRatio)}px`
+    myTop:`${wx.navHeight+(210/wx.pixelRatio)}px`,
+    barHeight:`${wx.navHeight}px`,
   },
 
   /**

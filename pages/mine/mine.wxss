@@ -1,33 +1,33 @@
 /* pages/mine/mine.wxss */
 page {
   background: #F6F6F6;
+  height: 100vh;
 }
-
+.container{
+  width: 750rpx;
+  position: relative;
+  left: 0;
+  z-index: 100;
+  overflow: scroll;
+}
 .head {
-  position: fixed;
   width: 686rpx;
   height: 166rpx;
   background: #FFFFFF;
   box-shadow: 0px 0px 16rpx 0px rgba(86, 86, 86, 0.12);
   border-radius: 8rpx;
-  /* position: absolute; */
-  left: 32rpx;
   z-index: 101;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 32rpx;
   box-sizing: border-box;
-  z-index: 20;
+  margin: 0 auto;
 }
 
 .msg_box {
-  position: absolute;
-  /* top: 390rpx; */
-  left: 32rpx;
-  /* z-index: 101; */
+  margin-top: 16rpx;
 }
-
 .head .head-portrait {
   width: 116rpx;
   height: 116rpx;

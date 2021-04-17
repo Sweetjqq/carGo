@@ -1,92 +1,97 @@
 <view class='mine-container'>
 	<my-navigation-bar titleText='我的' />
-	<view class="head" bindtap="goMyDetail" style="top:{{headTop}}">
-		<view class='head-portrait'>
-			<open-data type='userAvatarUrl'></open-data>
-		</view>
-		<view class="my_msg">
-			<view class='nick_name'>
-				<open-data type='userNickName'></open-data>
+	<view class="container" style="height:calc(100vh - {{barHeight}})">
+		<view class="head" bindtap="goMyDetail">
+			<view class='head-portrait'>
+				<open-data type='userAvatarUrl'></open-data>
 			</view>
-			<!-- <view class="data_integrity">资料完整度40%</view> -->
+			<view class="my_msg">
+				<view class='nick_name'>
+					<open-data type='userNickName'></open-data>
+				</view>
+				<!-- <view class="data_integrity">资料完整度40%</view> -->
+			</view>
+			<image class="icon" src='../../assets/images/right_icon.png'> </image>
 		</view>
-		<image class="icon" src='../../assets/images/right_icon.png'> </image>
+		<view class="msg_box">
+			<view class="modular">
+				<view class="title">签单排名</view>
+				<view class="main_msg">
+					<view class="number">
+						<view class="number_item">
+							<text>保费数(万元)：</text>
+							<view class="numbers">{{myData.premiumCount?myData.premiumCount:0}}</view>
+						</view>
+						<view class="number_item last_number_item">
+							<text>签单客户数：</text>
+							<view class="numbers">{{myData.signCusCount?myData.signCusCount:0}}</view>
+						</view>
+					</view>
+				</view>
+				<rank rankTitle='保费数排名：' allNum='{{myData.signSalerCount}}' currNum='{{myData.premiumRank}}' isLine='true'>
+				</rank>
+				<rank rankTitle='客户数排名：' allNum='{{myData.signSalerCount}}' currNum='{{myData.signCusRank}}'></rank>
+			</view>
+			<view class="modular">
+				<view class="title">客户数排名</view>
+				<view class="main_msg">
+					<view class="number">
+						<view class="number_item">
+							<text>客户数：</text>
+							<view class="numbers">{{myData.cusCount?myData.cusCount:0}}</view>
+						</view>
+					</view>
+				</view>
+				<rank rankTitle='公司排名：' allNum='{{myData.cusSalerCompanyCount}}' currNum='{{myData.cusCompanyRank}}'
+					isLine='true'></rank>
+				<rank rankTitle='本机构排名：' allNum='{{myData.cusSalerBranchCompanyCount}}'
+					currNum='{{myData.cusBranchCompanyRank}}'></rank>
+			</view>
+			<view class="modular">
+				<view class="title">用心实干排名</view>
+				<view class="main_msg">
+					<view class="number">
+						<view class="number_item">
+							<text>访客数：</text>
+							<view class="numbers">{{myData.visitCount?myData.visitCount:0}}</view>
+						</view>
+					</view>
+				</view>
+				<rank rankTitle='公司排名：' allNum='{{myData.visitSalerCompanyCount}}' currNum='{{myData.visitCompanyRank}}'
+					isLine='true'></rank>
+				<rank rankTitle='本机构排名：' allNum='{{myData.visitSalerBranchCompanyCount}}'
+					currNum='{{myData.visitBranchCompanyRank}}'></rank>
+			</view>
+			<view class="modular">
+				<view class="title">参训排名</view>
+				<view class="main_msg">
+					<view class="number">
+						<view class="number_item">
+							<text>参训时长(分钟)：</text>
+							<view class="numbers">{{myData.trainCount?myData.trainCount:0}}</view>
+						</view>
+					</view>
+				</view>
+				<rank rankTitle='公司排名：' allNum='{{myData.trainCompanyCount}}' currNum='{{myData.trainCompanyRank}}'></rank>
+			</view>
+			<view class="modular">
+				<view class="title no-borderB">我的服务</view>
+				<view class="sever-wrap flex-center">
+					<view class="one-serve flex-column-alignCenter" bindtap="goOneServe" data-type='examine'>
+						<image mode="widthFix" src="../../assets/images/examine-icon.png"></image>
+						<text>我的审核</text>
+					</view>
+					<view class="one-serve flex-column-alignCenter" bindtap="goOneServe" data-type='visitor'>
+						<image mode="widthFix" src="../../assets/images/visitor-icon.png"></image>
+						<text>我的访客记录</text>
+					</view>
+					<view class="one-serve flex-column-alignCenter" bindtap="goOneServe" data-type='train'>
+						<image mode="widthFix" src="../../assets/images/train-icon.png"></image>
+						<text>我的培训</text>
+					</view>
+				</view>
+			</view>
+			<!-- <view class="out-login">退出登录</view> -->
+		</view>
 	</view>
-	<view class="msg_box" style="top:{{myTop}}">
-		<view class="modular">
-			<view class="title">签单排名</view>
-			<view class="main_msg">
-				<view class="number">
-					<view class="number_item">
-						<text>保费数(万元)：</text>
-						<view class="numbers">{{myData.premiumCount?myData.premiumCount:0}}</view>
-					</view>
-					<view class="number_item last_number_item">
-						<text>签单客户数：</text>
-						<view class="numbers">{{myData.signCusCount?myData.signCusCount:0}}</view>
-					</view>
-				</view>
-			</view>
-			<rank rankTitle='保费数排名：' allNum='{{myData.signSalerCount}}' currNum='{{myData.premiumRank}}' isLine='true'></rank>
-			<rank rankTitle='客户数排名：' allNum='{{myData.signSalerCount}}' currNum='{{myData.signCusRank}}'></rank>
-		</view>
-		<view class="modular">
-			<view class="title">客户数排名</view>
-			<view class="main_msg">
-				<view class="number">
-					<view class="number_item">
-						<text>客户数：</text>
-						<view class="numbers">{{myData.cusCount?myData.cusCount:0}}</view>
-					</view>
-				</view>
-			</view>
-			<rank rankTitle='公司排名：' allNum='{{myData.cusSalerCompanyCount}}' currNum='{{myData.cusCompanyRank}}' isLine='true'></rank>
-			<rank rankTitle='本机构排名：' allNum='{{myData.cusSalerBranchCompanyCount}}' currNum='{{myData.cusBranchCompanyRank}}'></rank>
-		</view>
-		<view class="modular">
-			<view class="title">用心实干排名</view>
-			<view class="main_msg">
-				<view class="number">
-					<view class="number_item">
-						<text>访客数：</text>
-						<view class="numbers">{{myData.visitCount?myData.visitCount:0}}</view>
-					</view>
-				</view>
-			</view>
-			<rank rankTitle='公司排名：' allNum='{{myData.visitSalerCompanyCount}}' currNum='{{myData.visitCompanyRank}}' isLine='true'></rank>
-			<rank rankTitle='本机构排名：' allNum='{{myData.visitSalerBranchCompanyCount}}' currNum='{{myData.visitBranchCompanyRank}}'></rank>
-		</view>
-		<view class="modular">
-			<view class="title">参训排名</view>
-			<view class="main_msg">
-				<view class="number">
-					<view class="number_item">
-						<text>参训时长(分钟)：</text>
-						<view class="numbers">{{myData.trainCount?myData.trainCount:0}}</view>
-					</view>
-				</view>
-			</view>
-			<rank rankTitle='公司排名：' allNum='{{myData.trainCompanyCount}}' currNum='{{myData.trainCompanyRank}}'></rank>
-		</view>
-    <view class="modular">
-			<view class="title no-borderB">我的服务</view>
-      <view class="sever-wrap flex-center">
-			  <view class="one-serve flex-column-alignCenter" bindtap="goOneServe" data-type='examine'>
-				<image mode="widthFix" src="../../assets/images/examine-icon.png"></image>
-				<text>我的审核</text>
-				</view>
-				 <view class="one-serve flex-column-alignCenter" bindtap="goOneServe" data-type='visitor'>
-				<image mode="widthFix" src="../../assets/images/visitor-icon.png"></image>
-				<text>我的访客记录</text>
-				</view>
-				 <view class="one-serve flex-column-alignCenter" bindtap="goOneServe" data-type='train'>
-				<image mode="widthFix" src="../../assets/images/train-icon.png"></image>
-				<text>我的培训</text>
-				</view>
-			</view>
-		</view>
-		<!-- <view class="out-login">退出登录</view> -->
-	</view>
-
-
 </view>
