@@ -60,7 +60,7 @@ export const getApplyCustomer = (customerApplyId) => {
   return httpServer({
     host: 'baseHost',
     isFail: true,
-    url: `interface/customer/getCustomerPool/${customerApplyId}`,
+    url: `interface/customer/getCustomerApply/${customerApplyId}`,
   })
 }
 
@@ -306,5 +306,16 @@ export const updateCusVisit = (data) => {
     method: 'put',
     data,
     url: `interface/cusvisit/updateCusVisit`,
+  })
+}
+
+/**
+ * 抢客户时获取客户默认详情
+ */
+export const getApplyCustomerByPoolId = (customerPoolId) => {
+  return httpServer({
+    host: 'baseHost',
+    isFail: true,
+    url: `interface/customer/getCustomerPool/${customerPoolId}`,
   })
 }

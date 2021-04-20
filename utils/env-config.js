@@ -26,7 +26,7 @@ const envConfig = {
     baseHost: 'http://106.15.90.6:8081/v2/api-docs/',
   },
   rc: {
-    baseHost: 'http://106.15.90.6:8081/'
+    baseHost: 'https://106.15.90.6:8081/'
   },
 };
 const {

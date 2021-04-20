@@ -4,7 +4,8 @@ import {
   saveCustomerPool,
   updateCustomerPool,
   getApplyCustomer,
-  getDictData
+  getDictData,
+  getApplyCustomerByPoolId
 } from '../../api/index'
 
 Page({
@@ -321,6 +322,8 @@ Page({
         if (i == dictType.length - 1) {
           if (customer.type == '01') {
             this.getCustomerInfo();
+          } else {
+            this.getApplyCustomerByPoolId();
           }
         }
       })
@@ -340,6 +343,66 @@ Page({
         insuranceChance: reDictValue,
         insuranceChance_value: reDictLabel
       }
+    })
+  },
+  //抢客户时，客户默认值
+  getApplyCustomerByPoolId() {
+    let {
+      customer,
+      peopleArray,
+      industryArray,
+      insuranceArray
+    } = this.data;
+    getApplyCustomerByPoolId(customer.customerPoolId).then(data => {
+      if (data.industry) {
+        industryArray.map(item => {
+          if (item.dictValue == data.industry) {
+            customer.industry_value = item.dictLabel;
+          }
+        })
+      }
+      if (data.peopleNumber) {
+        peopleArray.map(item => {
+          if (item.dictValue == data.peopleNumber) {
+            customer.peopleNumber_value = item.dictLabel;
+          }
+        })
+      }
+      if (data.insuranceChance) {
+        if (data.insuranceChance.indexOf(",") === -1) {
+          insuranceArray.map(item => {
+            if (item.dictValue == data.insuranceChance) {
+              customer.insuranceChance_value = item.dictLabel;
+              this.setData({
+                selected: [item.dictValue]
+              })
+            }
+          })
+        } else {
+          let label = [],
+            value = [];
+          const insuranceChanceArr = data.insuranceChance.split(",");
+          insuranceChanceArr.map(item => {
+            insuranceArray.map(only => {
+              if (item == only.dictValue) {
+                label.push(only.dictLabel);
+                value.push(only.dictValue)
+              }
+            })
+          })
+          customer.insuranceChance_value = label.join(',');
+          this.setData({
+            selected: value
+          })
+        }
+      }
+      this.setData({
+        customer: Object.assign(customer, data)
+      })
+    }).catch(err => {
+      app.showTip(err.message, () => {
+        wx.navigateBack({})
+      })
     })
   },
 })
