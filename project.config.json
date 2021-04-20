@@ -1,171 +1,171 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"enhance": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"useMultiFrameRuntime": true,
-		"useApiHook": true,
-		"useApiHostProcess": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"enableEngineNative": false,
-		"bundle": false,
-		"useIsolateContext": true,
-		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"userConfirmedBundleSwitch": false,
-		"packNpmManually": false,
-		"packNpmRelationList": [],
-		"minifyWXSS": true
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.16.0",
-	"appid": "wx1cad7bc4dec1726e",
-	"projectname": "carGo",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"list": []
-		},
-		"conversation": {
-			"list": []
-		},
-		"plugin": {
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"list": []
-		},
-		"miniprogram": {
-			"list": [
-				{
-					"id": 0,
-					"name": "pages/customer/customer",
-					"pathName": "pages/customer/customer",
-					"query": "type=0",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/visit-customer/visit-customer",
-					"pathName": "pages/visit-customer/visit-customer",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/visit-detail/visit-detail",
-					"pathName": "pages/visit-detail/visit-detail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/find-support/find-support",
-					"pathName": "pages/find-support/find-support",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/support-consulting/support-consulting",
-					"pathName": "pages/support-consulting/support-consulting",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/train/train",
-					"pathName": "pages/train/train",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/train-detail/train-detail",
-					"pathName": "pages/train-detail/train-detail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/mine/mine",
-					"pathName": "pages/mine/mine",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 8,
-					"name": "pages/smsCode/smsCode",
-					"pathName": "pages/smsCode/smsCode",
-					"query": "phone=18317775214",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "login",
-					"pathName": "pages/login/login",
-					"query": "phone=18317775214",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/mineDetail/mineDetail",
-					"pathName": "pages/mineDetail/mineDetail",
-					"query": "phone=18317775214",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/toExamine/toExamine",
-					"pathName": "pages/toExamine/toExamine",
-					"query": "phone=18317775214",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/test/test",
-					"pathName": "pages/test/test",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/mine/mine",
-					"pathName": "pages/mine/mine",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.16.0",
+  "appid": "wx1cad7bc4dec1726e",
+  "projectname": "carGo",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/customer/customer",
+          "pathName": "pages/customer/customer",
+          "query": "type=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/visit-customer/visit-customer",
+          "pathName": "pages/visit-customer/visit-customer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/visit-detail/visit-detail",
+          "pathName": "pages/visit-detail/visit-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/find-support/find-support",
+          "pathName": "pages/find-support/find-support",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/support-consulting/support-consulting",
+          "pathName": "pages/support-consulting/support-consulting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/train/train",
+          "pathName": "pages/train/train",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/train-detail/train-detail",
+          "pathName": "pages/train-detail/train-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "pages/smsCode/smsCode",
+          "pathName": "pages/smsCode/smsCode",
+          "query": "phone=18317775214",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "login",
+          "pathName": "pages/login/login",
+          "query": "phone=18317775214",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mineDetail/mineDetail",
+          "pathName": "pages/mineDetail/mineDetail",
+          "query": "phone=18317775214",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/toExamine/toExamine",
+          "pathName": "pages/toExamine/toExamine",
+          "query": "phone=18317775214",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

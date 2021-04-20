@@ -23,7 +23,7 @@ const env = getEnv(1);
  */
 const envConfig = {
   production: {
-    baseHost: 'http://106.15.90.6:8081/v2/api-docs/',
+    baseHost: 'https://106.15.90.6:8081/',
   },
   rc: {
     baseHost: 'https://106.15.90.6:8081/'
