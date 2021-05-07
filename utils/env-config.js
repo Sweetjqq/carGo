@@ -23,7 +23,8 @@ const env = getEnv(1);
  */
 const envConfig = {
   production: {
-    baseHost: 'https://www.apiins-marine.com.cn:8081/',
+    baseHost: 'http://106.15.90.6:8081/',
+    // baseHost: 'https://www.apiins-marine.com.cn:8081/',
   },
   rc: {
     baseHost: 'https://www.apiins-marine.com.cn:8081/'
