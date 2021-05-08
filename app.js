@@ -41,9 +41,9 @@ App({
             wx.myPhone = data.phone;
             cb();
           } else {
-            wx.reLaunch({
-              url: '/pages/login/login',
-            })
+            // wx.reLaunch({
+            //   url: '/pages/login/login',
+            // })
           }
         }).catch(() => {
           this.showTip('获取用户信息失败是否重新获取？', () => {

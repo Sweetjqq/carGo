@@ -1,4 +1,5 @@
-{
+{ 
+  "enablePullDownRefresh": false,
   "usingComponents": {
     "my-navigation-bar": "../../components/navigation-bar/navigation-bar",
     "rank": "./components/rank/rank"
