@@ -9,7 +9,9 @@
 			<new-visit customer="{{customer}}" visitType="{{visitType}}" />
 		</block>
 		<block wx:else>
-			<visit-records listData="{{listData}}" customerDetail="{{customerDetail}}" customerId="{{customer.customerId}}" bindmyevent="getNextPageData"/>
+			<visit-records listData="{{listData}}" customerDetail="{{customerDetail}}" customerId="{{customer.customerId}}"
+				bindmyevent="getNextPageData" />
+			<view wx:if="{{isFinished}}" class="isFinished">数据已经到底啦～</view>
 		</block>
 	</view>
 </view>

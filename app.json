@@ -18,8 +18,15 @@
     "pages/add-customer/add-customer",
     "pages/test/test",
     "pages/edit-myCustomer/edit-myCustomer",
-    "pages/edit-myVisit/edit-myVisit"
+    "pages/edit-myVisit/edit-myVisit",
+    "pages/public-info/public-info",
+    "pages/web-view/web-view"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "是否允许获取？"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3E95FD",

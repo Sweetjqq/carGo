@@ -117,6 +117,12 @@
         {
           "name": "pages/customer/customer",
           "pathName": "pages/customer/customer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/public-info/public-info",
+          "pathName": "pages/public-info/public-info",
           "scene": null
         }
       ]

@@ -319,3 +319,26 @@ export const getApplyCustomerByPoolId = (customerPoolId) => {
     url: `interface/customer/getCustomerPool/${customerPoolId}`,
   })
 }
+
+/**
+ * 公共资料-列表
+ */
+export const getCommonDataList = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `/interface/commondata/getCommonDataList`,
+  })
+}
+/**
+ * 公共资料-新增查看记录
+ */
+export const addCommonRecode = (data) => {
+  return httpServer({
+    host: 'baseHost',
+    method: 'post',
+    data,
+    url: `/interface/commondata/addCommonDataRecode`,
+  })
+}

@@ -78,6 +78,10 @@ Page({
       }, () => {
         this.getList();
       })
+    } else {
+      this.setData({
+        isFinished: true
+      })
     }
   },
   addCusSupprot() {
@@ -96,7 +100,7 @@ Page({
         pageNum: 1,
         pageTotal: 0,
         listData: [],
-        content:''
+        content: ''
       }, () => {
         this.getList()
       })

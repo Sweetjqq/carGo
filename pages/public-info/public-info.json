@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-navigation-bar": "../../components/my-navigation-bar/my-navigation-bar"
+  },
+  "navigationBarTitleText": "公共资料"
+}

@@ -28,7 +28,7 @@ export const phoneChecke = (phone) => {
 export const verification = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
     url: `interface/mobileUser/verification`,
   })
@@ -37,13 +37,13 @@ export const verification = (data) => {
 /**
  * 登录
  */
-export const login = (code) => {
+export const login = (code, longitude = 0, latitude = 0) => {
   return httpServer({
     host: 'baseHost',
-    isFail:true,
-    url: `interface/mobileUser/interface/login/${code}`,
+    isFail: true,
+    url: `interface/mobileUser/interface/login/${code}/${longitude}/${latitude}`,
   })
-} 
+}
 
 /**
  * 我的详细信息
@@ -51,11 +51,11 @@ export const login = (code) => {
 export const myData = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
     url: `interface/saler/getSalerInfo`,
   })
-} 
+}
 
 
 /**
@@ -64,8 +64,8 @@ export const myData = (data) => {
 export const myDataInfo = (data) => {
   return httpServer({
     host: 'baseHost',
-    method:'post',
+    method: 'post',
     data,
     url: `interface/saler/statistics`,
   })
-} 
+}

@@ -51,7 +51,7 @@ Page({
     getExamineList({
       pageNum,
       pageSize,
-      "myQueryType": '0'+(currentTab+1), //01:我的提交, 02:审核处理中, 03:审核完成
+      "myQueryType": '0' + (currentTab + 1), //01:我的提交, 02:审核处理中, 03:审核完成
       "wechatId": wx.myOpenId,
       "phone": wx.myPhone
     }).then((data) => {
@@ -63,9 +63,9 @@ Page({
   },
   customer(event) {
     let currentTab = this.data.currentTab;
-    currentTab = '0'+(currentTab+1);
+    currentTab = '0' + (currentTab + 1);
     const item = event.currentTarget.dataset.item;
-    if (currentTab === '01' || currentTab === '02'){
+    if (currentTab === '01' || currentTab === '02') {
       app.globalData.customer = {
         type: '01',
         customerName: item.customerName,
@@ -75,9 +75,9 @@ Page({
       wx.navigateTo({
         url: `/pages/customer/customer`,
       })
-    }else{
+    } else {
       wx.navigateTo({
-        url:`/pages/edit-myCustomer/edit-myCustomer?customerId=${item.customerId}`,
+        url: `/pages/edit-myCustomer/edit-myCustomer?customerId=${item.customerId}`,
       })
     }
   },
@@ -92,6 +92,10 @@ Page({
         pageNum: newPageNum
       }, () => {
         this.getExamineList();
+      })
+    } else {
+      this.setData({
+        isFinished: true
       })
     }
   }

@@ -3,13 +3,15 @@ page {
   background: #F6F6F6;
   height: 100vh;
 }
-.container{
+
+.container {
   width: 750rpx;
   position: relative;
   left: 0;
   z-index: 100;
   overflow: scroll;
 }
+
 .head {
   width: 686rpx;
   height: 166rpx;
@@ -28,6 +30,7 @@ page {
 .msg_box {
   margin-top: 16rpx;
 }
+
 .head .head-portrait {
   width: 116rpx;
   height: 116rpx;
@@ -124,9 +127,11 @@ page {
   box-sizing: border-box;
   border-left: 2rpx solid #E6E6E6;
 }
-.one-serve{
+
+.one-serve {
   width: 228rpx;
 }
+
 .one-serve image {
   margin: 20rpx 0 32rpx;
   width: 44rpx;
@@ -152,4 +157,37 @@ page {
   font-weight: 400;
   color: #666666;
   border-radius: 8rpx;
+}
+
+.other_service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18rpx;
+  padding: 0 32rpx 0;
+  box-sizing: border-box;
+}
+
+.other_service .icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.other_service .public {
+  display: flex;
+  align-items: center;
+}
+
+.other_service .public .public_info_icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 14rpx;
+}
+
+.other_service .public text {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #333333;
+  line-height: 32rpx;
 }

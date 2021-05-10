@@ -52,6 +52,17 @@
           <image class="edit" src="../../assets/images/edit.png"> </image>
         </view>
 
+        <view class="info_item flex-alignJustify">
+          <view class='item_title'>被拜访人拜访电话</view>
+          <mp-cell ext-class="^weui-cell-nopad">
+            <view class='item_content'>
+              <input type="number" data-type="visitPhone" placeholder-class='placeholder' class="input_value"
+                bindinput="getInputValue" value="{{customer.visitPhone}}" placeholder="请输入被拜访人拜访电话" />
+            </view>
+          </mp-cell>
+          <image class="edit" src="../../assets/images/edit.png"> </image>
+        </view>
+
         <view class="info_item_style">
           <view class='item_title'>拜访内容</view>
           <mp-cell prop="visitContent" ext-class="^weui-cell-nopad">
@@ -78,7 +89,6 @@
             </view>
           </view>
         </view>
-
       </view>
     </mp-form>
     <view class="submit" bindtap="submitForm">提交</view>

@@ -19,11 +19,11 @@ App({
         wx.pixelRatio = pxRatio;
         let statusBarHeight = res.statusBarHeight,
           navTop = menuButtonObject.top,
-          navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2+4;
-        wx.navTop = navTop;  //胶囊按钮与顶部的距离
-        wx.navHeight = navHeight;  //导航高度
-        wx.BarHeight = menuButtonObject.height;  //胶囊高度
-        console.log(wx.navTop,wx.navHeight,wx.BarHeight);
+          navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2 + 4;
+        wx.navTop = navTop; //胶囊按钮与顶部的距离
+        wx.navHeight = navHeight; //导航高度
+        wx.BarHeight = menuButtonObject.height; //胶囊高度
+        console.log(wx.navTop, wx.navHeight, wx.BarHeight);
       },
       fail(err) {
         console.log(err);
@@ -31,27 +31,38 @@ App({
     })
   },
   getUser(cb) {
-    // 登录
-    wx.login({
-      success: res => {
-        login(res.code).then(data => {
-          console.log(data, '登录')
-          wx.myOpenId = data.openid;
-          if (data.phone) {
-            wx.myPhone = data.phone;
-            cb();
-          } else {
-            // wx.reLaunch({
-            //   url: '/pages/login/login',
-            // })
+    wx.getLocation({
+      type: 'wgs84',
+      complete: res => {
+        const {
+          latitude = 0,
+            longitude = 0
+        } = res;
+        console.log(latitude, longitude, '经纬度');
+        this.globalData.latitude = latitude;
+        this.globalData.longitude = longitude;
+        // 登录
+        wx.login({
+          success: res => {
+            login(res.code, longitude, latitude).then(data => {
+              console.log(data, '登录')
+              wx.myOpenId = data.openid;
+              if (data.phone) {
+                wx.myPhone = data.phone;
+                cb();
+              } else {
+                wx.reLaunch({
+                  url: '/pages/login/login',
+                })
+              }
+            }).catch(() => {
+              this.showTip('获取用户信息失败是否重新获取？', () => {
+                this.getUser(cb)
+              })
+            });
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
           }
-        }).catch(() => {
-          this.showTip('获取用户信息失败是否重新获取？', () => {
-            this.getUser(cb)
-          })
-        });
-
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        })
       }
     })
   },

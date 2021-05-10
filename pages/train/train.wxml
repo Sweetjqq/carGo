@@ -6,8 +6,7 @@
 	</view>
 	<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
 		<block wx:if="{{listData.length>0}}">
-			<view wx:for="{{listData}}" wx:key="trainId" class="list_item" data-trainId="{{item.trainId}}"
-				bindtap="goDetail">
+			<view wx:for="{{listData}}" wx:key="trainId" class="list_item" data-trainId="{{item.trainId}}" bindtap="goDetail">
 				<view class="content">
 					<view class="componey_name">{{item.trainTitle?item.trainTitle:"暂无标题"}}</view>
 					<view class="msg">{{item.trainContent?item.trainContent:'暂无描述'}}</view>
@@ -15,6 +14,7 @@
 				</view>
 				<image src="{{item.picPath?item.picPath:'../../assets/images/upload.png'}}"> </image>
 			</view>
+			<view wx:if="{{isFinished}}" class="isFinished">数据已经到底啦～</view>
 		</block>
 		<block wx:else>
 			<view class="no_data">

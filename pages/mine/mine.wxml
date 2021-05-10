@@ -91,6 +91,16 @@
 					</view>
 				</view>
 			</view>
+			<view class="modular" bindtap="goPublicInfo">
+				<view class="title no-borderB">其他服务</view>
+				<view class="other_service">
+					<view class="public">
+						<image class="public_info_icon" src='../../assets/images/proof.png'> </image>
+						<text>公共资料</text>
+					</view>
+					<image class="icon" src='../../assets/images/right_icon.png'> </image>
+				</view>
+			</view>
 			<!-- <view class="out-login">退出登录</view> -->
 		</view>
 	</view>

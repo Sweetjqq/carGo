@@ -47,6 +47,7 @@
 				</view>
 				<view class="btn" style="background:{{buttonType[item.status].bgColor}}">{{item.statusName}}</view>
 			</view>
+			<view wx:if="{{isFinished}}" class="isFinished">数据已经到底啦～</view>
 		</block>
 		<block wx:else>
 			<view class="no_data">

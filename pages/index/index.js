@@ -9,7 +9,7 @@ const app = getApp()
 
 Page({
   data: {
-    timeTxt:'',
+    timeTxt: '',
     background: [],
     autoplay: true,
     interval: 3000,
@@ -57,7 +57,7 @@ Page({
   },
   onshowInit() {
     this.setData({
-      timeTxt:getTimeState(),
+      timeTxt: getTimeState(),
       pageNum: 1,
       inputValue: '',
       listData: []
@@ -120,14 +120,14 @@ Page({
       pageSize: pageSize
     }).then(data => {
       this.setData({
-        pageTotal:data.pageTotal,
+        pageTotal: data.pageTotal,
         listData: listData.concat(data.rows)
       })
     })
   },
   customer(event) {
     const item = event.currentTarget.dataset.item;
-    if (item.status === '00' || item.status === '01'){
+    if (item.status === '00' || item.status === '01') {
       app.globalData.customer = {
         type: item.status,
         customerName: item.customerName,
@@ -162,6 +162,10 @@ Page({
         pageNum: newPageNum
       }, () => {
         this.getList();
+      })
+    } else {
+      this.setData({
+        isFinished:true
       })
     }
   },

@@ -10,9 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headTop:`${wx.navHeight+(16/wx.pixelRatio)}px`,
-    myTop:`${wx.navHeight+(210/wx.pixelRatio)}px`,
-    barHeight:`${wx.navHeight}px`,
+    headTop: `${wx.navHeight+(16/wx.pixelRatio)}px`,
+    myTop: `${wx.navHeight+(210/wx.pixelRatio)}px`,
+    barHeight: `${wx.navHeight}px`,
   },
 
   /**
@@ -20,6 +20,11 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+  goPublicInfo() {
+    wx.navigateTo({
+      url: '/pages/public-info/public-info',
+    })
   },
   goMyDetail() {
     wx.navigateTo({
@@ -73,29 +78,29 @@ Page({
     const {
       type
     } = e.currentTarget.dataset;
-    let url='';
+    let url = '';
     switch (type) {
       case 'visitor':
-      url = '/pages/my-visit/my-visit'
-      break;
+        url = '/pages/my-visit/my-visit'
+        break;
       case 'train':
-      url = '/pages/my-train/my-train'
-      break;
+        url = '/pages/my-train/my-train'
+        break;
       case 'examine':
-      url = '/pages/toExamine/toExamine';
-      break;
+        url = '/pages/toExamine/toExamine';
+        break;
     }
-    console.log(url,'url')
+    console.log(url, 'url')
     // if(type=='train'){
     //   wx.switchTab({
     //     url:url
     //   })
     // }else{
-      wx.navigateTo({
-        url: url,
-      })
+    wx.navigateTo({
+      url: url,
+    })
     // }
-    
+
   },
   /**
    * 生命周期函数--监听页面隐藏

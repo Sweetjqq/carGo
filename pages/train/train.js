@@ -32,9 +32,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
-  onShow(){
+  onShow() {
     if (wx.myOpenId && wx.myPhone) {
       this.onshowInit();
     } else {
@@ -43,7 +43,7 @@ Page({
       });
     }
   },
-  onshowInit(){
+  onshowInit() {
     this.setData({
       pageNum: 1,
       listData: []
@@ -92,6 +92,10 @@ Page({
         pageNum: newPageNum
       }, () => {
         this.getTrainList();
+      })
+    } else {
+      this.setData({
+        isFinished: true
       })
     }
   }

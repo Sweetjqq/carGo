@@ -79,6 +79,10 @@ Page({
       }, () => {
         this.getList();
       })
+    } else {
+      this.setData({
+        isFinished: true
+      })
     }
   },
   searchList(event) {

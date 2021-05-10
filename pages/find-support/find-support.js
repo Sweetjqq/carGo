@@ -4,7 +4,7 @@ import {
   updateSupportMsgStatus
 
 } from '../../api/index'
-let app=getApp()
+let app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -35,7 +35,7 @@ Page({
       });
     }
   },
-  onshowInit(){
+  onshowInit() {
     this.setData({
       pageNum: 1,
       customerName: '',
@@ -79,6 +79,10 @@ Page({
       }, () => {
         this.getList();
       })
+    } else {
+      this.setData({
+        isFinished: true
+      })
     }
   },
   searchList(event) {
@@ -101,8 +105,8 @@ Page({
     } = event.currentTarget.dataset;
     wx.navigateTo({
       url: `/pages/support-consulting/support-consulting?customerid=${customerid}`,
-      success: (res)=> {
-        if(!supportmsg)return;
+      success: (res) => {
+        if (!supportmsg) return;
         updateSupportMsgStatus(customerid)
       }
     })

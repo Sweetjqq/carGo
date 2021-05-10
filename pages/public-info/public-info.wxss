@@ -1,0 +1,104 @@
+/* pages/public-info/public-info.wxss */
+page {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #F6F6F6;
+}
+
+.list {
+  height: calc(100vh - 132rpx);
+}
+
+.no_data {
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 28rpx;
+  flex-direction: column;
+}
+
+.no_data image {
+  width: 336rpx;
+  height: 336rpx;
+  margin-bottom: 24rpx;
+}
+
+.isFinished {
+  text-align: center;
+  color: #999;
+  font-size: 26rpx;
+}
+
+.list_tap {
+  height: 112rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.tap_item {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC, sans-serif;
+  font-weight: 400;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tap_item_active {
+  color: #3E95FD;
+}
+
+.active {
+  width: 44rpx;
+  height: 4rpx;
+  background: #3E95FD;
+  margin-top: 12rpx;
+}
+
+.hide_active {
+  background: #fff
+}
+
+.commonList {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.commondata {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 114rpx;
+  border-bottom: 1rpx solid #E6E6E6;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+
+.commondata:last-child {
+  border-bottom: none;
+}
+
+.commondata .icon {
+  width: 28rpx;
+  height: 28rpx;
+}
+.isFinished {
+  text-align: center;
+  color: #999;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}

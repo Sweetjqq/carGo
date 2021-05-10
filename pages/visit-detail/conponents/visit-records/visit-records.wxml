@@ -2,7 +2,7 @@
 	<!-- 公司详情 -->
 	<view class="operation">
 		<text class="detail">公司详情</text>
-		<view class="go_edit"  bindtap="editMyCustomer">
+		<view class="go_edit" bindtap="editMyCustomer">
 			<image src='../../../../assets/images/go_edit.png'></image>
 			<text>前往修改</text>
 		</view>
@@ -100,6 +100,10 @@
 				<view class="info_item">
 					<text class="name">被拜访人姓名</text>
 					<text class="value">{{item.visitName?item.visitName:''}}</text>
+				</view>
+				<view class="info_item">
+					<text class="name">被拜访人拜访电话</text>
+					<text class="value">{{item.visitPhone?item.visitPhone:''}}</text>
 				</view>
 				<view class="info_item_style">
 					<text class="name">拜访内容</text>

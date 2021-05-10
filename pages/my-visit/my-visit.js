@@ -16,15 +16,15 @@ Page({
     pageNum: 1,
     pageTotal: 0,
     listData: [],
-    baseHost:baseHost
+    baseHost: baseHost
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
-  onShow(){
+  onShow() {
     this.setData({
       pageNum: 1,
       listData: []
@@ -70,6 +70,10 @@ Page({
         pageNum: newPageNum
       }, () => {
         this.myVisitList();
+      })
+    } else {
+      this.setData({
+        isFinished: true
       })
     }
   }

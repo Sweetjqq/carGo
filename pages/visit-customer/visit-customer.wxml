@@ -21,9 +21,10 @@
 				<view wx:for="{{listData}}" wx:key="customerApplyId" class="list_item" data-item="{{item}}" bindtap="customer">
 					<view class="compony_name">{{item.customerName}}</view>
 					<view class="time">
-							最后操作时间：{{item.lastOperateTime?item.lastOperateTime:'暂无'}}
+						最后操作时间：{{item.lastOperateTime?item.lastOperateTime:'暂无'}}
 					</view>
 				</view>
+				<view wx:if="{{isFinished}}" class="isFinished">数据已经到底啦～</view>
 			</block>
 			<block wx:else>
 				<view class="no_data">

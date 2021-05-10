@@ -1,7 +1,8 @@
 <view class='container'>
 	<my-navigation-bar titleText='我的审核' showIcon="{{true}}" />
 	<view class="tabBar" wx:if='{{!onlyLearned}}'>
-		<view class=" {{index===currentTab?'tab_item_active tab_item':'tab_item' }}" wx:for="{{tabBarData}}" wx:key="index" data-index="{{index}}" bindtap="setCurrentTab">{{item}}</view>
+		<view class=" {{index===currentTab?'tab_item_active tab_item':'tab_item' }}" wx:for="{{tabBarData}}" wx:key="index"
+			data-index="{{index}}" bindtap="setCurrentTab">{{item}}</view>
 	</view>
 	<scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
 		<block wx:if="{{listData.length>0}}">
@@ -11,6 +12,7 @@
 					最后操作时间：{{item.lastOperateTime?item.lastOperateTime:'暂无'}}
 				</view>
 			</view>
+			<view wx:if="{{isFinished}}" class="isFinished">数据已经到底啦～</view>
 		</block>
 		<block wx:else>
 			<view class="no_data">

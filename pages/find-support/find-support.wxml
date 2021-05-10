@@ -17,6 +17,7 @@
 					</view>
 					<view class="tips" wx:if="{{item.supportMsg===true}}"></view>
 				</view>
+				<view wx:if="{{isFinished}}" class="isFinished">数据已经到底啦～</view>
 			</block>
 			<block wx:else>
 				<view class="no_data">

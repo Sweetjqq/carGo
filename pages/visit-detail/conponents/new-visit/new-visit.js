@@ -69,7 +69,7 @@ Component({
         required: true,
         message: '请填写拜访内容'
       },
-    }, ]
+    }, ],
   },
 
   /**
@@ -139,6 +139,10 @@ Component({
     },
     addVisit() {
       const {
+        longitude,
+        latitude
+      } = app.globalData;
+      const {
         customer,
         fileArr
       } = this.data;
@@ -146,9 +150,52 @@ Component({
         ...customer,
         "filesPath": fileArr,
         "wechatId": wx.myOpenId,
-        "phone": wx.myPhone
+        "phone": wx.myPhone,
+        latitude,
+        longitude
       }
-
+      addCusVisit(pramData).then(() => {
+        app.showTip('新增拜访记录成功', () => {
+          wx.navigateBack({})
+        })
+      }).catch(error => {
+        console.log(error)
+      })
+      // if (longitude === 0 && latitude === 0) {
+      //   wx.getLocation({
+      //     type: 'wgs84',
+      //     complete: res => {
+      //       const {
+      //         latitude = 0,
+      //           longitude = 0
+      //       } = res;
+      //       this.setData({
+      //         latitude,
+      //         longitude
+      //       }, () => {
+      //         this.addNewVisit();
+      //       })
+      //     }
+      //   })
+      // } else {
+      //   this.addNewVisit();
+      // }
+    },
+    addNewVisit() {
+      const {
+        customer,
+        fileArr,
+        latitude,
+        longitude
+      } = this.data;
+      let pramData = {
+        ...customer,
+        "filesPath": fileArr,
+        "wechatId": wx.myOpenId,
+        "phone": wx.myPhone,
+        latitude,
+        longitude
+      }
       addCusVisit(pramData).then(() => {
         app.showTip('新增拜访记录成功', () => {
           wx.navigateBack({})

@@ -1,0 +1,28 @@
+<!--pages/public-info/public-info.wxml-->
+<view class="public_info">
+  <my-navigation-bar titleText='公共资料' showIcon="{{true}}" />
+  <view class="list_tap">
+    <view wx:for="{{tabContent}}" wx:key="index" class="{{index===activeTab?'tap_item tap_item_active':'tap_item'}}"
+      data-index="{{index}}" data-filetype="{{item.dictValue}}" bindtap="setActiveTab">
+      <text>{{item.dictLabel}}</text>
+      <text class="{{index===activeTab?'active':'active hide_active'}}"></text>
+    </view>
+  </view>
+  <scroll-view class="list" scroll-y="true" lower-threshold='30' bindscrolltolower="getNextPageData">
+    <block wx:if="{{listData.length>0}}">
+      <view class="commonList">
+        <view class="commondata" wx:for="{{listData}}" wx:key="commondataId" data-path="{{item.filePath}}" data-id="{{item.commondataId}}" bindtap="webView">
+          <text>{{item.fileName}}</text>
+          <image class="icon" src='../../assets/images/right_icon.png'> </image>
+        </view>
+      </view>
+      <view wx:if="{{isFinished}}" class="isFinished">数据已经到底啦～</view>
+    </block>
+    <block wx:else>
+      <view class="no_data">
+        <image src="../../assets/images/no_data.png"> </image>
+        <view>暂无数据</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

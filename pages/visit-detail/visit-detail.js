@@ -74,7 +74,7 @@ Page({
       this.setData({
         pageNum: 1,
         listData: []
-      },()=>{
+      }, () => {
         this.getVisitList();
       })
       this.getCustomerById();
@@ -189,6 +189,10 @@ Page({
         pageNum: newPageNum
       }, () => {
         this.getVisitList();
+      })
+    } else {
+      this.setData({
+        isFinished: true
       })
     }
   },
