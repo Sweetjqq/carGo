@@ -93,8 +93,8 @@ page {
 }
 
 .commondata .icon {
-  width: 28rpx;
-  height: 28rpx;
+  width: 26rpx;
+  height: 32rpx;
 }
 .isFinished {
   text-align: center;
