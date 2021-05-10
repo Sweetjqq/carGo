@@ -169,7 +169,7 @@ page {
 }
 
 .other_service .icon {
-  width: 32rpx;
+  width: 26rpx;
   height: 32rpx;
 }
 
