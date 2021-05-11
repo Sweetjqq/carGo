@@ -16,7 +16,7 @@ function getEnv(defaultEnv) {
 }
 
 // 如果希望强制使用某个环境，可手动在getEnv内传入数字，0 => production，1 => 测试
-const env = getEnv(1);
+const env = getEnv(0);
 
 /*
  * 环境配置
