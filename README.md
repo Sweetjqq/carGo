@@ -12,7 +12,7 @@ const env = getEnv(0);
 # assets
 * images
 # pages
-```
+```js
     "pages/index/index",
     "pages/login/login",
     "pages/smsCode/smsCode",
