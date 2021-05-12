@@ -124,6 +124,11 @@ Page({
           }
         })
       })
+      if (pageNum >= data.pageTotal) {
+        this.setData({
+          isFinished: true
+        })
+      }
       this.setData({
         pageTotal: data.pageTotal,
         listData: listData.concat(changeData)
@@ -189,10 +194,6 @@ Page({
         pageNum: newPageNum
       }, () => {
         this.getVisitList();
-      })
-    } else {
-      this.setData({
-        isFinished: true
       })
     }
   },

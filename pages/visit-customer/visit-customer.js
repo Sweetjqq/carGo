@@ -58,6 +58,11 @@ Page({
       wechatId: wx.myOpenId
     }
     getVisitCustomerList(params).then(data => {
+      if (pageNum >= data.pageTotal) {
+        this.setData({
+          isFinished: true
+        })
+      }
       this.setData({
         dataTotal: data.dataTotal,
         pageTotal: data.pageTotal,
@@ -78,10 +83,6 @@ Page({
         pageNum: newPageNum
       }, () => {
         this.getList();
-      })
-    } else {
-      this.setData({
-        isFinished: true
       })
     }
   },

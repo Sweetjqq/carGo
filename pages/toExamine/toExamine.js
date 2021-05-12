@@ -55,6 +55,11 @@ Page({
       "wechatId": wx.myOpenId,
       "phone": wx.myPhone
     }).then((data) => {
+      if (pageNum >= data.pageTotal) {
+        this.setData({
+          isFinished: true
+        })
+      }
       this.setData({
         pageTotal: data.pageTotal,
         listData: listData.concat(data.rows)
@@ -92,10 +97,6 @@ Page({
         pageNum: newPageNum
       }, () => {
         this.getExamineList();
-      })
-    } else {
-      this.setData({
-        isFinished: true
       })
     }
   }

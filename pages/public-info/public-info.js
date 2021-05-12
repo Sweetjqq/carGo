@@ -102,10 +102,6 @@ Page({
       }, () => {
         this.getList();
       })
-    } else {
-      this.setData({
-        isFinished: true
-      })
     }
   },
   webView(event) {

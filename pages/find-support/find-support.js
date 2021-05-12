@@ -59,6 +59,11 @@ Page({
       wechatId: wx.myOpenId
     }
     supportList(params).then(data => {
+      if (pageNum >= data.pageTotal) {
+        this.setData({
+          isFinished: true
+        })
+      }
       this.setData({
         pageTotal: data.pageTotal,
         listData: listData.concat(data.rows)
@@ -78,10 +83,6 @@ Page({
         pageNum: newPageNum
       }, () => {
         this.getList();
-      })
-    } else {
-      this.setData({
-        isFinished: true
       })
     }
   },

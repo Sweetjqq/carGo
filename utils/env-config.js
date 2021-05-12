@@ -16,14 +16,14 @@ function getEnv(defaultEnv) {
 }
 
 // 如果希望强制使用某个环境，可手动在getEnv内传入数字，0 => production，1 => 测试
-const env = getEnv(0);
+const env = getEnv(1);
 
 /*
  * 环境配置
  */
 const envConfig = {
   production: {
-    baseHost: 'https://www.apiins-marine.com.cn:8081/',
+    baseHost: 'https://www.apiins-marine.com.cn/',
   },
   rc: {
     baseHost: 'http://106.15.90.6:8081/',

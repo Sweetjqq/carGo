@@ -47,6 +47,8 @@ App({
             login(res.code, longitude, latitude).then(data => {
               console.log(data, '登录')
               wx.myOpenId = data.openid;
+              this.globalData.salerName = data.salername ? data.salername : '';
+              console.log(this.globalData)
               if (data.phone) {
                 wx.myPhone = data.phone;
                 cb();

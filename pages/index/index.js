@@ -60,7 +60,8 @@ Page({
       timeTxt: getTimeState(),
       pageNum: 1,
       inputValue: '',
-      listData: []
+      listData: [],
+      salerName: app.globalData.salerName
     }, () => {
       this.getBanner();
       this.getList();
@@ -119,6 +120,11 @@ Page({
       pageNum: pageNum,
       pageSize: pageSize
     }).then(data => {
+      if (pageNum >= data.pageTotal) {
+        this.setData({
+          isFinished: true
+        })
+      }
       this.setData({
         pageTotal: data.pageTotal,
         listData: listData.concat(data.rows)
@@ -162,10 +168,6 @@ Page({
         pageNum: newPageNum
       }, () => {
         this.getList();
-      })
-    } else {
-      this.setData({
-        isFinished:true
       })
     }
   },
