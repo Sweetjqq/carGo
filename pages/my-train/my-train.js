@@ -44,6 +44,9 @@ Page({
       pageSize,
       listData
     } = this.data;
+    this.setData({
+      isFinished: false
+    })
     myTrainList({
       pageNum,
       pageSize,

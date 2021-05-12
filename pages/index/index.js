@@ -105,6 +105,9 @@ Page({
    * queryType  01:首页全国机会, 02:首页身边机会
    */
   getList() {
+    this.setData({
+      isFinished: false
+    })
     const {
       activeTab,
       pageNum,

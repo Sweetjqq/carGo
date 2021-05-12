@@ -75,6 +75,9 @@ Page({
       phone: wx.myPhone,
       wechatId: wx.myOpenId
     }
+    this.setData({
+      isFinished: false
+    })
     getCommonDataList(params).then(data => {
       if (pageNum >= data.pageTotal) {
         this.setData({

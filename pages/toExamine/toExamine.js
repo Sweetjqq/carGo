@@ -48,6 +48,9 @@ Page({
       pageSize,
       listData
     } = this.data;
+    this.setData({
+      isFinished: false
+    })
     getExamineList({
       pageNum,
       pageSize,

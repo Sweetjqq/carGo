@@ -58,6 +58,9 @@ Page({
       phone: wx.myPhone,
       wechatId: wx.myOpenId
     }
+    this.setData({
+      isFinished: false
+    })
     supportList(params).then(data => {
       if (pageNum >= data.pageTotal) {
         this.setData({

@@ -114,6 +114,9 @@ Page({
       wechatId: wx.myOpenId,
       customerId: customer.customerId,
     }
+    this.setData({
+      isFinished: false
+    })
     getVisitList(params).then(data => {
       //  处理picker数据
       let changeData = JSON.parse(JSON.stringify(data.rows));

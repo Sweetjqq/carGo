@@ -39,6 +39,9 @@ Page({
       pageSize,
       listData
     } = this.data;
+    this.setData({
+      isFinished: false
+    })
     myVisitList({
       pageNum,
       pageSize,
