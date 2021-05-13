@@ -112,10 +112,23 @@ Page({
       id,
       path
     } = event.currentTarget.dataset;
-    const webView = encodeURIComponent(path)
-    wx.navigateTo({
-      url: `/pages/web-view/web-view?webView=${webView}`,
+    wx.downloadFile({
+      url: path,
+      success: function (res) {
+        const filePath = res.tempFilePath
+        wx.openDocument({
+          filePath: filePath,
+          // showMenu: true,
+          success: function (res) {
+            console.log('打开文档成功')
+          }
+        })
+      }
     })
+    // const webView = encodeURIComponent(path)
+    // wx.navigateTo({
+    //   url: `/pages/web-view/web-view?webView=${webView}`,
+    // })
     this.setData({
       commondataId: id,
       path
