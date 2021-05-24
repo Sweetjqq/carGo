@@ -2,7 +2,7 @@ function getEnv(defaultEnv) {
   // envVersion值有：正式版 release、体验版 trial、开发版 develop、开发者工具 undefined、低版本微信 undefined
   let envVersion = __wxConfig.envVersion;
   let env = 'production';
-  const envList = ['production', 'rc'];
+  const envList = ['production', 'qa'];
 
   if (envVersion === 'develop' || wx.getStorageSync('env') === 'qa') {
     env = 'qa';
@@ -25,7 +25,7 @@ const envConfig = {
   production: {
     baseHost: 'https://www.apiins-marine.com.cn/',
   },
-  rc: {
+  qa: {
     baseHost: 'http://106.15.90.6:8081/',
   },
 };
